@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\layouts\\pricing.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\layouts\\profile.js"],{
 
 /***/ "./constant/api.js":
 /*!*************************!*\
@@ -12,6 +12,491 @@ __webpack_require__.r(__webpack_exports__);
 var baseApiURL = "https://library-mp1.herokuapp.com/"; // const baseApiURL = "http://localhost:8000/";
 
 /* harmony default export */ __webpack_exports__["default"] = (baseApiURL);
+
+/***/ }),
+
+/***/ "./containers/common/changeAou.js":
+/*!****************************************!*\
+  !*** ./containers/common/changeAou.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _utils_isAou__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/isAou */ "./utils/isAou.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _constant_api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../constant/api */ "./constant/api.js");
+
+
+var _this = undefined,
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\containers\\common\\changeAou.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+var ChangeAou = function ChangeAou() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),
+      modal = _useState[0],
+      setModal = _useState[1];
+
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      subAouOptions = _useState2[0],
+      setSubAouOptions = _useState2[1];
+
+  var toggle = function toggle() {
+    setModal(!modal);
+  };
+
+  var fetchUserInfo = function fetchUserInfo() {
+    var URL = _constant_api__WEBPACK_IMPORTED_MODULE_8__["default"] + "userDetails/" + localStorage.getItem("hoarTemplatetoken");
+    axios__WEBPACK_IMPORTED_MODULE_3___default()({
+      method: "get",
+      url: URL,
+      headers: {
+        Authorization: "Token " + localStorage.getItem("hoarTemplatetoken")
+      }
+    }).then(function (response) {
+      debugger;
+      localStorage.setItem("userInfo", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(response.data));
+      react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success("Profile Updated Successfully");
+      Router.push("/layout/profile");
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+
+  var fetchSubAouList = function fetchSubAouList() {
+    var URL = _constant_api__WEBPACK_IMPORTED_MODULE_8__["default"] + "team/?hoarTemplatetoken=" + localStorage.getItem("hoarTemplatetoken");
+    axios__WEBPACK_IMPORTED_MODULE_3___default()({
+      method: "get",
+      url: URL,
+      headers: {
+        Authorization: "Token " + localStorage.getItem("hoarTemplatetoken")
+      }
+    }).then(function (response) {
+      if (response.data.status === 1) {
+        debugger;
+        var subouArray = [];
+
+        for (var k in response.data.data) {
+          subouArray.push(__jsx("option", {
+            value: response.data.data[k].id,
+            __self: this,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 54,
+              columnNumber: 15
+            }
+          }, response.data.data[k].name)); // document.getElementById("subAouSelect").innerHTML+="<option value="+response.data.data[k].id+">"+response.data.data[k].id+"</option>"
+        }
+
+        setSubAouOptions(subouArray);
+      } else {
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].error(response.data.message);
+      }
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+
+  var changeSubAou = function changeSubAou(event) {
+    event.preventDefault();
+    var formData = new FormData(event.target);
+    formData.append("hoarTemplatetoken", localStorage.getItem("hoarTemplatetoken"));
+    axios__WEBPACK_IMPORTED_MODULE_3___default()({
+      method: "post",
+      url: _constant_api__WEBPACK_IMPORTED_MODULE_8__["default"] + "changeSubAou",
+      data: formData
+    }).then(function (response) {
+      if (response.data.status === 1) {
+        debugger;
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success(response.data.message);
+        fetchUserInfo();
+      } else {
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].error(response.data.message);
+      }
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(fetchSubAouList, []);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 5
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98,
+      columnNumber: 7
+    }
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    onClick: toggle,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 99,
+      columnNumber: 9
+    }
+  }, __jsx("a", {
+    className: "btn btn-default btn-white",
+    onClick: toggle,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 100,
+      columnNumber: 11
+    }
+  }, "Change Aou"))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Modal"], {
+    isOpen: modal,
+    toggle: toggle,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105,
+      columnNumber: 7
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["ModalHeader"], {
+    toggle: toggle,
+    className: "modal-no-header close-right",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 106,
+      columnNumber: 9
+    }
+  }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["ModalBody"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 110,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "modal-body add-popup",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], {
+    onSubmit: changeSubAou,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 112,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "form-row",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 15
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["FormGroup"], {
+    className: "col-md-12",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 17
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Label"], {
+    "for": "coupon",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 19
+    }
+  }, "Coupon Code"), __jsx("select", {
+    name: "subAouSelect",
+    id: "subAouSelect",
+    className: "form-control",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 116,
+      columnNumber: 19
+    }
+  }, __jsx("option", {
+    value: "0",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121,
+      columnNumber: 21
+    }
+  }, "--Select Sub Aou--"), subAouOptions))), __jsx("div", {
+    className: "text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 126,
+      columnNumber: 15
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Input"], {
+    className: "btn primary-btn btn-default",
+    type: "submit",
+    value: "Submit",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 127,
+      columnNumber: 17
+    }
+  })))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ChangeAou);
+
+/***/ }),
+
+/***/ "./containers/common/coupon-popup.js":
+/*!*******************************************!*\
+  !*** ./containers/common/coupon-popup.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _utils_isAou__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/isAou */ "./utils/isAou.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _constant_api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../constant/api */ "./constant/api.js");
+
+
+var _this = undefined,
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\containers\\common\\coupon-popup.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+var AddUserPopup = function AddUserPopup() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),
+      modal = _useState[0],
+      setModal = _useState[1];
+
+  var toggle = function toggle() {
+    setModal(!modal);
+  };
+
+  var fetchUserInfo = function fetchUserInfo() {
+    var URL = _constant_api__WEBPACK_IMPORTED_MODULE_8__["default"] + "userDetails/" + localStorage.getItem("hoarTemplatetoken");
+    axios__WEBPACK_IMPORTED_MODULE_3___default()({
+      method: "get",
+      url: URL,
+      headers: {
+        Authorization: "Token " + localStorage.getItem("hoarTemplatetoken")
+      }
+    }).then(function (response) {
+      debugger;
+      localStorage.setItem("userInfo", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(response.data));
+      react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success("Profile Updated Successfully");
+      Router.push("/layout/profile");
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+
+  var addCoupon = function addCoupon(event) {
+    event.preventDefault();
+    var formData = new FormData(event.target);
+    formData.append("hoarTemplatetoken", localStorage.getItem("hoarTemplatetoken"));
+    axios__WEBPACK_IMPORTED_MODULE_3___default()({
+      method: "post",
+      url: _constant_api__WEBPACK_IMPORTED_MODULE_8__["default"] + "payment/checkCoupon/",
+      data: formData
+    }).then(function (response) {
+      if (response.data.status === 1) {
+        debugger;
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success(response.data.message);
+        fetchUserInfo();
+      } else {
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].error(response.data.message);
+      }
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64,
+      columnNumber: 5
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 7
+    }
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    onClick: toggle,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 9
+    }
+  }, __jsx("a", {
+    className: "btn btn-default btn-white",
+    onClick: toggle,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69,
+      columnNumber: 11
+    }
+  }, "Insert Coupon Code"))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Modal"], {
+    isOpen: modal,
+    toggle: toggle,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 7
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["ModalHeader"], {
+    toggle: toggle,
+    className: "modal-no-header close-right",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+      columnNumber: 9
+    }
+  }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["ModalBody"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "modal-body add-popup",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], {
+    onSubmit: addCoupon,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "form-row",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 84,
+      columnNumber: 15
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["FormGroup"], {
+    className: "col-md-12",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85,
+      columnNumber: 17
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Label"], {
+    "for": "coupon",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86,
+      columnNumber: 19
+    }
+  }, "Coupon Code"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Input"], {
+    className: "form-control",
+    id: "coupon",
+    name: "coupon",
+    placeholder: "Coupon Code",
+    type: "text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87,
+      columnNumber: 19
+    }
+  }))), __jsx("div", {
+    className: "text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96,
+      columnNumber: 15
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Input"], {
+    className: "btn primary-btn btn-default",
+    type: "submit",
+    value: "Submit",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 17
+    }
+  })))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AddUserPopup);
 
 /***/ }),
 
@@ -1114,6 +1599,300 @@ var SubAouController = function SubAouController(props) {
 
 /***/ }),
 
+/***/ "./containers/common/user-info-popup.js":
+/*!**********************************************!*\
+  !*** ./containers/common/user-info-popup.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _utils_isAou__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/isAou */ "./utils/isAou.js");
+/* harmony import */ var _constant_api__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../constant/api */ "./constant/api.js");
+
+
+var _this = undefined,
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\containers\\common\\user-info-popup.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+
+
+
+
+
+
+var AddUserPopup = function AddUserPopup() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),
+      modal = _useState[0],
+      setModal = _useState[1];
+
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      subAouButton = _useState2[0],
+      setsubAouButton = _useState2[1];
+
+  var getSubAouButton = function getSubAouButton() {
+    if (localStorage.getItem("userInfo")) {
+      if (JSON.parse(localStorage.getItem("userInfo")).plan === "CU" && JSON.parse(localStorage.getItem("userInfo")).is_aou === true) {
+        setsubAouButton(__jsx("a", {
+          onClick: toggle,
+          className: "btn btn-primary btn-md",
+          style: {
+            color: "white"
+          },
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21,
+            columnNumber: 11
+          }
+        }, "Add Sub Aou"));
+      } else {
+        setsubAouButton([]);
+      }
+    } else {
+      setsubAouButton([]);
+    }
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(getSubAouButton, []);
+
+  var toggle = function toggle() {
+    setModal(!modal);
+  };
+
+  var addSubAou = function addSubAou(event) {
+    event.preventDefault();
+    var formData = new FormData(event.target);
+    formData.append("hoarTemplatetoken", localStorage.getItem("hoarTemplatetoken"));
+    var temp = [{
+      name: "aditya",
+      email: "b518006@iiit-bh.ac.in"
+    }, {
+      name: "a1111",
+      email: "adirocker781111@gmail.com"
+    }];
+    formData.append("list", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(temp));
+    axios__WEBPACK_IMPORTED_MODULE_3___default()({
+      method: "post",
+      url: _constant_api__WEBPACK_IMPORTED_MODULE_7__["default"] + "team/",
+      data: formData
+    }).then(function (response) {
+      if (response.data.status === 1) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success(response.data.message);
+      } else {
+        react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].error(response.data.message);
+      }
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 5
+    }
+  }, __jsx("section", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81,
+      columnNumber: 7
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "link-horizontal",
+    style: {
+      position: "absolute",
+      right: "30px",
+      top: "30px"
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 11
+    }
+  }, subAouButton))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Modal"], {
+    isOpen: modal,
+    toggle: toggle,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94,
+      columnNumber: 7
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["ModalHeader"], {
+    toggle: toggle,
+    className: "modal-no-header close-right",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95,
+      columnNumber: 9
+    }
+  }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["ModalBody"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 99,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "modal-body add-popup",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 100,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], {
+    onSubmit: addSubAou,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 101,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "form-row",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102,
+      columnNumber: 15
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["FormGroup"], {
+    className: "col-md-12",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103,
+      columnNumber: 17
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Label"], {
+    "for": "name",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 19
+    }
+  }, "Name"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Input"], {
+    className: "form-control",
+    id: "name",
+    name: "name",
+    placeholder: "Name",
+    type: "text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105,
+      columnNumber: 19
+    }
+  })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["FormGroup"], {
+    className: "col-md-12",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 17
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Label"], {
+    "for": "inputEmail",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 19
+    }
+  }, "Email"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Input"], {
+    className: "form-control",
+    id: "inputEmail",
+    name: "email",
+    placeholder: "Email",
+    type: "email",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 19
+    }
+  })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["FormGroup"], {
+    className: "col-md-12",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 123,
+      columnNumber: 17
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Label"], {
+    "for": "password",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 124,
+      columnNumber: 19
+    }
+  }, "Password"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Input"], {
+    className: "form-control",
+    id: "passwrod",
+    name: "password",
+    placeholder: "Password",
+    type: "password",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 125,
+      columnNumber: 19
+    }
+  }))), __jsx("div", {
+    className: "text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 134,
+      columnNumber: 15
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Input"], {
+    className: "btn primary-btn btn-default",
+    type: "submit",
+    value: "Add",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 135,
+      columnNumber: 17
+    }
+  })))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AddUserPopup);
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/array/from.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/array/from.js ***!
@@ -1166,6 +1945,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/is-iterable */ "./no
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "./node_modules/core-js/library/fn/json/stringify.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/map.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/map.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/map */ "./node_modules/core-js/library/fn/map.js");
 
 /***/ }),
 
@@ -4536,6 +5326,25 @@ module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/fn/map.js":
+/*!************************************************!*\
+  !*** ./node_modules/core-js/library/fn/map.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../modules/es6.object.to-string */ "./node_modules/core-js/library/modules/es6.object.to-string.js");
+__webpack_require__(/*! ../modules/es6.string.iterator */ "./node_modules/core-js/library/modules/es6.string.iterator.js");
+__webpack_require__(/*! ../modules/web.dom.iterable */ "./node_modules/core-js/library/modules/web.dom.iterable.js");
+__webpack_require__(/*! ../modules/es6.map */ "./node_modules/core-js/library/modules/es6.map.js");
+__webpack_require__(/*! ../modules/es7.map.to-json */ "./node_modules/core-js/library/modules/es7.map.to-json.js");
+__webpack_require__(/*! ../modules/es7.map.of */ "./node_modules/core-js/library/modules/es7.map.of.js");
+__webpack_require__(/*! ../modules/es7.map.from */ "./node_modules/core-js/library/modules/es7.map.from.js");
+module.exports = __webpack_require__(/*! ../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Map;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/fn/object/assign.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js/library/fn/object/assign.js ***!
@@ -7336,6 +8145,37 @@ addToUnscopables('entries');
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/modules/es6.map.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es6.map.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var strong = __webpack_require__(/*! ./_collection-strong */ "./node_modules/core-js/library/modules/_collection-strong.js");
+var validate = __webpack_require__(/*! ./_validate-collection */ "./node_modules/core-js/library/modules/_validate-collection.js");
+var MAP = 'Map';
+
+// 23.1 Map Objects
+module.exports = __webpack_require__(/*! ./_collection */ "./node_modules/core-js/library/modules/_collection.js")(MAP, function (get) {
+  return function Map() { return get(this, arguments.length > 0 ? arguments[0] : undefined); };
+}, {
+  // 23.1.3.6 Map.prototype.get(key)
+  get: function get(key) {
+    var entry = strong.getEntry(validate(this, MAP), key);
+    return entry && entry.v;
+  },
+  // 23.1.3.9 Map.prototype.set(key, value)
+  set: function set(key, value) {
+    return strong.def(validate(this, MAP), key === 0 ? 0 : key, value);
+  }
+}, strong, true);
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/modules/es6.object.assign.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/core-js/library/modules/es6.object.assign.js ***!
@@ -8201,6 +9041,47 @@ if (NATIVE_WEAK_MAP && IS_IE11) {
     });
   });
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es7.map.from.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.map.from.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://tc39.github.io/proposal-setmap-offrom/#sec-map.from
+__webpack_require__(/*! ./_set-collection-from */ "./node_modules/core-js/library/modules/_set-collection-from.js")('Map');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es7.map.of.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.map.of.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://tc39.github.io/proposal-setmap-offrom/#sec-map.of
+__webpack_require__(/*! ./_set-collection-of */ "./node_modules/core-js/library/modules/_set-collection-of.js")('Map');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es7.map.to-json.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.map.to-json.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://github.com/DavidBruant/Map-Set.prototype.toJSON
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
+
+$export($export.P + $export.R, 'Map', { toJSON: __webpack_require__(/*! ./_collection-to-json */ "./node_modules/core-js/library/modules/_collection-to-json.js")('Map') });
 
 
 /***/ }),
@@ -10145,26 +11026,370 @@ module.exports = (__webpack_require__(/*! dll-reference dll_b0ae7f9d5a2cb9eeeb96
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js!./":
+/***/ "./node_modules/next/dist/build/polyfills/object.assign/index.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/next/dist/build/polyfills/object.assign/index.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineProperties(g(),{implementation:{get:g},shim:{value:g},getPolyfill:{value:g}});module.exports=g();
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flayouts%2Fprofile&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cprofile.js!./":
 /*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js ***!
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flayouts%2Fprofile&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cprofile.js ***!
   \***********************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/layouts/pricing", function() {
-      var mod = __webpack_require__(/*! ./pages/layouts/pricing.js */ "./pages/layouts/pricing.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/layouts/profile", function() {
+      var mod = __webpack_require__(/*! ./pages/layouts/profile.js */ "./pages/layouts/profile.js")
       if(true) {
-        module.hot.accept(/*! ./pages/layouts/pricing.js */ "./pages/layouts/pricing.js", function() {
-          if(!next.router.components["/layouts/pricing"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/layouts/pricing.js */ "./pages/layouts/pricing.js")
-          next.router.update("/layouts/pricing", updatedPage)
+        module.hot.accept(/*! ./pages/layouts/profile.js */ "./pages/layouts/profile.js", function() {
+          if(!next.router.components["/layouts/profile"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/layouts/profile.js */ "./pages/layouts/profile.js")
+          next.router.update("/layouts/profile", updatedPage)
         })
       }
       return mod
     }]);
   
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/client/link.js":
+/*!***********************************************!*\
+  !*** ./node_modules/next/dist/client/link.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Reflect$construct = __webpack_require__(/*! @babel/runtime-corejs2/core-js/reflect/construct */ "./node_modules/@babel/runtime-corejs2/core-js/reflect/construct.js");
+
+var _classCallCheck = __webpack_require__(/*! @babel/runtime-corejs2/helpers/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/classCallCheck.js");
+
+var _createClass = __webpack_require__(/*! @babel/runtime-corejs2/helpers/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/createClass.js");
+
+var _inherits = __webpack_require__(/*! @babel/runtime-corejs2/helpers/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/inherits.js");
+
+var _possibleConstructorReturn = __webpack_require__(/*! @babel/runtime-corejs2/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/possibleConstructorReturn.js");
+
+var _getPrototypeOf = __webpack_require__(/*! @babel/runtime-corejs2/helpers/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/getPrototypeOf.js");
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = _Reflect$construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !_Reflect$construct) return false; if (_Reflect$construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(_Reflect$construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireWildcard.js");
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
+
+exports.__esModule = true;
+exports["default"] = void 0;
+
+var _map = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/map */ "./node_modules/@babel/runtime-corejs2/core-js/map.js"));
+
+var _url = __webpack_require__(/*! url */ "./node_modules/url/url.js");
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _router = _interopRequireDefault(__webpack_require__(/*! ./router */ "./node_modules/next/dist/client/router.js"));
+
+var _rewriteUrlForExport = __webpack_require__(/*! ../next-server/lib/router/rewrite-url-for-export */ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js");
+
+var _utils = __webpack_require__(/*! ../next-server/lib/utils */ "./node_modules/next/dist/next-server/lib/utils.js");
+
+function isLocal(href) {
+  var url = (0, _url.parse)(href, false, true);
+  var origin = (0, _url.parse)((0, _utils.getLocationOrigin)(), false, true);
+  return !url.host || url.protocol === origin.protocol && url.host === origin.host;
+}
+
+function memoizedFormatUrl(formatFunc) {
+  var lastHref = null;
+  var lastAs = null;
+  var lastResult = null;
+  return function (href, as) {
+    if (lastResult && href === lastHref && as === lastAs) {
+      return lastResult;
+    }
+
+    var result = formatFunc(href, as);
+    lastHref = href;
+    lastAs = as;
+    lastResult = result;
+    return result;
+  };
+}
+
+function formatUrl(url) {
+  return url && typeof url === 'object' ? (0, _utils.formatWithValidation)(url) : url;
+}
+
+var observer;
+var listeners = new _map["default"]();
+var IntersectionObserver = true ? window.IntersectionObserver : undefined;
+
+function getObserver() {
+  // Return shared instance of IntersectionObserver if already created
+  if (observer) {
+    return observer;
+  } // Only create shared IntersectionObserver if supported in browser
+
+
+  if (!IntersectionObserver) {
+    return undefined;
+  }
+
+  return observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!listeners.has(entry.target)) {
+        return;
+      }
+
+      var cb = listeners.get(entry.target);
+
+      if (entry.isIntersecting || entry.intersectionRatio > 0) {
+        observer.unobserve(entry.target);
+        listeners["delete"](entry.target);
+        cb();
+      }
+    });
+  }, {
+    rootMargin: '200px'
+  });
+}
+
+var listenToIntersections = function listenToIntersections(el, cb) {
+  var observer = getObserver();
+
+  if (!observer) {
+    return function () {};
+  }
+
+  observer.observe(el);
+  listeners.set(el, cb);
+  return function () {
+    try {
+      observer.unobserve(el);
+    } catch (err) {
+      console.error(err);
+    }
+
+    listeners["delete"](el);
+  };
+};
+
+var Link = /*#__PURE__*/function (_react$Component) {
+  _inherits(Link, _react$Component);
+
+  var _super = _createSuper(Link);
+
+  function Link(props) {
+    var _this;
+
+    _classCallCheck(this, Link);
+
+    _this = _super.call(this, props);
+    _this.p = void 0;
+
+    _this.cleanUpListeners = function () {};
+
+    _this.formatUrls = memoizedFormatUrl(function (href, asHref) {
+      return {
+        href: formatUrl(href),
+        as: asHref ? formatUrl(asHref) : asHref
+      };
+    });
+
+    _this.linkClicked = function (e) {
+      // @ts-ignore target exists on currentTarget
+      var _e$currentTarget = e.currentTarget,
+          nodeName = _e$currentTarget.nodeName,
+          target = _e$currentTarget.target;
+
+      if (nodeName === 'A' && (target && target !== '_self' || e.metaKey || e.ctrlKey || e.shiftKey || e.nativeEvent && e.nativeEvent.which === 2)) {
+        // ignore click for new tab / new window behavior
+        return;
+      }
+
+      var _this$formatUrls = _this.formatUrls(_this.props.href, _this.props.as),
+          href = _this$formatUrls.href,
+          as = _this$formatUrls.as;
+
+      if (!isLocal(href)) {
+        // ignore click if it's outside our scope (e.g. https://google.com)
+        return;
+      }
+
+      var pathname = window.location.pathname;
+      href = (0, _url.resolve)(pathname, href);
+      as = as ? (0, _url.resolve)(pathname, as) : href;
+      e.preventDefault(); //  avoid scroll for urls with anchor refs
+
+      var scroll = _this.props.scroll;
+
+      if (scroll == null) {
+        scroll = as.indexOf('#') < 0;
+      } // replace state instead of push if prop is present
+
+
+      _router["default"][_this.props.replace ? 'replace' : 'push'](href, as, {
+        shallow: _this.props.shallow
+      }).then(function (success) {
+        if (!success) return;
+
+        if (scroll) {
+          window.scrollTo(0, 0);
+          document.body.focus();
+        }
+      });
+    };
+
+    if (true) {
+      if (props.prefetch) {
+        console.warn('Next.js auto-prefetches automatically based on viewport. The prefetch attribute is no longer needed. More: https://err.sh/zeit/next.js/prefetch-true-deprecated');
+      }
+    }
+
+    _this.p = props.prefetch !== false;
+    return _this;
+  }
+
+  _createClass(Link, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.cleanUpListeners();
+    }
+  }, {
+    key: "handleRef",
+    value: function handleRef(ref) {
+      var _this2 = this;
+
+      if (this.p && IntersectionObserver && ref && ref.tagName) {
+        this.cleanUpListeners();
+        this.cleanUpListeners = listenToIntersections(ref, function () {
+          _this2.prefetch();
+        });
+      }
+    } // The function is memoized so that no extra lifecycles are needed
+    // as per https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+
+  }, {
+    key: "prefetch",
+    value: function prefetch() {
+      if (!this.p || false) return; // Prefetch the JSON page if asked (only in the client)
+
+      var pathname = window.location.pathname;
+
+      var _this$formatUrls2 = this.formatUrls(this.props.href, this.props.as),
+          parsedHref = _this$formatUrls2.href;
+
+      var href = (0, _url.resolve)(pathname, parsedHref);
+
+      _router["default"].prefetch(href);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var children = this.props.children;
+
+      var _this$formatUrls3 = this.formatUrls(this.props.href, this.props.as),
+          href = _this$formatUrls3.href,
+          as = _this$formatUrls3.as; // Deprecated. Warning shown by propType check. If the children provided is a string (<Link>example</Link>) we wrap it in an <a> tag
+
+
+      if (typeof children === 'string') {
+        children = _react["default"].createElement("a", null, children);
+      } // This will return the first child, if multiple are provided it will throw an error
+
+
+      var child = _react.Children.only(children);
+
+      var props = {
+        ref: function ref(el) {
+          _this3.handleRef(el);
+
+          if (child && typeof child === 'object' && child.ref) {
+            if (typeof child.ref === 'function') child.ref(el);else if (typeof child.ref === 'object') {
+              child.ref.current = el;
+            }
+          }
+        },
+        onMouseEnter: function onMouseEnter(e) {
+          if (child.props && typeof child.props.onMouseEnter === 'function') {
+            child.props.onMouseEnter(e);
+          }
+
+          _this3.prefetch();
+        },
+        onClick: function onClick(e) {
+          if (child.props && typeof child.props.onClick === 'function') {
+            child.props.onClick(e);
+          }
+
+          if (!e.defaultPrevented) {
+            _this3.linkClicked(e);
+          }
+        }
+      }; // If child is an <a> tag and doesn't have a href attribute, or if the 'passHref' property is
+      // defined, we specify the current 'href', so that repetition is not needed by the user
+
+      if (this.props.passHref || child.type === 'a' && !('href' in child.props)) {
+        props.href = as || href;
+      } // Add the ending slash to the paths. So, we can serve the
+      // "<page>/index.html" directly.
+
+
+      if (false) {}
+
+      return _react["default"].cloneElement(child, props);
+    }
+  }]);
+
+  return Link;
+}(_react.Component);
+
+Link.propTypes = void 0;
+
+if (true) {
+  var warn = (0, _utils.execOnce)(console.error); // This module gets removed by webpack.IgnorePlugin
+
+  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js");
+
+  Link.propTypes = exact({
+    href: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].object]).isRequired,
+    as: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].object]),
+    prefetch: _propTypes["default"].bool,
+    replace: _propTypes["default"].bool,
+    shallow: _propTypes["default"].bool,
+    passHref: _propTypes["default"].bool,
+    scroll: _propTypes["default"].bool,
+    children: _propTypes["default"].oneOfType([_propTypes["default"].element, function (props, propName) {
+      var value = props[propName];
+
+      if (typeof value === 'string') {
+        warn("Warning: You're using a string directly inside <Link>. This usage has been deprecated. Please add an <a> tag as child of <Link>");
+      }
+
+      return null;
+    }]).isRequired
+  });
+}
+
+var _default = Link;
+exports["default"] = _default;
 
 /***/ }),
 
@@ -12006,6 +13231,18 @@ function formatWithValidation(url, options) {
 exports.formatWithValidation = formatWithValidation;
 exports.SUPPORTS_PERFORMANCE = typeof performance !== 'undefined';
 exports.SUPPORTS_PERFORMANCE_USER_TIMING = exports.SUPPORTS_PERFORMANCE && typeof performance.mark === 'function' && typeof performance.measure === 'function';
+
+/***/ }),
+
+/***/ "./node_modules/next/link.js":
+/*!***********************************!*\
+  !*** ./node_modules/next/link.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/next/dist/client/link.js")
+
 
 /***/ }),
 
@@ -15931,6 +17168,95 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
+
+/***/ }),
+
+/***/ "./node_modules/prop-types-exact/build/helpers/isPlainObject.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/prop-types-exact/build/helpers/isPlainObject.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports['default'] = isPlainObject;
+function isPlainObject(x) {
+  return x && (typeof x === 'undefined' ? 'undefined' : _typeof(x)) === 'object' && !Array.isArray(x);
+}
+module.exports = exports['default'];
+//# sourceMappingURL=isPlainObject.js.map
+
+/***/ }),
+
+/***/ "./node_modules/prop-types-exact/build/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/prop-types-exact/build/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports['default'] = forbidExtraProps;
+
+var _object = __webpack_require__(/*! object.assign */ "./node_modules/next/dist/build/polyfills/object.assign/index.js");
+
+var _object2 = _interopRequireDefault(_object);
+
+var _has = __webpack_require__(/*! has */ "./node_modules/has/src/index.js");
+
+var _has2 = _interopRequireDefault(_has);
+
+var _isPlainObject = __webpack_require__(/*! ./helpers/isPlainObject */ "./node_modules/prop-types-exact/build/helpers/isPlainObject.js");
+
+var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var zeroWidthSpace = '\u200B';
+var specialProperty = 'prop-types-exact: ' + zeroWidthSpace;
+var semaphore = typeof Symbol === 'function' && typeof Symbol['for'] === 'function' ? Symbol['for'](specialProperty) : /* istanbul ignore next */specialProperty;
+
+function brand(fn) {
+  return (0, _object2['default'])(fn, _defineProperty({}, specialProperty, semaphore));
+}
+
+function isBranded(value) {
+  return value && value[specialProperty] === semaphore;
+}
+
+function forbidExtraProps(propTypes) {
+  if (!(0, _isPlainObject2['default'])(propTypes)) {
+    throw new TypeError('given propTypes must be an object');
+  }
+  if ((0, _has2['default'])(propTypes, specialProperty) && !isBranded(propTypes[specialProperty])) {
+    throw new TypeError('Against all odds, you created a propType for a prop that uses both the zero-width space and our custom string - which, sadly, conflicts with `prop-types-exact`');
+  }
+
+  return (0, _object2['default'])({}, propTypes, _defineProperty({}, specialProperty, brand(function () {
+    function forbidUnknownProps(props, _, componentName) {
+      var unknownProps = Object.keys(props).filter(function (prop) {
+        return !(0, _has2['default'])(propTypes, prop);
+      });
+      if (unknownProps.length > 0) {
+        return new TypeError(String(componentName) + ': unknown props found: ' + String(unknownProps.join(', ')));
+      }
+      return null;
+    }
+
+    return forbidUnknownProps;
+  }())));
+}
+module.exports = exports['default'];
+//# sourceMappingURL=index.js.map
 
 /***/ }),
 
@@ -37616,26 +38942,43 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/layouts/pricing.js":
+/***/ "./pages/layouts/profile.js":
 /*!**********************************!*\
-  !*** ./pages/layouts/pricing.js ***!
+  !*** ./pages/layouts/profile.js ***!
   \**********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "./node_modules/next/dist/next-server/lib/head.js");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _containers_common_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../containers/common/header */ "./containers/common/header.js");
-/* harmony import */ var _sections_agency_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sections/agency/footer */ "./pages/layouts/sections/agency/footer.js");
-/* harmony import */ var _sections_agency_pricing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sections/agency/pricing */ "./pages/layouts/sections/agency/pricing.js");
-var _this = undefined,
-    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\pricing.js";
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ "./node_modules/next/dist/next-server/lib/head.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _containers_common_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../containers/common/header */ "./containers/common/header.js");
+/* harmony import */ var _sections_agency_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sections/agency/footer */ "./pages/layouts/sections/agency/footer.js");
+/* harmony import */ var _sections_agency_subscribed__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sections/agency/subscribed */ "./pages/layouts/sections/agency/subscribed.js");
+/* harmony import */ var _sections_index_usersTable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sections/index/usersTable */ "./pages/layouts/sections/index/usersTable.js");
+/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
+/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_slick__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _sections_agency_pricing__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./sections/agency/pricing */ "./pages/layouts/sections/agency/pricing.js");
+/* harmony import */ var _constant_api__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../constant/api */ "./constant/api.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_14__);
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var _this = undefined,
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\profile.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
  // import Custom Components
 
@@ -37643,27 +38986,96 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-var PricingScreen = function PricingScreen() {
+
+
+
+
+
+
+
+
+
+var ProfileScreen = function ProfileScreen() {
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_10__["useRouter"])();
+
+  if (router.query.reauth === "1" && router.query.token) {
+    console.log(router.query);
+    var token = router.query.token;
+    localStorage.setItem("hoarTemplatetoken", token);
+    var URL = _constant_api__WEBPACK_IMPORTED_MODULE_12__["default"] + "userDetails/" + token;
+    axios__WEBPACK_IMPORTED_MODULE_14___default()({
+      method: "get",
+      url: URL,
+      headers: {
+        Authorization: "Token " + token
+      }
+    }).then(function (response) {
+      localStorage.setItem("userInfo", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(response.data));
+      react_toastify__WEBPACK_IMPORTED_MODULE_13__["toast"].success("Registration Successfull, Welcome!");
+
+      if (JSON.parse(localStorage.getItem("userInfo")).plan === "") {
+        next_router__WEBPACK_IMPORTED_MODULE_10___default.a.push("/layouts/pricing");
+        return;
+      }
+
+      setUserTable(__jsx(_sections_index_usersTable__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39,
+          columnNumber: 22
+        }
+      }));
+    })["catch"](function (error) {
+      console.log(error);
+      react_toastify__WEBPACK_IMPORTED_MODULE_13__["toast"].error("Some Error Occured");
+    });
+  }
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      userTable = _useState[0],
+      setUserTable = _useState[1];
+
+  var getUserTable = function getUserTable() {
+    if (localStorage.getItem("userInfo")) {
+      if (JSON.parse(localStorage.getItem("userInfo")).plan == "") {
+        setUserTable([]);
+      } else {
+        setUserTable(__jsx(_sections_index_usersTable__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53,
+            columnNumber: 22
+          }
+        }));
+      }
+    } else {
+      setUserTable([]);
+    }
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(getUserTable, []);
   return __jsx("div", {
     className: "theme-color",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
-      columnNumber: 3
+      lineNumber: 61,
+      columnNumber: 5
     }
-  }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 62,
       columnNumber: 7
     }
   }, __jsx("title", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 63,
       columnNumber: 9
     }
   }, "Library Management "), __jsx("meta", {
@@ -37672,28 +39084,42 @@ var PricingScreen = function PricingScreen() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 64,
       columnNumber: 9
     }
-  })), __jsx(_containers_common_header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  })), __jsx(_containers_common_header__WEBPACK_IMPORTED_MODULE_3__["default"], {
     className: "agency",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 66,
       columnNumber: 7
     }
-  }), __jsx(_sections_agency_pricing__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), __jsx(_sections_agency_subscribed__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 67,
+      columnNumber: 7
+    }
+  }), userTable, __jsx(_sections_agency_pricing__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69,
+      columnNumber: 7
+    }
+  }), __jsx(_sections_agency_footer__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71,
       columnNumber: 7
     }
   }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (PricingScreen);
+/* harmony default export */ __webpack_exports__["default"] = (ProfileScreen);
 
 /***/ }),
 
@@ -38824,6 +40250,1293 @@ var Pricing = function Pricing() {
 
 /***/ }),
 
+/***/ "./pages/layouts/sections/agency/subscribed.js":
+/*!*****************************************************!*\
+  !*** ./pages/layouts/sections/agency/subscribed.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _containers_common_coupon_popup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../containers/common/coupon-popup */ "./containers/common/coupon-popup.js");
+/* harmony import */ var _containers_common_changeAou__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../containers/common/changeAou */ "./containers/common/changeAou.js");
+/* harmony import */ var _constant_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../constant/api */ "./constant/api.js");
+var _this = undefined,
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\sections\\agency\\subscribed.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+var Subscribed = function Subscribed() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([__jsx("div", {
+    className: "price-container shadows",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "price-feature-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "feature-text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 9
+    }
+  }, __jsx("span", {
+    className: "flaticon-rocket-ship feature-icon",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 11
+    }
+  }), __jsx("h3", {
+    className: "",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 11
+    }
+  }, "Premium"), __jsx("h4", {
+    className: "",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 11
+    }
+  }, "For 365 days"), __jsx("h5", {
+    className: "",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 11
+    }
+  }, "Date of Purchase:")), __jsx("div", {
+    className: "my-4",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 9
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 15
+    }
+  }, "Status")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 15
+    }
+  }, "Inactive"))), __jsx("hr", {
+    className: "set-border",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 11
+    }
+  }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 15
+    }
+  }, "Payment Mode")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 15
+    }
+  }))), __jsx("hr", {
+    className: "set-border",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 11
+    }
+  }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 15
+    }
+  }, "Days Left")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 15
+    }
+  }, "0"))), __jsx("hr", {
+    className: "set-border",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 11
+    }
+  }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 15
+    }
+  }, "Expires")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 15
+    }
+  })))), __jsx(_containers_common_coupon_popup__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 9
+    }
+  })))]),
+      paymentStatus = _useState[0],
+      setPaymentStatus = _useState[1];
+
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([__jsx("div", {
+    className: "price-container shadows",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "price-feature-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "feature-text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63,
+      columnNumber: 9
+    }
+  }, __jsx("span", {
+    className: "feature-icon",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64,
+      columnNumber: 11
+    }
+  }, __jsx("i", {
+    "class": "fa fa-user",
+    "aria-hidden": "true",
+    style: {
+      fontSize: 80
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 13
+    }
+  })), __jsx("h3", {
+    className: "",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71,
+      columnNumber: 11
+    }
+  }, "My Profile"), __jsx("br", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73,
+      columnNumber: 11
+    }
+  }), __jsx("h5", {
+    className: "",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74,
+      columnNumber: 11
+    }
+  }, "Profile Details")), __jsx("div", {
+    className: "my-4",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 9
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79,
+      columnNumber: 15
+    }
+  }, "Community Administrator")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 15
+    }
+  }, "John Doe"))), __jsx("hr", {
+    className: "set-border",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85,
+      columnNumber: 11
+    }
+  }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88,
+      columnNumber: 15
+    }
+  }, "Account Owner's Email Address")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91,
+      columnNumber: 15
+    }
+  }, "johnDoe@gmail.com"))), __jsx("hr", {
+    className: "set-border",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94,
+      columnNumber: 11
+    }
+  }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 15
+    }
+  }, "Account Owner's Phone Number")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 99,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 100,
+      columnNumber: 15
+    }
+  }, "+12-0000000000"))), __jsx("hr", {
+    className: "set-border",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103,
+      columnNumber: 11
+    }
+  }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 106,
+      columnNumber: 15
+    }
+  }, "Full Legal Name of Association")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109,
+      columnNumber: 15
+    }
+  }, "John Doe Association"))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 112,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 15
+    }
+  }, "State Association Located In")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    sm: "12",
+    md: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 116,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117,
+      columnNumber: 15
+    }
+  }, "Nabraska"))))))]),
+      profileStatus = _useState2[0],
+      setProfileStatus = _useState2[1];
+
+  var getPaymentStatus = function getPaymentStatus(event) {
+    axios__WEBPACK_IMPORTED_MODULE_3___default()({
+      method: "get",
+      url: _constant_api__WEBPACK_IMPORTED_MODULE_6__["default"] + "payment/getPaymentDetails/?hoarTemplatetoken=" + localStorage.getItem("hoarTemplatetoken")
+    }).then(function (response) {
+      var ui;
+      var planType = response.data.data.plan;
+
+      if (response.data.status === 1) {
+        ui = __jsx("div", {
+          className: "price-container shadows",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 138,
+            columnNumber: 13
+          }
+        }, __jsx("div", {
+          className: "price-feature-container",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 139,
+            columnNumber: 15
+          }
+        }, __jsx("div", {
+          className: "feature-text",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 140,
+            columnNumber: 17
+          }
+        }, __jsx("span", {
+          className: "flaticon-rocket-ship feature-icon",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 141,
+            columnNumber: 19
+          }
+        }), __jsx("h3", {
+          className: "",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 142,
+            columnNumber: 19
+          }
+        }, response.data.data.plan), __jsx("h4", {
+          className: "",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 143,
+            columnNumber: 19
+          }
+        }, "For 365 days"), __jsx("h5", {
+          className: "",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 144,
+            columnNumber: 19
+          }
+        }, "Date of Purchase: ", response.data.data.date)), __jsx("div", {
+          className: "my-4",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 148,
+            columnNumber: 17
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 149,
+            columnNumber: 19
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+          sm: "12",
+          md: "6",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 150,
+            columnNumber: 21
+          }
+        }, __jsx("span", {
+          className: "large",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 151,
+            columnNumber: 23
+          }
+        }, "Status")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+          sm: "12",
+          md: "6",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 153,
+            columnNumber: 21
+          }
+        }, __jsx("span", {
+          className: "large",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 154,
+            columnNumber: 23
+          }
+        }, response.data.data.status))), __jsx("hr", {
+          className: "set-border",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 157,
+            columnNumber: 19
+          }
+        }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 158,
+            columnNumber: 19
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+          sm: "12",
+          md: "6",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 159,
+            columnNumber: 21
+          }
+        }, __jsx("span", {
+          className: "large",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 160,
+            columnNumber: 23
+          }
+        }, "Payment Mode")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+          sm: "12",
+          md: "6",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 162,
+            columnNumber: 21
+          }
+        }, __jsx("span", {
+          className: "large",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 163,
+            columnNumber: 23
+          }
+        }, planType === "TRIAL" ? "Free" : response.data.data.paymentMode))), __jsx("hr", {
+          className: "set-border",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 170,
+            columnNumber: 19
+          }
+        }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 171,
+            columnNumber: 19
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+          sm: "12",
+          md: "6",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 172,
+            columnNumber: 21
+          }
+        }, __jsx("span", {
+          className: "large",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 173,
+            columnNumber: 23
+          }
+        }, "Days Left")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+          sm: "12",
+          md: "6",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 175,
+            columnNumber: 21
+          }
+        }, __jsx("span", {
+          className: "large",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 176,
+            columnNumber: 23
+          }
+        }, response.data.data.daysLeft))), __jsx("hr", {
+          className: "set-border",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 181,
+            columnNumber: 19
+          }
+        }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 182,
+            columnNumber: 19
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+          sm: "12",
+          md: "6",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 183,
+            columnNumber: 21
+          }
+        }, __jsx("span", {
+          className: "large",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 184,
+            columnNumber: 23
+          }
+        }, "Expires")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+          sm: "12",
+          md: "6",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 186,
+            columnNumber: 21
+          }
+        }, __jsx("span", {
+          className: "large",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 187,
+            columnNumber: 23
+          }
+        }, response.data.data.expiry_date)))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+          href: "/layouts/pricing",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 193,
+            columnNumber: 17
+          }
+        }, __jsx("a", {
+          className: "btn btn-default btn-white",
+          href: "#",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 194,
+            columnNumber: 19
+          }
+        }, "Browse Pricing Plans"))));
+        setPaymentStatus(ui);
+      }
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+
+  var getUserDetails = function getUserDetails(event) {
+    axios__WEBPACK_IMPORTED_MODULE_3___default()({
+      method: "get",
+      url: _constant_api__WEBPACK_IMPORTED_MODULE_6__["default"] + "userDetails/" + localStorage.getItem("hoarTemplatetoken")
+    }).then(function (response) {
+      var ui;
+      ui = __jsx("div", {
+        className: "price-container shadows",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 218,
+          columnNumber: 11
+        }
+      }, __jsx("div", {
+        className: "price-feature-container",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 219,
+          columnNumber: 13
+        }
+      }, __jsx("div", {
+        className: "feature-text",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 220,
+          columnNumber: 15
+        }
+      }, __jsx("span", {
+        className: "feature-icon",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 221,
+          columnNumber: 17
+        }
+      }, __jsx("i", {
+        "class": "fa fa-user",
+        "aria-hidden": "true",
+        style: {
+          fontSize: 80
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 222,
+          columnNumber: 19
+        }
+      })), __jsx("h3", {
+        className: "",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 228,
+          columnNumber: 17
+        }
+      }, "My Profile"), response.data.is_aou === true ? null : __jsx("h5", {
+        className: "",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 231,
+          columnNumber: 19
+        }
+      }, "Profile Details")), __jsx("div", {
+        className: "my-4",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 234,
+          columnNumber: 15
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 235,
+          columnNumber: 17
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        sm: "12",
+        md: "6",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 236,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "large",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 237,
+          columnNumber: 21
+        }
+      }, "Account Owner's Name")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        sm: "12",
+        md: "6",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 239,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "large",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 240,
+          columnNumber: 21
+        }
+      }, response.data.name))), __jsx("hr", {
+        className: "set-border",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 243,
+          columnNumber: 17
+        }
+      }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 244,
+          columnNumber: 17
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        sm: "12",
+        md: "6",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 245,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "large",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 246,
+          columnNumber: 21
+        }
+      }, "Account Owner's Email Address")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        sm: "12",
+        md: "6",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 248,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "large",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 249,
+          columnNumber: 21
+        }
+      }, response.data.email))), __jsx("hr", {
+        className: "set-border",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 252,
+          columnNumber: 17
+        }
+      }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 253,
+          columnNumber: 17
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        sm: "12",
+        md: "6",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 254,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "large",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 255,
+          columnNumber: 21
+        }
+      }, "Account Owner's Phone Number")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        sm: "12",
+        md: "6",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 257,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "large",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 258,
+          columnNumber: 21
+        }
+      }, response.data.contact_no))), __jsx("hr", {
+        className: "set-border",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 261,
+          columnNumber: 17
+        }
+      }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 262,
+          columnNumber: 17
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        sm: "12",
+        md: "6",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 263,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "large",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 264,
+          columnNumber: 21
+        }
+      }, "Full Legal Name of Association")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        sm: "12",
+        md: "6",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 268,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "large",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 269,
+          columnNumber: 21
+        }
+      }, response.data.association_name))), __jsx("hr", {
+        className: "set-border",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 274,
+          columnNumber: 17
+        }
+      }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 275,
+          columnNumber: 17
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        sm: "12",
+        md: "6",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 276,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "large",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 277,
+          columnNumber: 21
+        }
+      }, "State Association Located In")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        sm: "12",
+        md: "6",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 279,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "large",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 280,
+          columnNumber: 21
+        }
+      }, response.data.state)))), response.data.is_aou === true ? __jsx(_containers_common_changeAou__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 284,
+          columnNumber: 48
+        }
+      }) : __jsx("br", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 284,
+          columnNumber: 64
+        }
+      })));
+      setProfileStatus(ui);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(getPaymentStatus, []);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(getUserDetails, []);
+  return __jsx("section", {
+    className: "agency pricing price-bg subcribed-page",
+    id: "plan",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 297,
+      columnNumber: 5
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 298,
+      columnNumber: 7
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 299,
+      columnNumber: 9
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    className: "mt-2",
+    xs: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 300,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    className: "item",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 301,
+      columnNumber: 13
+    }
+  }, profileStatus)), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    className: "mt-2",
+    xs: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 303,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    className: "item",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 304,
+      columnNumber: 13
+    }
+  }, paymentStatus)))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Subscribed);
+
+/***/ }),
+
 /***/ "./pages/layouts/sections/index/subscribe.js":
 /*!***************************************************!*\
   !*** ./pages/layouts/sections/index/subscribe.js ***!
@@ -39085,6 +41798,234 @@ var Subscribs = function Subscribs() {
 
 /***/ }),
 
+/***/ "./pages/layouts/sections/index/usersTable.js":
+/*!****************************************************!*\
+  !*** ./pages/layouts/sections/index/usersTable.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _containers_common_user_info_popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../containers/common/user-info-popup */ "./containers/common/user-info-popup.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils_isAou__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/isAou */ "./utils/isAou.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _constant_api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../constant/api */ "./constant/api.js");
+var _this = undefined,
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\sections\\index\\usersTable.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+var UsersTable = function UsersTable(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      subAou = _useState[0],
+      setSubAou = _useState[1];
+
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      subAouTable = _useState2[0],
+      setsubAouTable = _useState2[1];
+
+  var getSubAous = function getSubAous(event) {
+    axios__WEBPACK_IMPORTED_MODULE_4___default()({
+      method: "get",
+      url: _constant_api__WEBPACK_IMPORTED_MODULE_8__["default"] + "team/?hoarTemplatetoken=" + localStorage.getItem("hoarTemplatetoken")
+    }).then(function (response) {
+      // debugger;
+      if (response.data.status === 1) {
+        var rowList = []; // rowList.push(<h1>sadhashdasd</h1>);
+
+        for (var x = 0; x < response.data.data.length; x++) {
+          var dataId = response.data.data[x].userId;
+          document.getElementById("subAouTable").innerHTML += "<tr id=" + dataId + ">\n              <td scope=\"row\">" + response.data.data[x].name + "</td>\n              <td>" + response.data.data[x].email + "</td>\n              <td>" + response.data.data[x].is_active + "</td>\n              <td>\n                <a href=baseApiURL+\"deleteCustomUser?hoarTemplatetoken=" + localStorage.getItem("hoarTemplatetoken") + "&userId=" + dataId + "\" className=\"plus-icon\" id=" + dataId + ">\n                  <img\n                    alt=\"Delete\"\n                    className=\"img-fluid\"\n                    src=\"/assets/images/bin.png\"\n                    width=\"20\"\n                  />\n                </a>\n              </td>\n            </tr>";
+        } // setSubAou(rowList);
+
+      } // else{
+      //     toast.error(response.data.status);
+      // }
+
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(getSubAous, []);
+
+  var getSubAouTable = function getSubAouTable() {
+    if (localStorage.getItem("userInfo")) {
+      if (JSON.parse(localStorage.getItem("userInfo")).plan === "CU" && JSON.parse(localStorage.getItem("userInfo")).is_aou === true) {
+        setsubAouTable(__jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Table"], {
+          bordered: true,
+          responsive: true,
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 80,
+            columnNumber: 11
+          }
+        }, __jsx("thead", {
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 81,
+            columnNumber: 13
+          }
+        }, __jsx("tr", {
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 82,
+            columnNumber: 15
+          }
+        }, __jsx("th", {
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 83,
+            columnNumber: 17
+          }
+        }, "Name"), __jsx("th", {
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 84,
+            columnNumber: 17
+          }
+        }, "Email"), __jsx("th", {
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 85,
+            columnNumber: 17
+          }
+        }, "Subscribed"), __jsx("th", {
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 86,
+            columnNumber: 17
+          }
+        }))), __jsx("tbody", {
+          id: "subAouTable",
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 89,
+            columnNumber: 13
+          }
+        }, subAou)));
+      } else {
+        setsubAouTable([]);
+      }
+    } else {
+      setsubAouTable([]);
+    }
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(getSubAouTable, []);
+  return __jsx("div", {
+    className: "user-info",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102,
+      columnNumber: 5
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], {
+    className: "admin-table",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    style: {
+      height: "40px",
+      width: "100%"
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105,
+      columnNumber: 9
+    }
+  }), subAouTable, __jsx("div", {
+    className: "mt-4 text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107,
+      columnNumber: 9
+    }
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    href: "/layouts/savedRules",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    className: "btn btn-default btn-white",
+    href: "#",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109,
+      columnNumber: 13
+    }
+  }, "Saved Sample Rules")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (UsersTable);
+
+/***/ }),
+
+/***/ "./utils/isAou.js":
+/*!************************!*\
+  !*** ./utils/isAou.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var isAou = function isAou() {
+  if (true) {
+    if (localStorage.getItem("userInfo")) {
+      if (JSON.parse(localStorage.getItem("userInfo")).is_aou) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  } else {}
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (isAou);
+
+/***/ }),
+
 /***/ "./utils/isLogin.js":
 /*!**************************!*\
   !*** ./utils/isLogin.js ***!
@@ -39160,14 +42101,14 @@ var getUserType = function getUserType() {
 
 /***/ }),
 
-/***/ 14:
+/***/ 12:
 /*!***************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js ***!
+  !*** multi next-client-pages-loader?page=%2Flayouts%2Fprofile&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cprofile.js ***!
   \***************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Flayouts%2Fprofile&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cprofile.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flayouts%2Fprofile&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cprofile.js!./");
 
 
 /***/ }),
@@ -39183,5 +42124,5 @@ module.exports = dll_b0ae7f9d5a2cb9eeeb96;
 
 /***/ })
 
-},[[14,"static/runtime/webpack.js","styles"]]]);
-//# sourceMappingURL=pricing.js.map
+},[[12,"static/runtime/webpack.js","styles"]]]);
+//# sourceMappingURL=profile.js.map

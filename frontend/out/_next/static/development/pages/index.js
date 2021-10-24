@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\layouts\\pricing.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\index.js"],{
 
 /***/ "./constant/api.js":
 /*!*************************!*\
@@ -1114,6 +1114,125 @@ var SubAouController = function SubAouController(props) {
 
 /***/ }),
 
+/***/ "./database/layouts/agency/database.js":
+/*!*********************************************!*\
+  !*** ./database/layouts/agency/database.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+  PricingData: [{
+    title: "Free",
+    features: ["Take Us For A Test Spin!", "Create Your Own Four Rule Document And See Just How Quick And Easy It Can Be!!"],
+    price: 0
+  }, {
+    title: "SINGLE USER",
+    features: ["Annual Membership", "For A Single User To Create, Modify, And Amend Your Architectural Guidelines & Standards  And Your Rules & Regulations For The Next Twelve Months!"],
+    price: 99
+  }, {
+    title: "COMMITTEE",
+    features: ["Up To Six Users", "Annual Membership For One User And Up To Five Sub-Users To Create, Modify, And Amend Your Architectural Guidelines & Standards And Your Rules & Regulations For The Next Twelve Months!!!"],
+    price: 999
+  }],
+  ScheduleData: [{
+    name: "Master HOA Rule Library",
+    desc: "Our experience with many communities has taught us what is fair and what works. So lets make this easy. With access to our Library, you can choose your rules from hundreds of potential rules with the flexibility to customize each to fit your community needs.",
+    desc2: "There is no need to reinvent the wheel. With our Library you can take the advantage of the hard work invested by of hundreds of committees over thousands of hours across the country."
+  }, {
+    name: "Fair Pricing Model",
+    desc: "You will always have the access to your document to make any  adjustments needed. The opportunity to review new rules and guidelines that have been added to the library is available every  time you log in. This way our document can stay current with any  changes in the community, the law, or the industry."
+  }, {
+    name: "Committee Friendly",
+    desc: "The account owner can add up to five sub-users to work independently and create their own documents. You can then create a master document showing every users response to each rule. This allows for immediate collaboration without months of going back and forth in meetings."
+  }],
+  ExpertData: [{
+    photo: "/assets/images/event/11.jpg",
+    title: "Sam Rowling",
+    details: "Team Leader - otstrab"
+  }, {
+    photo: "/assets/images/event/11.jpg",
+    // photo: '/assets/images/event/l3-3.png',
+    title: "Mark Tucker",
+    details: "App Developer - Jumpster"
+  }, {
+    photo: "/assets/images/event/11.jpg",
+    // photo: '/assets/images/event/l3-4.png',
+    title: "Sam Rowling",
+    details: "Team Leader - otstrab"
+  }, {
+    photo: "/assets/images/event/11.jpg",
+    // photo: '/assets/images/event/l3-3.png',
+    title: "Mark Tucker",
+    details: "App Developer - Jumpster"
+  }],
+  TestimonialData: [{
+    number: "1",
+    details: "First, register your association."
+  }, {
+    number: "2",
+    details: "Registration taps you right into our master HOA Rule Library and you will be walked through each category of rules you wish to cover for your community."
+  }, {
+    number: "3",
+    details: "When completed, simply click on Finished Document and the program will take all of the rules and guidelines you have   customized and place them into a finished document for your   review and final editing."
+  }],
+  SavedRulesData: [{
+    number: "1",
+    issueName: "Pets",
+    details: "Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua"
+  }, {
+    number: "2",
+    issueName: "Basket Ball",
+    details: "Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua"
+  }, {
+    number: "3",
+    issueName: "Swimming Pool",
+    details: "Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua"
+  }, {
+    number: "3",
+    issueName: "Swimming Pool",
+    details: "Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua"
+  }, {
+    number: "3",
+    issueName: "Swimming Pool",
+    details: "Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua"
+  }],
+  BlogData: [{
+    id: 1,
+    // photo: '/assets/images/agency/blog/blog-list-1.jpg',
+    photo: "/assets/images/event/22.jpg",
+    title: "Twice profit than before you",
+    date: "June 19, 2019",
+    place: "Phonics",
+    details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.text ever since the 1500s type specimen book "
+  }, {
+    id: 2,
+    // photo: '/assets/images/agency/blog/blog-list-2.jpg',
+    photo: "/assets/images/event/22.jpg",
+    title: "Twice profit than before you",
+    date: "June 19, 2019",
+    place: "Phonics",
+    details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.text ever since the 1500s type specimen book "
+  }, {
+    id: 3,
+    // photo: '/assets/images/agency/blog/blog-list-3.jpg',
+    photo: "/assets/images/event/22.jpg",
+    title: "Twice profit than before you",
+    date: "June 19, 2019",
+    place: "Phonics",
+    details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.text ever since the 1500s type specimen book "
+  }, {
+    id: 4,
+    photo: "/assets/images/agency/blog/blog-list-1.jpg",
+    title: "Twice profit than before you",
+    date: "June 19, 2019",
+    place: "Phonics",
+    details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.text ever since the 1500s type specimen book "
+  }]
+};
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/array/from.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/array/from.js ***!
@@ -1166,6 +1285,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/is-iterable */ "./no
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "./node_modules/core-js/library/fn/json/stringify.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/map.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/map.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/map */ "./node_modules/core-js/library/fn/map.js");
 
 /***/ }),
 
@@ -1560,6 +1690,39 @@ function _asyncToGenerator(fn) {
       _next(undefined);
     });
   };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _extends; });
+/* harmony import */ var _core_js_object_assign__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/assign */ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js");
+/* harmony import */ var _core_js_object_assign__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_assign__WEBPACK_IMPORTED_MODULE_0__);
+
+function _extends() {
+  _extends = _core_js_object_assign__WEBPACK_IMPORTED_MODULE_0___default.a || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
 }
 
 /***/ }),
@@ -4536,6 +4699,25 @@ module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/fn/map.js":
+/*!************************************************!*\
+  !*** ./node_modules/core-js/library/fn/map.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../modules/es6.object.to-string */ "./node_modules/core-js/library/modules/es6.object.to-string.js");
+__webpack_require__(/*! ../modules/es6.string.iterator */ "./node_modules/core-js/library/modules/es6.string.iterator.js");
+__webpack_require__(/*! ../modules/web.dom.iterable */ "./node_modules/core-js/library/modules/web.dom.iterable.js");
+__webpack_require__(/*! ../modules/es6.map */ "./node_modules/core-js/library/modules/es6.map.js");
+__webpack_require__(/*! ../modules/es7.map.to-json */ "./node_modules/core-js/library/modules/es7.map.to-json.js");
+__webpack_require__(/*! ../modules/es7.map.of */ "./node_modules/core-js/library/modules/es7.map.of.js");
+__webpack_require__(/*! ../modules/es7.map.from */ "./node_modules/core-js/library/modules/es7.map.from.js");
+module.exports = __webpack_require__(/*! ../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Map;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/fn/object/assign.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js/library/fn/object/assign.js ***!
@@ -7336,6 +7518,37 @@ addToUnscopables('entries');
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/modules/es6.map.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es6.map.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var strong = __webpack_require__(/*! ./_collection-strong */ "./node_modules/core-js/library/modules/_collection-strong.js");
+var validate = __webpack_require__(/*! ./_validate-collection */ "./node_modules/core-js/library/modules/_validate-collection.js");
+var MAP = 'Map';
+
+// 23.1 Map Objects
+module.exports = __webpack_require__(/*! ./_collection */ "./node_modules/core-js/library/modules/_collection.js")(MAP, function (get) {
+  return function Map() { return get(this, arguments.length > 0 ? arguments[0] : undefined); };
+}, {
+  // 23.1.3.6 Map.prototype.get(key)
+  get: function get(key) {
+    var entry = strong.getEntry(validate(this, MAP), key);
+    return entry && entry.v;
+  },
+  // 23.1.3.9 Map.prototype.set(key, value)
+  set: function set(key, value) {
+    return strong.def(validate(this, MAP), key === 0 ? 0 : key, value);
+  }
+}, strong, true);
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/modules/es6.object.assign.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/core-js/library/modules/es6.object.assign.js ***!
@@ -8201,6 +8414,47 @@ if (NATIVE_WEAK_MAP && IS_IE11) {
     });
   });
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es7.map.from.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.map.from.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://tc39.github.io/proposal-setmap-offrom/#sec-map.from
+__webpack_require__(/*! ./_set-collection-from */ "./node_modules/core-js/library/modules/_set-collection-from.js")('Map');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es7.map.of.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.map.of.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://tc39.github.io/proposal-setmap-offrom/#sec-map.of
+__webpack_require__(/*! ./_set-collection-of */ "./node_modules/core-js/library/modules/_set-collection-of.js")('Map');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es7.map.to-json.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.map.to-json.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://github.com/DavidBruant/Map-Set.prototype.toJSON
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
+
+$export($export.P + $export.R, 'Map', { toJSON: __webpack_require__(/*! ./_collection-to-json */ "./node_modules/core-js/library/modules/_collection-to-json.js")('Map') });
 
 
 /***/ }),
@@ -10145,26 +10399,370 @@ module.exports = (__webpack_require__(/*! dll-reference dll_b0ae7f9d5a2cb9eeeb96
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js!./":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js ***!
-  \***********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/polyfills/object.assign/index.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/next/dist/build/polyfills/object.assign/index.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineProperties(g(),{implementation:{get:g},shim:{value:g},getPolyfill:{value:g}});module.exports=g();
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Cindex.js!./":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Cindex.js ***!
+  \******************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/layouts/pricing", function() {
-      var mod = __webpack_require__(/*! ./pages/layouts/pricing.js */ "./pages/layouts/pricing.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/", function() {
+      var mod = __webpack_require__(/*! ./pages/index.js */ "./pages/index.js")
       if(true) {
-        module.hot.accept(/*! ./pages/layouts/pricing.js */ "./pages/layouts/pricing.js", function() {
-          if(!next.router.components["/layouts/pricing"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/layouts/pricing.js */ "./pages/layouts/pricing.js")
-          next.router.update("/layouts/pricing", updatedPage)
+        module.hot.accept(/*! ./pages/index.js */ "./pages/index.js", function() {
+          if(!next.router.components["/"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/index.js */ "./pages/index.js")
+          next.router.update("/", updatedPage)
         })
       }
       return mod
     }]);
   
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/client/link.js":
+/*!***********************************************!*\
+  !*** ./node_modules/next/dist/client/link.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Reflect$construct = __webpack_require__(/*! @babel/runtime-corejs2/core-js/reflect/construct */ "./node_modules/@babel/runtime-corejs2/core-js/reflect/construct.js");
+
+var _classCallCheck = __webpack_require__(/*! @babel/runtime-corejs2/helpers/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/classCallCheck.js");
+
+var _createClass = __webpack_require__(/*! @babel/runtime-corejs2/helpers/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/createClass.js");
+
+var _inherits = __webpack_require__(/*! @babel/runtime-corejs2/helpers/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/inherits.js");
+
+var _possibleConstructorReturn = __webpack_require__(/*! @babel/runtime-corejs2/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/possibleConstructorReturn.js");
+
+var _getPrototypeOf = __webpack_require__(/*! @babel/runtime-corejs2/helpers/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/getPrototypeOf.js");
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = _Reflect$construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !_Reflect$construct) return false; if (_Reflect$construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(_Reflect$construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireWildcard.js");
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
+
+exports.__esModule = true;
+exports["default"] = void 0;
+
+var _map = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/map */ "./node_modules/@babel/runtime-corejs2/core-js/map.js"));
+
+var _url = __webpack_require__(/*! url */ "./node_modules/url/url.js");
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _router = _interopRequireDefault(__webpack_require__(/*! ./router */ "./node_modules/next/dist/client/router.js"));
+
+var _rewriteUrlForExport = __webpack_require__(/*! ../next-server/lib/router/rewrite-url-for-export */ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js");
+
+var _utils = __webpack_require__(/*! ../next-server/lib/utils */ "./node_modules/next/dist/next-server/lib/utils.js");
+
+function isLocal(href) {
+  var url = (0, _url.parse)(href, false, true);
+  var origin = (0, _url.parse)((0, _utils.getLocationOrigin)(), false, true);
+  return !url.host || url.protocol === origin.protocol && url.host === origin.host;
+}
+
+function memoizedFormatUrl(formatFunc) {
+  var lastHref = null;
+  var lastAs = null;
+  var lastResult = null;
+  return function (href, as) {
+    if (lastResult && href === lastHref && as === lastAs) {
+      return lastResult;
+    }
+
+    var result = formatFunc(href, as);
+    lastHref = href;
+    lastAs = as;
+    lastResult = result;
+    return result;
+  };
+}
+
+function formatUrl(url) {
+  return url && typeof url === 'object' ? (0, _utils.formatWithValidation)(url) : url;
+}
+
+var observer;
+var listeners = new _map["default"]();
+var IntersectionObserver = true ? window.IntersectionObserver : undefined;
+
+function getObserver() {
+  // Return shared instance of IntersectionObserver if already created
+  if (observer) {
+    return observer;
+  } // Only create shared IntersectionObserver if supported in browser
+
+
+  if (!IntersectionObserver) {
+    return undefined;
+  }
+
+  return observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!listeners.has(entry.target)) {
+        return;
+      }
+
+      var cb = listeners.get(entry.target);
+
+      if (entry.isIntersecting || entry.intersectionRatio > 0) {
+        observer.unobserve(entry.target);
+        listeners["delete"](entry.target);
+        cb();
+      }
+    });
+  }, {
+    rootMargin: '200px'
+  });
+}
+
+var listenToIntersections = function listenToIntersections(el, cb) {
+  var observer = getObserver();
+
+  if (!observer) {
+    return function () {};
+  }
+
+  observer.observe(el);
+  listeners.set(el, cb);
+  return function () {
+    try {
+      observer.unobserve(el);
+    } catch (err) {
+      console.error(err);
+    }
+
+    listeners["delete"](el);
+  };
+};
+
+var Link = /*#__PURE__*/function (_react$Component) {
+  _inherits(Link, _react$Component);
+
+  var _super = _createSuper(Link);
+
+  function Link(props) {
+    var _this;
+
+    _classCallCheck(this, Link);
+
+    _this = _super.call(this, props);
+    _this.p = void 0;
+
+    _this.cleanUpListeners = function () {};
+
+    _this.formatUrls = memoizedFormatUrl(function (href, asHref) {
+      return {
+        href: formatUrl(href),
+        as: asHref ? formatUrl(asHref) : asHref
+      };
+    });
+
+    _this.linkClicked = function (e) {
+      // @ts-ignore target exists on currentTarget
+      var _e$currentTarget = e.currentTarget,
+          nodeName = _e$currentTarget.nodeName,
+          target = _e$currentTarget.target;
+
+      if (nodeName === 'A' && (target && target !== '_self' || e.metaKey || e.ctrlKey || e.shiftKey || e.nativeEvent && e.nativeEvent.which === 2)) {
+        // ignore click for new tab / new window behavior
+        return;
+      }
+
+      var _this$formatUrls = _this.formatUrls(_this.props.href, _this.props.as),
+          href = _this$formatUrls.href,
+          as = _this$formatUrls.as;
+
+      if (!isLocal(href)) {
+        // ignore click if it's outside our scope (e.g. https://google.com)
+        return;
+      }
+
+      var pathname = window.location.pathname;
+      href = (0, _url.resolve)(pathname, href);
+      as = as ? (0, _url.resolve)(pathname, as) : href;
+      e.preventDefault(); //  avoid scroll for urls with anchor refs
+
+      var scroll = _this.props.scroll;
+
+      if (scroll == null) {
+        scroll = as.indexOf('#') < 0;
+      } // replace state instead of push if prop is present
+
+
+      _router["default"][_this.props.replace ? 'replace' : 'push'](href, as, {
+        shallow: _this.props.shallow
+      }).then(function (success) {
+        if (!success) return;
+
+        if (scroll) {
+          window.scrollTo(0, 0);
+          document.body.focus();
+        }
+      });
+    };
+
+    if (true) {
+      if (props.prefetch) {
+        console.warn('Next.js auto-prefetches automatically based on viewport. The prefetch attribute is no longer needed. More: https://err.sh/zeit/next.js/prefetch-true-deprecated');
+      }
+    }
+
+    _this.p = props.prefetch !== false;
+    return _this;
+  }
+
+  _createClass(Link, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.cleanUpListeners();
+    }
+  }, {
+    key: "handleRef",
+    value: function handleRef(ref) {
+      var _this2 = this;
+
+      if (this.p && IntersectionObserver && ref && ref.tagName) {
+        this.cleanUpListeners();
+        this.cleanUpListeners = listenToIntersections(ref, function () {
+          _this2.prefetch();
+        });
+      }
+    } // The function is memoized so that no extra lifecycles are needed
+    // as per https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+
+  }, {
+    key: "prefetch",
+    value: function prefetch() {
+      if (!this.p || false) return; // Prefetch the JSON page if asked (only in the client)
+
+      var pathname = window.location.pathname;
+
+      var _this$formatUrls2 = this.formatUrls(this.props.href, this.props.as),
+          parsedHref = _this$formatUrls2.href;
+
+      var href = (0, _url.resolve)(pathname, parsedHref);
+
+      _router["default"].prefetch(href);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var children = this.props.children;
+
+      var _this$formatUrls3 = this.formatUrls(this.props.href, this.props.as),
+          href = _this$formatUrls3.href,
+          as = _this$formatUrls3.as; // Deprecated. Warning shown by propType check. If the children provided is a string (<Link>example</Link>) we wrap it in an <a> tag
+
+
+      if (typeof children === 'string') {
+        children = _react["default"].createElement("a", null, children);
+      } // This will return the first child, if multiple are provided it will throw an error
+
+
+      var child = _react.Children.only(children);
+
+      var props = {
+        ref: function ref(el) {
+          _this3.handleRef(el);
+
+          if (child && typeof child === 'object' && child.ref) {
+            if (typeof child.ref === 'function') child.ref(el);else if (typeof child.ref === 'object') {
+              child.ref.current = el;
+            }
+          }
+        },
+        onMouseEnter: function onMouseEnter(e) {
+          if (child.props && typeof child.props.onMouseEnter === 'function') {
+            child.props.onMouseEnter(e);
+          }
+
+          _this3.prefetch();
+        },
+        onClick: function onClick(e) {
+          if (child.props && typeof child.props.onClick === 'function') {
+            child.props.onClick(e);
+          }
+
+          if (!e.defaultPrevented) {
+            _this3.linkClicked(e);
+          }
+        }
+      }; // If child is an <a> tag and doesn't have a href attribute, or if the 'passHref' property is
+      // defined, we specify the current 'href', so that repetition is not needed by the user
+
+      if (this.props.passHref || child.type === 'a' && !('href' in child.props)) {
+        props.href = as || href;
+      } // Add the ending slash to the paths. So, we can serve the
+      // "<page>/index.html" directly.
+
+
+      if (false) {}
+
+      return _react["default"].cloneElement(child, props);
+    }
+  }]);
+
+  return Link;
+}(_react.Component);
+
+Link.propTypes = void 0;
+
+if (true) {
+  var warn = (0, _utils.execOnce)(console.error); // This module gets removed by webpack.IgnorePlugin
+
+  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js");
+
+  Link.propTypes = exact({
+    href: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].object]).isRequired,
+    as: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].object]),
+    prefetch: _propTypes["default"].bool,
+    replace: _propTypes["default"].bool,
+    shallow: _propTypes["default"].bool,
+    passHref: _propTypes["default"].bool,
+    scroll: _propTypes["default"].bool,
+    children: _propTypes["default"].oneOfType([_propTypes["default"].element, function (props, propName) {
+      var value = props[propName];
+
+      if (typeof value === 'string') {
+        warn("Warning: You're using a string directly inside <Link>. This usage has been deprecated. Please add an <a> tag as child of <Link>");
+      }
+
+      return null;
+    }]).isRequired
+  });
+}
+
+var _default = Link;
+exports["default"] = _default;
 
 /***/ }),
 
@@ -12006,6 +12604,18 @@ function formatWithValidation(url, options) {
 exports.formatWithValidation = formatWithValidation;
 exports.SUPPORTS_PERFORMANCE = typeof performance !== 'undefined';
 exports.SUPPORTS_PERFORMANCE_USER_TIMING = exports.SUPPORTS_PERFORMANCE && typeof performance.mark === 'function' && typeof performance.measure === 'function';
+
+/***/ }),
+
+/***/ "./node_modules/next/link.js":
+/*!***********************************!*\
+  !*** ./node_modules/next/link.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/next/dist/client/link.js")
+
 
 /***/ }),
 
@@ -15934,6 +16544,95 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/prop-types-exact/build/helpers/isPlainObject.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/prop-types-exact/build/helpers/isPlainObject.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports['default'] = isPlainObject;
+function isPlainObject(x) {
+  return x && (typeof x === 'undefined' ? 'undefined' : _typeof(x)) === 'object' && !Array.isArray(x);
+}
+module.exports = exports['default'];
+//# sourceMappingURL=isPlainObject.js.map
+
+/***/ }),
+
+/***/ "./node_modules/prop-types-exact/build/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/prop-types-exact/build/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports['default'] = forbidExtraProps;
+
+var _object = __webpack_require__(/*! object.assign */ "./node_modules/next/dist/build/polyfills/object.assign/index.js");
+
+var _object2 = _interopRequireDefault(_object);
+
+var _has = __webpack_require__(/*! has */ "./node_modules/has/src/index.js");
+
+var _has2 = _interopRequireDefault(_has);
+
+var _isPlainObject = __webpack_require__(/*! ./helpers/isPlainObject */ "./node_modules/prop-types-exact/build/helpers/isPlainObject.js");
+
+var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var zeroWidthSpace = '\u200B';
+var specialProperty = 'prop-types-exact: ' + zeroWidthSpace;
+var semaphore = typeof Symbol === 'function' && typeof Symbol['for'] === 'function' ? Symbol['for'](specialProperty) : /* istanbul ignore next */specialProperty;
+
+function brand(fn) {
+  return (0, _object2['default'])(fn, _defineProperty({}, specialProperty, semaphore));
+}
+
+function isBranded(value) {
+  return value && value[specialProperty] === semaphore;
+}
+
+function forbidExtraProps(propTypes) {
+  if (!(0, _isPlainObject2['default'])(propTypes)) {
+    throw new TypeError('given propTypes must be an object');
+  }
+  if ((0, _has2['default'])(propTypes, specialProperty) && !isBranded(propTypes[specialProperty])) {
+    throw new TypeError('Against all odds, you created a propType for a prop that uses both the zero-width space and our custom string - which, sadly, conflicts with `prop-types-exact`');
+  }
+
+  return (0, _object2['default'])({}, propTypes, _defineProperty({}, specialProperty, brand(function () {
+    function forbidUnknownProps(props, _, componentName) {
+      var unknownProps = Object.keys(props).filter(function (prop) {
+        return !(0, _has2['default'])(propTypes, prop);
+      });
+      if (unknownProps.length > 0) {
+        return new TypeError(String(componentName) + ': unknown props found: ' + String(unknownProps.join(', ')));
+      }
+      return null;
+    }
+
+    return forbidUnknownProps;
+  }())));
+}
+module.exports = exports['default'];
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
 /***/ "./node_modules/prop-types/checkPropTypes.js":
 /*!***************************************************!*\
   !*** ./node_modules/prop-types/checkPropTypes.js ***!
@@ -17299,6 +17998,23 @@ function polyfill(Component) {
 }
 
 
+
+
+/***/ }),
+
+/***/ "./node_modules/react-parallax-tilt/dist/react-parallax-tilt.es5.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/react-parallax-tilt/dist/react-parallax-tilt.es5.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var n=function(e,t){return(n=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n])})(e,t)};var i=function(){return(i=Object.assign||function(e){for(var t,n=1,i=arguments.length;n<i;n++)for(var r in t=arguments[n])Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e}).apply(this,arguments)};function r(e,t,n,i){return new(n||(n=Promise))((function(r,a){function o(e){try{s(i.next(e))}catch(e){a(e)}}function l(e){try{s(i.throw(e))}catch(e){a(e)}}function s(e){var t;e.done?r(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(o,l)}s((i=i.apply(e,t||[])).next())}))}function a(e,t){var n,i,r,a,o={label:0,sent:function(){if(1&r[0])throw r[1];return r[1]},trys:[],ops:[]};return a={next:l(0),throw:l(1),return:l(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function l(a){return function(l){return function(a){if(n)throw new TypeError("Generator is already executing.");for(;o;)try{if(n=1,i&&(r=2&a[0]?i.return:a[0]?i.throw||((r=i.return)&&r.call(i),0):i.next)&&!(r=r.call(i,a[1])).done)return r;switch(i=0,r&&(a=[2&a[0],r.value]),a[0]){case 0:case 1:r=a;break;case 4:return o.label++,{value:a[1],done:!1};case 5:o.label++,i=a[1],a=[0];continue;case 7:a=o.ops.pop(),o.trys.pop();continue;default:if(!(r=o.trys,(r=r.length>0&&r[r.length-1])||6!==a[0]&&2!==a[0])){o=0;continue}if(3===a[0]&&(!r||a[1]>r[0]&&a[1]<r[3])){o.label=a[1];break}if(6===a[0]&&o.label<r[1]){o.label=r[1],r=a;break}if(r&&o.label<r[2]){o.label=r[2],o.ops.push(a);break}r[2]&&o.ops.pop(),o.trys.pop();continue}a=t.call(e,o)}catch(e){a=[6,e],i=0}finally{n=r=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,l])}}}function o(e,t,n,i){e.style.transition=t+" "+n+"ms "+i}function l(e,t,n){return Math.min(Math.max(e,t),n)}var s=function(e,t){var n=this;this.glareAngle=0,this.glareOpacity=0,this.calculateGlareSize=function(e){var t=e.height,n=Math.sqrt(Math.pow(e.width,2)+Math.pow(t,2));return{width:n,height:n}},this.setSize=function(e){var t=n.calculateGlareSize(e);n.glareEl.style.width=t.width+"px",n.glareEl.style.height=t.height+"px"},this.update=function(e,t,i,r){n.updateAngle(e,t.glareReverse),n.updateOpacity(e,t,i,r)},this.updateAngle=function(e,t){var i=e.xPercentage,r=180/Math.PI,a=i?Math.atan2(e.yPercentage,-i)*r:0;n.glareAngle=a-(t?180:0)},this.updateOpacity=function(e,t,i,r){var a,o=e.xPercentage,s=e.yPercentage,p=t.glareMaxOpacity,c=i?-1:1,u=r?-1:1,g=t.glareReverse?-1:1;switch(t.glarePosition){case"top":a=-o*c*g;break;case"right":a=s*u*g;break;case"bottom":a=o*c*g;break;case"left":a=-s*u*g;break;case"all":a=Math.hypot(o,s);break;default:a=o*c*g}var h=l(a,0,100);n.glareOpacity=h*p/100},this.render=function(e){var t=e.glareColor;n.glareEl.style.transform="rotate("+n.glareAngle+"deg) translate(-50%, -50%)",n.glareEl.style.opacity=n.glareOpacity.toString(),n.glareEl.style.background="linear-gradient(0deg, rgba(255,255,255,0) 0%, "+t+" 100%)"},this.glareWrapperEl=document.createElement("div"),this.glareEl=document.createElement("div"),this.glareWrapperEl.appendChild(this.glareEl),this.glareWrapperEl.className="glare-wrapper",this.glareEl.className="glare";var i={position:"absolute",top:"0",left:"0",width:"100%",height:"100%",overflow:"hidden",borderRadius:t,WebkitMaskImage:"-webkit-radial-gradient(white, black)"},r=this.calculateGlareSize(e),a={position:"absolute",top:"50%",left:"50%",transformOrigin:"0% 0%",pointerEvents:"none",width:r.width+"px",height:r.height+"px"};Object.assign(this.glareWrapperEl.style,i),Object.assign(this.glareEl.style,a)},p=function(){var e=this;this.glareAngle=0,this.glareOpacity=0,this.tiltAngleX=0,this.tiltAngleY=0,this.tiltAngleXPercentage=0,this.tiltAngleYPercentage=0,this.update=function(t,n){e.updateTilt(t,n),e.updateTiltManualInput(t,n),e.updateTiltReverse(n),e.updateTiltLimits(n)},this.updateTilt=function(t,n){var i=t.yPercentage,r=n.tiltMaxAngleY;e.tiltAngleX=t.xPercentage*n.tiltMaxAngleX/100,e.tiltAngleY=i*r/100*-1},this.updateTiltManualInput=function(t,n){var i=n.tiltAngleXManual,r=n.tiltAngleYManual,a=n.tiltMaxAngleX,o=n.tiltMaxAngleY;(null!==i||null!==r)&&(e.tiltAngleX=null!==i?i:0,e.tiltAngleY=null!==r?r:0,t.xPercentage=100*e.tiltAngleX/a,t.yPercentage=100*e.tiltAngleY/o)},this.updateTiltReverse=function(t){var n=t.tiltReverse?-1:1;e.tiltAngleX=n*e.tiltAngleX,e.tiltAngleY=n*e.tiltAngleY},this.updateTiltLimits=function(t){var n=t.tiltAxis;e.tiltAngleX=l(e.tiltAngleX,-90,90),e.tiltAngleY=l(e.tiltAngleY,-90,90),n&&(e.tiltAngleX="x"===n?e.tiltAngleX:0,e.tiltAngleY="y"===n?e.tiltAngleY:0)},this.updateTiltAnglesPercentage=function(t){var n=t.tiltMaxAngleY;e.tiltAngleXPercentage=e.tiltAngleX/t.tiltMaxAngleX*100,e.tiltAngleYPercentage=e.tiltAngleY/n*100},this.render=function(t){t.style.transform+="rotateX("+e.tiltAngleX+"deg) rotateY("+e.tiltAngleY+"deg) "}},c=i(i({scale:1,perspective:1e3,flipVertically:!1,flipHorizontally:!1,reset:!0,transitionEasing:"cubic-bezier(.03,.98,.52,.99)",transitionSpeed:400,trackOnWindow:!1,gyroscope:!1},{tiltEnable:!0,tiltReverse:!1,tiltAngleXInitial:0,tiltAngleYInitial:0,tiltMaxAngleX:20,tiltMaxAngleY:20,tiltAxis:null,tiltAngleXManual:null,tiltAngleYManual:null}),{glareEnable:!1,glareMaxOpacity:.7,glareColor:"#ffffff",glarePosition:"bottom",glareReverse:!1,glareBorderRadius:"0"}),u=function(t){function i(){var e=null!==t&&t.apply(this,arguments)||this;return e.wrapperEl={node:null,size:{width:0,height:0,left:0,top:0},clientPosition:{x:null,y:null,xPercentage:0,yPercentage:0},updateAnimationId:null,scale:1},e.tilt=null,e.glare=null,e.addDeviceOrientationEventListener=function(){return r(e,void 0,void 0,(function(){var e;return a(this,(function(t){switch(t.label){case 0:if(!window.DeviceOrientationEvent&&"development"==="development")return console.warn("Browser doesn't support Device Orientation."),[2];if(!("function"==typeof DeviceMotionEvent.requestPermission))return[3,4];t.label=1;case 1:return t.trys.push([1,3,,4]),[4,DeviceOrientationEvent.requestPermission()];case 2:return"granted"===t.sent()&&window.addEventListener("deviceorientation",this.onMove),[2];case 3:return e=t.sent(),console.error(e),[2];case 4:return window.addEventListener("deviceorientation",this.onMove),[2]}}))}))},e.setSize=function(){e.setWrapperElSize(),e.glare&&e.glare.setSize(e.wrapperEl.size)},e.mainLoop=function(t){null!==e.wrapperEl.updateAnimationId&&cancelAnimationFrame(e.wrapperEl.updateAnimationId),e.processInput(t),e.update(t.type),e.wrapperEl.updateAnimationId=requestAnimationFrame(e.renderFrame)},e.onEnter=function(t){var n=e.props.onEnter;e.setSize(),e.wrapperEl.node.style.willChange="transform",e.setTransitions(),n&&n(t.type)},e.onMove=function(t){e.mainLoop(t),e.emitOnMove(t)},e.onLeave=function(t){var n=e.props.onLeave;if(e.setTransitions(),n&&n(t.type),e.props.reset){var i=new CustomEvent("autoreset");e.onMove(i)}},e.processInput=function(t){var n=e.props.scale;switch(t.type){case"mousemove":e.wrapperEl.clientPosition.x=t.pageX,e.wrapperEl.clientPosition.y=t.pageY,e.wrapperEl.scale=n;break;case"touchmove":e.wrapperEl.clientPosition.x=t.touches[0].pageX,e.wrapperEl.clientPosition.y=t.touches[0].pageY,e.wrapperEl.scale=n;break;case"deviceorientation":e.processInputDeviceOrientation(t),e.wrapperEl.scale=n;break;case"autoreset":var i=e.props,r=i.tiltAngleYInitial/i.tiltMaxAngleY*100;e.wrapperEl.clientPosition.xPercentage=l(i.tiltAngleXInitial/i.tiltMaxAngleX*100,-100,100),e.wrapperEl.clientPosition.yPercentage=l(r,-100,100),e.wrapperEl.scale=1}},e.processInputDeviceOrientation=function(t){if(t.gamma&&t.beta&&e.props.gyroscope){var n=e.props,i=n.tiltMaxAngleY,r=t.gamma;e.wrapperEl.clientPosition.xPercentage=t.beta/n.tiltMaxAngleX*100,e.wrapperEl.clientPosition.yPercentage=r/i*100,e.wrapperEl.clientPosition.xPercentage=l(e.wrapperEl.clientPosition.xPercentage,-100,100),e.wrapperEl.clientPosition.yPercentage=l(e.wrapperEl.clientPosition.yPercentage,-100,100)}},e.update=function(t){var n=e.props,i=n.tiltEnable,r=n.flipVertically,a=n.flipHorizontally;"autoreset"!==t&&"deviceorientation"!==t&&"propChanged"!==t&&e.updateClientInput(),i&&e.tilt.update(e.wrapperEl.clientPosition,e.props),e.updateFlip(),e.tilt.updateTiltAnglesPercentage(e.props),e.glare&&e.glare.update(e.wrapperEl.clientPosition,e.props,r,a)},e.updateClientInput=function(){var t,n;if(e.props.trackOnWindow){var i=e.wrapperEl.clientPosition,r=i.x;t=i.y/window.innerHeight*200-100,n=r/window.innerWidth*200-100}else{var a=e.wrapperEl,o=a.size,s=a.clientPosition;t=(s.y-o.top)/o.height*200-100,n=((r=s.x)-o.left)/o.width*200-100}e.wrapperEl.clientPosition.xPercentage=l(t,-100,100),e.wrapperEl.clientPosition.yPercentage=l(n,-100,100)},e.updateFlip=function(){var t=e.props,n=t.flipHorizontally;t.flipVertically&&(e.tilt.tiltAngleX+=180,e.tilt.tiltAngleY*=-1),n&&(e.tilt.tiltAngleY+=180)},e.renderFrame=function(){e.resetWrapperElTransform(),e.renderPerspective(),e.tilt.render(e.wrapperEl.node),e.renderScale(),e.glare&&e.glare.render(e.props)},e}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Class extends value "+String(t)+" is not a constructor or null");function i(){this.constructor=e}n(e,t),e.prototype=null===t?Object.create(t):(i.prototype=t.prototype,new i)}(i,t),i.prototype.componentDidMount=function(){this.tilt=new p,this.initGlare(),this.addEventListeners();var e=new CustomEvent("autoreset");this.mainLoop(e);var t=new CustomEvent("initial");this.emitOnMove(t)},i.prototype.componentWillUnmount=function(){null!==this.wrapperEl.updateAnimationId&&cancelAnimationFrame(this.wrapperEl.updateAnimationId),this.removeEventListeners()},i.prototype.componentDidUpdate=function(){var e=new CustomEvent("propChanged");this.mainLoop(e)},i.prototype.addEventListeners=function(){var e=this.props,t=e.trackOnWindow,n=e.gyroscope;window.addEventListener("resize",this.setSize),t&&(window.addEventListener("mouseenter",this.onEnter),window.addEventListener("mousemove",this.onMove),window.addEventListener("mouseout",this.onLeave),window.addEventListener("touchstart",this.onEnter),window.addEventListener("touchmove",this.onMove),window.addEventListener("touchend",this.onLeave)),n&&this.addDeviceOrientationEventListener()},i.prototype.removeEventListeners=function(){var e=this.props,t=e.trackOnWindow,n=e.gyroscope;window.removeEventListener("resize",this.setSize),t&&(window.removeEventListener("mouseenter",this.onEnter),window.removeEventListener("mousemove",this.onMove),window.removeEventListener("mouseout",this.onLeave),window.removeEventListener("touchstart",this.onEnter),window.removeEventListener("touchmove",this.onMove),window.removeEventListener("touchend",this.onLeave)),n&&window.DeviceOrientationEvent&&window.removeEventListener("deviceorientation",this.onMove)},i.prototype.setWrapperElSize=function(){var e=this.wrapperEl.node.getBoundingClientRect();this.wrapperEl.size.width=this.wrapperEl.node.offsetWidth,this.wrapperEl.size.height=this.wrapperEl.node.offsetHeight,this.wrapperEl.size.left=e.left+window.scrollX,this.wrapperEl.size.top=e.top+window.scrollY},i.prototype.initGlare=function(){var e=this.props;e.glareEnable&&(this.glare=new s(this.wrapperEl.size,e.glareBorderRadius),this.wrapperEl.node.appendChild(this.glare.glareWrapperEl))},i.prototype.emitOnMove=function(e){var t=this.props.onMove;if(t){var n=0,i=0;this.glare&&(n=this.glare.glareAngle,i=this.glare.glareOpacity),t(this.tilt.tiltAngleX,this.tilt.tiltAngleY,this.tilt.tiltAngleXPercentage,this.tilt.tiltAngleYPercentage,n,i,e.type)}},i.prototype.resetWrapperElTransform=function(){this.wrapperEl.node.style.transform=""},i.prototype.renderPerspective=function(){this.wrapperEl.node.style.transform+="perspective("+this.props.perspective+"px) "},i.prototype.renderScale=function(){var e=this.wrapperEl.scale;this.wrapperEl.node.style.transform+="scale3d("+e+","+e+","+e+")"},i.prototype.setTransitions=function(){var e=this.props,t=e.transitionSpeed,n=e.transitionEasing;o(this.wrapperEl.node,"all",t,n),this.glare&&o(this.glare.glareEl,"opacity",t,n)},i.prototype.render=function(){var t=this,n=this.props;return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div",{ref:function(e){return t.wrapperEl.node=e},onMouseEnter:this.onEnter,onMouseMove:this.onMove,onMouseLeave:this.onLeave,onTouchStart:this.onEnter,onTouchMove:this.onMove,onTouchEnd:this.onLeave,className:n.className,style:n.style},n.children)},i.defaultProps=c,i}(react__WEBPACK_IMPORTED_MODULE_0__["PureComponent"]);/* harmony default export */ __webpack_exports__["default"] = (u);
+//# sourceMappingURL=react-parallax-tilt.es5.js.map
 
 
 /***/ }),
@@ -37616,10 +38332,10 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/layouts/pricing.js":
-/*!**********************************!*\
-  !*** ./pages/layouts/pricing.js ***!
-  \**********************************/
+/***/ "./pages/index.js":
+/*!************************!*\
+  !*** ./pages/index.js ***!
+  \************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37629,11 +38345,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "./node_modules/next/dist/next-server/lib/head.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _containers_common_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../containers/common/header */ "./containers/common/header.js");
-/* harmony import */ var _sections_agency_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sections/agency/footer */ "./pages/layouts/sections/agency/footer.js");
-/* harmony import */ var _sections_agency_pricing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sections/agency/pricing */ "./pages/layouts/sections/agency/pricing.js");
+/* harmony import */ var _containers_common_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../containers/common/header */ "./containers/common/header.js");
+/* harmony import */ var _pages_layouts_sections_agency_banner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/layouts/sections/agency/banner */ "./pages/layouts/sections/agency/banner.js");
+/* harmony import */ var _layouts_sections_agency_business__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./layouts/sections/agency/business */ "./pages/layouts/sections/agency/business.js");
+/* harmony import */ var _pages_layouts_sections_agency_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/layouts/sections/agency/service */ "./pages/layouts/sections/agency/service.js");
+/* harmony import */ var _pages_layouts_sections_agency_testimonial__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/layouts/sections/agency/testimonial */ "./pages/layouts/sections/agency/testimonial.js");
+/* harmony import */ var _pages_layouts_sections_agency_footer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/layouts/sections/agency/footer */ "./pages/layouts/sections/agency/footer.js");
+/* harmony import */ var _layouts_sections_agency_schedule__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./layouts/sections/agency/schedule */ "./pages/layouts/sections/agency/schedule.js");
 var _this = undefined,
-    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\pricing.js";
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -37643,36 +38363,54 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-var PricingScreen = function PricingScreen() {
+
+
+
+
+var Agency = function Agency() {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    document.body.style.setProperty("--primary", "#10266b");
+    document.body.style.setProperty("--secondary", "#464545");
+    document.body.style.setProperty("--light", "#1F357D");
+    document.body.style.setProperty("--dark", "#04185B");
+  }, []);
   return __jsx("div", {
     className: "theme-color",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
-      columnNumber: 3
+      lineNumber: 21,
+      columnNumber: 5
     }
   }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 22,
       columnNumber: 7
     }
   }, __jsx("title", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 23,
       columnNumber: 9
     }
   }, "Library Management "), __jsx("meta", {
-    name: "Category Layout",
+    name: "Agency Layout",
     content: "",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 24,
+      columnNumber: 9
+    }
+  }), __jsx("script", {
+    src: "https://js.stripe.com/v3/",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
       columnNumber: 9
     }
   })), __jsx(_containers_common_header__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -37680,20 +38418,423 @@ var PricingScreen = function PricingScreen() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 28,
       columnNumber: 7
     }
-  }), __jsx(_sections_agency_pricing__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), __jsx(_pages_layouts_sections_agency_banner__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 30,
+      columnNumber: 7
+    }
+  }), __jsx(_layouts_sections_agency_business__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
+      columnNumber: 7
+    }
+  }), __jsx(_layouts_sections_agency_schedule__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 7
+    }
+  }), __jsx(_pages_layouts_sections_agency_service__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36,
+      columnNumber: 7
+    }
+  }), __jsx(_pages_layouts_sections_agency_testimonial__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 7
+    }
+  }), __jsx(_pages_layouts_sections_agency_footer__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
       columnNumber: 7
     }
   }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (PricingScreen);
+/* harmony default export */ __webpack_exports__["default"] = (Agency);
+
+/***/ }),
+
+/***/ "./pages/layouts/sections/agency/banner.js":
+/*!*************************************************!*\
+  !*** ./pages/layouts/sections/agency/banner.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_parallax_tilt__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-parallax-tilt */ "./node_modules/react-parallax-tilt/dist/react-parallax-tilt.es5.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _constant_api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../constant/api */ "./constant/api.js");
+
+
+var _this = undefined,
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\sections\\agency\\banner.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+
+
+
+
+
+
+var Banner = function Banner() {
+  var startFreePlan = function startFreePlan() {
+    debugger;
+
+    if (localStorage.getItem("hoarTemplatetoken") != "" && localStorage.getItem("hoarTemplatetoken") != null) {
+      if (localStorage.getItem("userInfo")) {
+        if (JSON.parse(localStorage.getItem("userInfo")).plan !== "") {
+          next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/category");
+        } else {
+          var formData = new FormData();
+          formData.append("token", localStorage.getItem("hoarTemplatetoken"));
+          formData.append("plan", "TR");
+          axios__WEBPACK_IMPORTED_MODULE_4___default()({
+            method: "post",
+            url: _constant_api__WEBPACK_IMPORTED_MODULE_8__["default"] + "payment/save_stripe_info/",
+            data: formData
+          }).then(function (response) {
+            if (response.data.status === 1) {
+              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success(response.data.message);
+              var x = JSON.parse(localStorage.getItem("userInfo"));
+              x["plan"] = "TR";
+              localStorage.setItem("userInfo", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(x));
+              next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/category");
+            } else {
+              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].error(response.data.message);
+            }
+          })["catch"](function (error) {
+            console.log(error);
+          });
+        }
+      } else {
+        next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
+      }
+    } else {
+      next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
+    }
+  };
+
+  return __jsx("section", {
+    className: "agency header",
+    id: "header",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "agency bg",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 7
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
+      columnNumber: 9
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 11
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+    md: "12",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "center-text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 15
+    }
+  }, __jsx("div", {
+    className: "text-center w-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "header-text text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 19
+    }
+  }, __jsx("h1", {
+    className: "text-uppercase",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60,
+      columnNumber: 21
+    }
+  }, __jsx("span", {
+    className: "bold-text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 23
+    }
+  }, "CLEAR. CONCISE. ENFORCEABLE."), " ")), __jsx("div", {
+    className: "header-sub-text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66,
+      columnNumber: 19
+    }
+  }, __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 21
+    }
+  }, "A COMPLETE SET OF CUSTOMIZED RULES AND ARCHITECTURAL GUIDELINES FOR YOUR COMMUNITY IN JUST A FEW HOURS")), __jsx("div", {
+    className: "link-horizontal",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 19
+    }
+  }, __jsx("a", {
+    onClick: startFreePlan,
+    className: "btn btn-default btn-gradient text-white active",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 21
+    }
+  }, "GIVE IT A TRY BEFORE YOU BUY!", __jsx("br", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81,
+      columnNumber: 23
+    }
+  }), "REGISTER AND CREATE A 4 RULE SAMPLE DOCUMENT")))))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Banner);
+
+/***/ }),
+
+/***/ "./pages/layouts/sections/agency/business.js":
+/*!***************************************************!*\
+  !*** ./pages/layouts/sections/agency/business.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_parallax_tilt__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-parallax-tilt */ "./node_modules/react-parallax-tilt/dist/react-parallax-tilt.es5.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+var _this = undefined,
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\sections\\agency\\business.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+var Business = function Business() {
+  return __jsx("section", {
+    className: "saas2 bg-gradient quick-sol",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 3
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+    className: "set-center-div",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "offers-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 7
+    }
+  }, __jsx("h3", {
+    className: "text-white offer-heading-text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 9
+    }
+  }, " ", "Community Chaos -to- Community Clarity")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 7
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+    lg: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "offers-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    className: "offers-content mt-5",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "d-flex",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 15
+    }
+  }, __jsx("i", {
+    "aria-hidden": "true",
+    className: "fa fa-check-circle",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 17
+    }
+  }), __jsx("div", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 17
+    }
+  }, __jsx("h4", {
+    className: "offer-main-text text-white",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 19
+    }
+  }, "Clear & Concise"), __jsx("p", {
+    className: "offer-sub-text text-white",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 19
+    }
+  }, "You need rules that are clear, concise, enforceable, and fair for your community. Every community is different so those rules won't always look the same. This is why the Board of Directors spends months trying to create a document that works for both the community as well as the individual residents. Our HOA Rules Template gives you a hall pass out of those long meetings and a shortcut to clarity.")))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+    lg: "6",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "center-text side-img",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 11
+    }
+  }, __jsx(react_parallax_tilt__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    perspective: "20000",
+    transitionSpeed: "3000",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 13
+    }
+  }, __jsx("img", {
+    alt: "",
+    className: "img-fluid",
+    src: "/assets/images/saas2/we-offer/img.png",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 15
+    }
+  })))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Business);
 
 /***/ }),
 
@@ -38031,39 +39172,433 @@ var Footer = function Footer() {
 
 /***/ }),
 
-/***/ "./pages/layouts/sections/agency/pricing.js":
+/***/ "./pages/layouts/sections/agency/schedule.js":
+/*!***************************************************!*\
+  !*** ./pages/layouts/sections/agency/schedule.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _database_layouts_agency_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../database/layouts/agency/database */ "./database/layouts/agency/database.js");
+/* harmony import */ var _database_layouts_agency_database__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_database_layouts_agency_database__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+var _this = undefined,
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\sections\\agency\\schedule.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+var Schedule = function Schedule() {
+  return __jsx("section", {
+    className: "resume schedule",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 3
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "title title2",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 7
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 9
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+    md: "8",
+    className: " offset-md-2",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, __jsx("h2", {
+    className: "font-primary borders main-text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 13
+    }
+  }, __jsx("span", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 15
+    }
+  }, "Features"))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 7
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+    xs: "12",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "event-container scrollbar",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 13
+    }
+  }, _database_layouts_agency_database__WEBPACK_IMPORTED_MODULE_1__["ScheduleData"].map(function (item, i) {
+    return __jsx("div", {
+      className: "cal-time events",
+      key: i,
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22,
+        columnNumber: 19
+      }
+    }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 21
+      }
+    }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+      md: "12",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24,
+        columnNumber: 23
+      }
+    }, __jsx("div", {
+      className: "schedule-event",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 25
+      }
+    }, __jsx("h4", {
+      className: "names",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 27
+      }
+    }, item.name), __jsx("p", {
+      className: "schedule-description",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 27
+      }
+    }, item.desc), __jsx("br", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30,
+        columnNumber: 27
+      }
+    }), __jsx("p", {
+      className: "schedule-description",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31,
+        columnNumber: 27
+      }
+    }, item.desc2)))));
+  })))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Schedule);
+
+/***/ }),
+
+/***/ "./pages/layouts/sections/agency/service.js":
 /*!**************************************************!*\
-  !*** ./pages/layouts/sections/agency/pricing.js ***!
+  !*** ./pages/layouts/sections/agency/service.js ***!
   \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+var _this = undefined,
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\sections\\agency\\service.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+var Service = function Service() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      modal = _useState[0],
+      setModal = _useState[1];
+
+  var toggle = function toggle() {
+    setModal(!modal);
+  };
+
+  return __jsx("section", {
+    className: " videos bg-theme video-sec agency format service-bg",
+    id: "features",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 5
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 7
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 9
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    md: "6",
+    sm: "12",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    className: "center-content",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "video w-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 15
+    }
+  }, __jsx("a", {
+    className: "button center-content",
+    onClick: toggle,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 17
+    }
+  }, __jsx("img", {
+    alt: "video",
+    className: "img-fluid",
+    src: "/assets/images/app_landing1/playl-1.png",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 19
+    }
+  }))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"], {
+    isOpen: modal,
+    toggle: toggle,
+    centered: true,
+    size: "lg",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 15
+    }
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["ModalHeader"], {
+    toggle: toggle,
+    className: "modal-no-header close-up",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 17
+    }
+  }), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["ModalBody"], {
+    className: "iframe-modal",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 17
+    }
+  }, __jsx("iframe", {
+    className: "mfp-iframe",
+    frameborder: "0",
+    allowfullscreen: "",
+    src: "//www.youtube.com/embed/dNIfsv1rKJo?autoplay=1",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 19
+    }
+  }))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+    lg: "5",
+    md: "6",
+    sm: "12",
+    className: "offset-lg-1 counters video-description",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    className: "center-text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "format-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "format-head-text",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 19
+    }
+  }, __jsx("h2", {
+    className: "about-font-header",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 21
+    }
+  }, __jsx("span", {
+    "class": "underlined text-white",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 21
+    }
+  }, "BOARD MEMBERS"), __jsx("br", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 77
+    }
+  }), __jsx("span", {
+    "class": "underlined text-white blue-underline",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 21
+    }
+  }, "SPEAK OUT ON"), __jsx("br", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 91
+    }
+  }), __jsx("span", {
+    "class": "underlined text-white",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 21
+    }
+  }, "THE PROCESS")))))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Service);
+
+/***/ }),
+
+/***/ "./pages/layouts/sections/agency/testimonial.js":
+/*!******************************************************!*\
+  !*** ./pages/layouts/sections/agency/testimonial.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
 /* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_slick__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _constant_api__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../constant/api */ "./constant/api.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _database_layouts_agency_database__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../database/layouts/agency/database */ "./database/layouts/agency/database.js");
+/* harmony import */ var _database_layouts_agency_database__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_database_layouts_agency_database__WEBPACK_IMPORTED_MODULE_5__);
 
 
 var _this = undefined,
-    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\sections\\agency\\pricing.js";
+    _jsxFileName = "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\pages\\layouts\\sections\\agency\\testimonial.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
-
-
-
 
 
 
@@ -38072,755 +39607,217 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 var settings = {
   dots: false,
   infinite: true,
-  autoplay: true,
   speed: 500,
-  arrows: false,
+  arrows: true,
   slidesToShow: 3,
   slidesToScroll: 1,
+  autoplay: false,
   responsive: [{
     breakpoint: 575,
     settings: {
-      slidesToShow: 1
+      slidesToShow: 1,
+      arrows: false
     }
   }, {
     breakpoint: 992,
     settings: {
-      slidesToShow: 2
+      slidesToShow: 2,
+      arrows: false
     }
   }]
 };
 
-var Pricing = function Pricing() {
-  var startFreePlan = function startFreePlan() {
-    if (localStorage.getItem("hoarTemplatetoken") != "" && localStorage.getItem("hoarTemplatetoken") != null) {
-      if (localStorage.getItem("userInfo")) {
-        if (JSON.parse(localStorage.getItem("userInfo")).plan !== "") {
-          next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/category");
-        } else {
-          var formData = new FormData();
-          formData.append("token", localStorage.getItem("hoarTemplatetoken"));
-          formData.append("plan", "TR");
-          axios__WEBPACK_IMPORTED_MODULE_4___default()({
-            method: "post",
-            url: _constant_api__WEBPACK_IMPORTED_MODULE_8__["default"] + "payment/save_stripe_info/",
-            data: formData
-          }).then(function (response) {
-            if (response.data.status === 1) {
-              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success(response.data.message);
-              var x = JSON.parse(localStorage.getItem("userInfo"));
-              x["plan"] = "TR";
-              localStorage.setItem("userInfo", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(x));
-              next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/category");
-            } else {
-              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].error(response.data.message);
-            }
-          })["catch"](function (error) {
-            console.log(error);
-          });
-        }
-      } else {
-        next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
-      }
-    } else {
-      next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
-    }
-  };
-
-  var planSu = function planSu() {
-    if (localStorage.getItem("hoarTemplatetoken") != "" && localStorage.getItem("hoarTemplatetoken") != null) {
-      if (localStorage.getItem("userInfo")) {
-        if (JSON.parse(localStorage.getItem("userInfo")).plan) {
-          if (JSON.parse(localStorage.getItem("userInfo")).plan != "TR") {
-            react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("You already have an active plan.");
-            next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/");
-          } else {
-            localStorage.setItem("requestedPlan", "SU");
-            next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/app");
-          }
-        } else {
-          localStorage.setItem("requestedPlan", "SU");
-          next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/app");
-        }
-      } else {
-        next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
-      }
-    } else {
-      next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
-    }
-  };
-
-  var planCu = function planCu() {
-    if (localStorage.getItem("hoarTemplatetoken") != "" && localStorage.getItem("hoarTemplatetoken") != null) {
-      if (localStorage.getItem("userInfo")) {
-        if (JSON.parse(localStorage.getItem("userInfo")).plan) {
-          if (JSON.parse(localStorage.getItem("userInfo")).plan != "TR") {
-            react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("You already have an active plan.");
-            next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/");
-          } else {
-            localStorage.setItem("requestedPlan", "CU");
-            next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/app");
-          }
-        } else {
-          localStorage.setItem("requestedPlan", "CU");
-          next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/app");
-        }
-      } else {
-        next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
-      }
-    } else {
-      next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
-    }
-  };
-
-  var planSuInvoice = function planSuInvoice() {
-    if (localStorage.getItem("hoarTemplatetoken") != "" && localStorage.getItem("hoarTemplatetoken") != null) {
-      if (localStorage.getItem("userInfo")) {
-        if (JSON.parse(localStorage.getItem("userInfo")).plan === "SU") {
-          react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("You already have an active Single User plan.");
-          next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/");
-        } else {
-          localStorage.setItem("requestedInvoicePlan", "SU");
-          next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/paymentPage");
-        }
-      } else {
-        next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
-      }
-    } else {
-      next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
-    }
-  };
-
-  var planCuInvoice = function planCuInvoice() {
-    if (localStorage.getItem("hoarTemplatetoken") != "" && localStorage.getItem("hoarTemplatetoken") != null) {
-      if (localStorage.getItem("userInfo")) {
-        if (JSON.parse(localStorage.getItem("userInfo")).plan === "CU") {
-          react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success("You already have an active plan.");
-          next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/");
-        } else {
-          localStorage.setItem("requestedInvoicePlan", "CU");
-          next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/paymentPage");
-        }
-      } else {
-        next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
-      }
-    } else {
-      next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push("/layouts/signUp");
-    }
-  };
-
+var Testimonial = function Testimonial() {
   return __jsx("section", {
-    className: "agency pricing price-bg",
-    id: "plan",
+    className: "agency testimonial format testimonial-bg",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 161,
-      columnNumber: 5
+      lineNumber: 34,
+      columnNumber: 3
     }
   }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 162,
-      columnNumber: 7
+      lineNumber: 35,
+      columnNumber: 5
     }
   }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
-    style: {
-      flexWrap: "nowrap"
-    },
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163,
-      columnNumber: 9
+      lineNumber: 36,
+      columnNumber: 7
     }
   }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-    sm: "12",
-    md: "4",
-    className: "mt-1 pricing_crr",
+    md: "6",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 164,
+      lineNumber: 37,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "format-container m-b-50",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
       columnNumber: 11
     }
-  }, __jsx(react_slick__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    className: "owl-carousel owl-theme pricing-slider price-margin",
+  }, __jsx("div", {
+    className: "format-head-text",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 165,
+      lineNumber: 42,
       columnNumber: 13
     }
-  }, __jsx("div", {
-    className: "item",
+  }, __jsx("h2", {
+    className: " text-white",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 166,
+      lineNumber: 43,
       columnNumber: 15
     }
-  }, __jsx("div", {
-    className: "price-container",
-    style: {
-      textAlign: "center"
-    },
+  }, " ", "Three Simple Steps to Create Your Document", " "))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167,
-      columnNumber: 17
+      lineNumber: 51,
+      columnNumber: 7
     }
-  }, __jsx("div", {
-    className: "price-feature-container mb-3",
+  }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+    xs: "12",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 171,
-      columnNumber: 19
+      lineNumber: 52,
+      columnNumber: 9
     }
-  }, __jsx("div", {
-    className: "feature-text",
+  }, __jsx(react_slick__WEBPACK_IMPORTED_MODULE_2___default.a, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: "owl-carousel owl-theme testimonial-slider justify-content-center"
+  }, settings, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 172,
-      columnNumber: 21
-    }
-  }, __jsx("span", {
-    className: "flaticon-rocket-ship feature-icon",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 173,
-      columnNumber: 23
-    }
-  }), __jsx("h3", {
-    className: "",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 174,
-      columnNumber: 23
-    }
-  }, "FREE"), __jsx("hr", {
-    className: "set-border",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 175,
-      columnNumber: 23
-    }
-  })), __jsx("div", {
-    className: "price-features font-primary",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 177,
-      columnNumber: 21
-    }
-  }, __jsx("h3", {
-    className: "price-feature",
-    style: {
-      paddingLeft: 15,
-      paddingRight: 15
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 178,
-      columnNumber: 23
-    }
-  }, "Take Us For A Test Spin!"), __jsx("h4", {
-    className: "price-feature",
-    style: {
-      paddingLeft: 15,
-      paddingRight: 15
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 184,
-      columnNumber: 23
-    }
-  }, "Create Your Own 4-Rule Document With Two Architectural Guidelines & Standards and Two Rules & Regulations From Our Master Library and See Just How Quick and Easy It Can Be!!")), __jsx("div", {
-    className: "price-value",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 194,
-      columnNumber: 21
-    }
-  }, __jsx("h6", {
-    className: "price",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 195,
-      columnNumber: 23
-    }
-  }, __jsx("span", {
-    style: {
-      position: "relative",
-      top: "-25px"
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 196,
-      columnNumber: 25
-    }
-  }, "$"), __jsx("span", {
-    className: "large",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 199,
-      columnNumber: 25
-    }
-  }, "0"), "/month")), __jsx("br", {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 202,
-      columnNumber: 21
-    }
-  }), __jsx("button", {
-    className: "btn btn-default btn-white",
-    onClick: startFreePlan,
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 203,
-      columnNumber: 21
-    }
-  }, "Try for Free")), __jsx("br", {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 210,
-      columnNumber: 19
-    }
-  }), __jsx("br", {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 211,
-      columnNumber: 19
-    }
-  }))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-    sm: "12",
-    md: "4",
-    className: "mt-1 pricing_crr",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 216,
+      lineNumber: 53,
       columnNumber: 11
     }
-  }, __jsx(react_slick__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    className: "owl-carousel owl-theme pricing-slider price-margin",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 217,
-      columnNumber: 13
-    }
-  }, __jsx("div", {
-    className: "item",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 218,
-      columnNumber: 15
-    }
-  }, __jsx("div", {
-    className: "price-container",
-    style: {
-      textAlign: "center"
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 219,
-      columnNumber: 17
-    }
-  }, __jsx("div", {
-    className: "price-feature-container mb-2",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 223,
-      columnNumber: 19
-    }
-  }, __jsx("div", {
-    className: "feature-text",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 224,
-      columnNumber: 21
-    }
-  }, __jsx("span", {
-    className: "flaticon-rocket-ship feature-icon",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 225,
-      columnNumber: 23
-    }
-  }), __jsx("h3", {
-    className: "",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 226,
-      columnNumber: 23
-    }
-  }, "SINGLE USER"), __jsx("hr", {
-    className: "set-border",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 227,
-      columnNumber: 23
-    }
-  })), __jsx("div", {
-    className: "price-features font-primary",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 229,
-      columnNumber: 21
-    }
-  }, __jsx("h3", {
-    className: "price-feature",
-    style: {
-      paddingLeft: 15,
-      paddingRight: 15
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 230,
-      columnNumber: 23
-    }
-  }, "Annual Membership", " "), __jsx("h4", {
-    className: "price-feature",
-    style: {
-      paddingLeft: 15,
-      paddingRight: 15
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 236,
-      columnNumber: 23
-    }
-  }, "A Single User Can Create, Modify, and Amend Your Architectural Guidelines & Standards and Your Rules & Regulations Keeping Them Updated and Current For the Next Twelve Months!")), __jsx("div", {
-    className: "price-value",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 246,
-      columnNumber: 21
-    }
-  }, __jsx("h6", {
-    className: "price",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 247,
-      columnNumber: 23
-    }
-  }, __jsx("span", {
-    style: {
-      position: "relative",
-      top: "-25px"
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 248,
-      columnNumber: 25
-    }
-  }, "$"), __jsx("span", {
-    className: "large",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 251,
-      columnNumber: 25
-    }
-  }, "319"), "/First Year"), __jsx("br", {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 254,
-      columnNumber: 23
-    }
-  }), __jsx("p", {
-    style: {
-      fontSize: 15
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 255,
-      columnNumber: 23
-    }
-  }, "* Renewals are just $79.00 per year")), __jsx("button", {
-    className: "btn btn-default btn-white",
-    onClick: planSu,
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 260,
-      columnNumber: 21
-    }
-  }, "purchase"), __jsx("div", {
-    className: "mt-2",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 266,
-      columnNumber: 21
-    }
-  }, __jsx("p", {
-    style: {
-      fontSize: 15
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 267,
-      columnNumber: 23
-    }
-  }, "(", __jsx("a", {
-    style: {
-      marginTop: 20,
-      fontSize: 15,
-      color: "#203475"
-    },
-    onClick: planSuInvoice,
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 269,
-      columnNumber: 25
-    }
-  }, "Invoice"), " ", "My Association)"))))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-    sm: "12",
-    md: "4",
-    className: "mt-1 pricing_crr",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 287,
-      columnNumber: 11
-    }
-  }, __jsx(react_slick__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    className: "owl-carousel owl-theme pricing-slider price-margin",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 288,
-      columnNumber: 13
-    }
-  }, __jsx("div", {
-    className: "item",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 289,
-      columnNumber: 15
-    }
-  }, __jsx("div", {
-    className: "price-container",
-    style: {
-      textAlign: "center"
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 290,
-      columnNumber: 17
-    }
-  }, __jsx("div", {
-    className: "price-feature-container",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 296,
-      columnNumber: 19
-    }
-  }, __jsx("div", {
-    className: "feature-text",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 297,
-      columnNumber: 21
-    }
-  }, __jsx("span", {
-    className: "flaticon-rocket-ship feature-icon",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 298,
-      columnNumber: 23
-    }
-  }), __jsx("h3", {
-    className: "",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 299,
-      columnNumber: 23
-    }
-  }, "COMMITTEE"), __jsx("hr", {
-    className: "set-border",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 300,
-      columnNumber: 23
-    }
-  })), __jsx("div", {
-    className: "price-features font-primary",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 302,
-      columnNumber: 21
-    }
-  }, __jsx("h3", {
-    className: "price-feature",
-    style: {
-      paddingLeft: 15,
-      paddingRight: 15
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 303,
-      columnNumber: 23
-    }
-  }, "Up To Six Users"), __jsx("h4", {
-    className: "price-feature",
-    style: {
-      paddingLeft: 15,
-      paddingRight: 15
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 309,
-      columnNumber: 23
-    }
-  }, "Up To Six Users Can Create, Modify, and Amend Your Architectural Guidelines & Standards and Your Rules & Regulations Keeping Them Current For The Next Twelve", " ", __jsx("br", {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 316,
-      columnNumber: 25
-    }
-  }), "Months!!!")), __jsx("div", {
-    className: "price-value",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 319,
-      columnNumber: 21
-    }
-  }, __jsx("h6", {
-    className: "price",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 320,
-      columnNumber: 23
-    }
-  }, __jsx("span", {
-    style: {
-      position: "relative",
-      top: "-25px"
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 321,
-      columnNumber: 25
-    }
-  }, "$"), __jsx("span", {
-    className: "large",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 324,
-      columnNumber: 25
-    }
-  }, "349"), "/First Year"), __jsx("br", {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 326,
-      columnNumber: 23
-    }
-  }), __jsx("p", {
-    style: {
-      fontSize: 15
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 327,
-      columnNumber: 23
-    }
-  }, "* Renewals are just $99.00 per year")), __jsx("button", {
-    className: "btn btn-default btn-white",
-    onClick: planCu,
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 332,
-      columnNumber: 21
-    }
-  }, "purchase"), __jsx("div", {
-    className: "mt-2 mb-1",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 338,
-      columnNumber: 21
-    }
-  }, __jsx("p", {
-    style: {
-      fontSize: 15
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 339,
-      columnNumber: 23
-    }
-  }, "(", __jsx("a", {
-    style: {
-      marginTop: 20,
-      fontSize: 15,
-      color: "#203475"
-    },
-    onClick: planCuInvoice,
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 341,
-      columnNumber: 25
-    }
-  }, "Invoice"), " ", "My Association)"))))))))));
+  }), _database_layouts_agency_database__WEBPACK_IMPORTED_MODULE_5__["TestimonialData"].length > 0 ? _database_layouts_agency_database__WEBPACK_IMPORTED_MODULE_5__["TestimonialData"].map(function (item, index) {
+    return __jsx("div", {
+      className: "item",
+      key: "testimonial-".concat(index),
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 59,
+        columnNumber: 19
+      }
+    }, __jsx("div", {
+      className: "testimonial-container testimonial-container2 m-0",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 60,
+        columnNumber: 21
+      }
+    }, __jsx("div", {
+      className: "d-flex justify-content-center",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 61,
+        columnNumber: 23
+      }
+    }, __jsx("span", {
+      className: "circle",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 62,
+        columnNumber: 25
+      }
+    }, item.number), __jsx("div", {
+      className: "center-content",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 63,
+        columnNumber: 25
+      }
+    }, __jsx("h6", {
+      className: "name",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 64,
+        columnNumber: 27
+      }
+    }, item.name), __jsx("h6", {
+      className: "post font-primary",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 65,
+        columnNumber: 27
+      }
+    }, item.role))), __jsx("div", {
+      className: "testimonial-info",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 68,
+        columnNumber: 23
+      }
+    }, __jsx("p", {
+      className: "m-b-20 para2",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 69,
+        columnNumber: 25
+      }
+    }, item.details, __jsx("div", {
+      className: "link-horizontal",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 71,
+        columnNumber: 27
+      }
+    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      href: "/layouts/signUp",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 72,
+        columnNumber: 29
+      }
+    }, __jsx("a", {
+      className: "btn btn-default btn-gradient text-white active",
+      href: "",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 73,
+        columnNumber: 31
+      }
+    }, "Register")))), __jsx("div", {
+      className: "primary-border",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 83,
+        columnNumber: 25
+      }
+    }))));
+  }) : "No Testimonial Found")))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Pricing);
+/* harmony default export */ __webpack_exports__["default"] = (Testimonial);
 
 /***/ }),
 
@@ -39160,14 +40157,14 @@ var getUserType = function getUserType() {
 
 /***/ }),
 
-/***/ 14:
-/*!***************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js ***!
-  \***************************************************************************************************************************************************************/
+/***/ 8:
+/*!**********************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Cindex.js ***!
+  \**********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Cindex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Cindex.js!./");
 
 
 /***/ }),
@@ -39183,5 +40180,5 @@ module.exports = dll_b0ae7f9d5a2cb9eeeb96;
 
 /***/ })
 
-},[[14,"static/runtime/webpack.js","styles"]]]);
-//# sourceMappingURL=pricing.js.map
+},[[8,"static/runtime/webpack.js","styles"]]]);
+//# sourceMappingURL=index.js.map
