@@ -64,5 +64,5 @@ if(settings.DEBUG):
         os.path.join(BASE_DIR, 'frontend'), 'out', '_next'))
     urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+#     urlpatterns += static(settings.MEDIA_URL,
+#                           document_root=settings.MEDIA_ROOT)
