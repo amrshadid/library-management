@@ -5233,7 +5233,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      (0, _sourceMapSupport.rewriteStacktrace)(error, "/home/addyson/Documents/masterlibrary/frontend/.next");
+      (0, _sourceMapSupport.rewriteStacktrace)(error, "C:\\Users\\Shadid\\Desktop\\hoa-frontend\\.next");
       return error;
     }
   };

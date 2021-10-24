@@ -106,17 +106,20 @@ WSGI_APPLICATION = 'master_library.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hoarule1_master_db',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306'
+     'default': {
+        # 'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'd8510v14h59ukm',
+        # 'USER': 'sclvydndrbiget',
+        # 'PASSWORD': '70391332d496b043fd6c85ddf84393af263c6201e6675e3389cebb35efc92e05',
+        # 'HOST': 'ec2-3-215-137-131.compute-1.amazonaws.com',
+        # 'PORT': '5432'
     }
 }
 
-DATABASES['default'] = dj_database_url.parse()
+DATABASES['default'] = dj_database_url.parse('postgres://sclvydndrbiget:70391332d496b043fd6c85ddf84393af263c6201e6675e3389cebb35efc92e05@ec2-3-215-137-131.compute-1.amazonaws.com:5432/d8510v14h59ukm')
+
+
 #hoarule1_admin
 #Rick@12345#
 

@@ -19,7 +19,7 @@ from rest_framework.authentication import BasicAuthentication
 # Create your views here.
 # Create your views here.
 
-stripe.api_key = 'sk_test_51Ihg5PKaeSTNPk3vwKD92ktFpl1k04ile9ez2rFHCJBL5WqSPptGFC2mzGoIiWSiDkwiUojc7rDVr9KYGrWGnoS900tPdGpY2U'
+stripe.api_key = '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'
 
 
 class PaymentView(APIView):
@@ -61,18 +61,18 @@ class Save_stripe_info(APIView):
         elif plan == "SU":
             checkStatus = StripeCustomer.objects.filter(user__email=email).first()
             if(checkStatus):
-                price = 79
-                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
+                price = 1
+                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf'
             else:
                 price = 319
-                price_id = 'price_1Jo2ZxKaeSTNPk3vX1rqt9HH'
+                price_id = 'price_1JWjnIKaeSTNPk3vQ3coH8ZX'
         elif plan == "CU":
             if(checkStatus):
                 price = 99
-                price_id = 'price_1Jo2cJKaeSTNPk3v6RXSQHe9'
+                price_id = 'price_1JWjprKaeSTNPk3v4bQZwdqN'
             else:
                 price = 349
-                price_id = 'price_1Jo2bYKaeSTNPk3vQjuJ1zIG' 
+                price_id = 'price_1JWjpAKaeSTNPk3v3BvNo5Rv' 
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
