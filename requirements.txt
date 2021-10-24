@@ -35,4 +35,7 @@ urllib3
 webencodings
 xhtml2pdf
 dj_database_url
+gunicorn
+psycopg2
+
 
