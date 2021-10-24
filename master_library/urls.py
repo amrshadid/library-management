@@ -57,12 +57,11 @@ urlpatterns = [
     path('layouts/app', mv.appPage.as_view(), name="appPage"),
 ]
 
-if(settings.DEBUG):
-    urlpatterns += static("/assets/", document_root=os.path.join(
+urlpatterns += static("/assets/", document_root=os.path.join(
         os.path.join(BASE_DIR, 'frontend'), 'out', 'assets'))
-    urlpatterns += static("/_next/", document_root=os.path.join(
+urlpatterns += static("/_next/", document_root=os.path.join(
         os.path.join(BASE_DIR, 'frontend'), 'out', '_next'))
-    urlpatterns += static(settings.STATIC_URL,
+urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL,
+urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
