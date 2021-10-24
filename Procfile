@@ -1,2 +1,2 @@
-release:python manage.py collectstatic && python manage.py migrate
-web: gunicorn core.wsgi
+release:python manage.py migrate
+web:python manage.py collectstatic --noinput 
