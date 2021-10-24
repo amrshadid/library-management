@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h2m-75-_$-8z)$^gqk_r6u3425x)_)fu@2=3j!+ke-54q467wq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = (os.environ.get('DEBUG') == 'True')
 
 ALLOWED_HOSTS = ['*']
 
@@ -110,30 +110,16 @@ DATABASES = {
      'default': {
         # 'ENGINE': 'django.db.backends.mysql',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'd8510v14h59ukm',
-        # 'USER': 'sclvydndrbiget',
-        # 'PASSWORD': '70391332d496b043fd6c85ddf84393af263c6201e6675e3389cebb35efc92e05',
-        # 'HOST': 'ec2-3-215-137-131.compute-1.amazonaws.com',
-        # 'PORT': '5432'
     }
 }
 
-DATABASES['default'] = dj_database_url.parse('postgres://sclvydndrbiget:70391332d496b043fd6c85ddf84393af263c6201e6675e3389cebb35efc92e05@ec2-3-215-137-131.compute-1.amazonaws.com:5432/d8510v14h59ukm')
+#LIVE SETTING
+DATABASES['default']=dj_database_url.parse(os.environ.get('DATABASE_URL'))
+
+# LOCAL SETTING 
+# DATABASES['default'] = dj_database_url.parse('postgres://sclvydndrbiget:70391332d496b043fd6c85ddf84393af263c6201e6675e3389cebb35efc92e05@ec2-3-215-137-131.compute-1.amazonaws.com:5432/d8510v14h59ukm')
 
 
-#hoarule1_admin
-#Rick@12345#
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'hoarule1_master_db',
-#         'USER': 'aditya',
-#         'PASSWORD': 'Aditya123',
-#         'HOST': 'localhost',
-#         'PORT': '3306'
-#     }
-# }
 
 
 # Password validation
