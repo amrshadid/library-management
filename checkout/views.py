@@ -62,17 +62,17 @@ class Save_stripe_info(APIView):
             checkStatus = StripeCustomer.objects.filter(user__email=email).first()
             if(checkStatus):
                 price = 1
-                price_id = 'price_1JoU9cKaeSTNPk3vsGJuzoDO'
+                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf'
             else:
                 price = 1
-                price_id = 'price_1JoU9cKaeSTNPk3vsGJuzoDO'
+                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf'
         elif plan == "CU":
             if(checkStatus):
                 price = 1
-                price_id = 'price_1JoU9cKaeSTNPk3vsGJuzoDO'
+                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf'
             else:
                 price = 1
-                price_id = 'price_1JoU9cKaeSTNPk3vsGJuzoDO' 
+                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf' 
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
@@ -81,19 +81,19 @@ class Save_stripe_info(APIView):
         # checking if customer with provided email already exists
         customer_data = stripe.Customer.list(email=email).data
         # if the array is empty it means the email has not been used yet
-        # if len(customer_data) == 0:
-        #     # creating customer
-        #     customer = stripe.Customer.create(
+        if len(customer_data) == 0:
+            # creating customer
+            customer = stripe.Customer.create(
 
-        #         email=email, 
-        #         customer=customer,
-        #         payment_method=payment_method_id,
-        #         invoice_settings={
-        #             'default_payment_method': payment_method_id
-        #         })
-        # else:
-        #     customer = customer_data[0]
-        #     extra_msg = "Customer already existed."
+                email=email, 
+                customer=customer,
+                payment_method=payment_method_id,
+                invoice_settings={
+                    'default_payment_method': payment_method_id
+                })
+        else:
+            customer = customer_data[0]
+            extra_msg = "Customer already existed."
         try:
 
             stripe.PaymentIntent.create(
