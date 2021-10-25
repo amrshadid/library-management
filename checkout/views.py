@@ -81,20 +81,23 @@ class Save_stripe_info(APIView):
         # checking if customer with provided email already exists
         customer_data = stripe.Customer.list(email=email).data
         # if the array is empty it means the email has not been used yet
-        if len(customer_data) == 0:
-            # creating customer
-            customer = stripe.Customer.create(
+        # if len(customer_data) == 0:
+        #     # creating customer
+        #     customer = stripe.Customer.create(
 
-                email=email, 
-                payment_method=payment_method_id,
-                invoice_settings={
-                    'default_payment_method': payment_method_id
-                })
-        else:
-            customer = customer_data[0]
-            extra_msg = "Customer already existed."
+        #         email=email, 
+        #         customer=customer,
+        #         payment_method=payment_method_id,
+        #         invoice_settings={
+        #             'default_payment_method': payment_method_id
+        #         })
+        # else:
+        #     customer = customer_data[0]
+        #     extra_msg = "Customer already existed."
         try:
+
             stripe.PaymentIntent.create(
+                payment_method_types=['card'],
                 customer=customer,
                 payment_method=payment_method_id,
                 currency='usd',  # you can provide any currency you want
