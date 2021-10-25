@@ -20,7 +20,9 @@ class AccountAdmin(UserAdmin):
     list_filter = ()
     fieldsets = ()
 
-admin.site.register(CustomUser,AccountAdmin,States)
+admin.site.register(CustomUser,AccountAdmin)
+admin.site.register(States)
+
 #admin.site.register(Teams)
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
