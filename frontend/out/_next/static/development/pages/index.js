@@ -40157,7 +40157,7 @@ var getUserType = function getUserType() {
 
 /***/ }),
 
-/***/ 8:
+/***/ 12:
 /*!**********************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Cindex.js ***!
   \**********************************************************************************************************************************/
@@ -40180,5 +40180,5 @@ module.exports = dll_b0ae7f9d5a2cb9eeeb96;
 
 /***/ })
 
-},[[8,"static/runtime/webpack.js","styles"]]]);
+},[[12,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map
