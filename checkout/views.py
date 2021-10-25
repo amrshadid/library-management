@@ -97,11 +97,12 @@ class Save_stripe_info(APIView):
         try:
 
             stripe.PaymentIntent.create(
-                payment_method_types=['card'],
-                customer=customer,
-                payment_method=payment_method_id,
-                currency='usd',  # you can provide any currency you want
-                amount=price * 100
+                customer=customer['id'],
+                currency='usd', 
+                amount=price * 100,
+                metadata ={
+                    "price_id": price_id
+                }
                 )
             try:
                 if('couponCode' in request.POST and request.POST['couponCode'] != ""):
