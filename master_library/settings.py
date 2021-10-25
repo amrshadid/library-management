@@ -15,6 +15,8 @@ import os
 import dj_database_url
 
 
+URL_WEB='https://library-mp1.herokuapp.com'
+# https://hoarulestemplate.com -> producation 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

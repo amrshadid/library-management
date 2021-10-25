@@ -15,7 +15,7 @@ from django.contrib import admin
 from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp
 from rest_framework.authtoken.models import TokenProxy
 from django.contrib.sites.models import Site
-
+from django.conf import settings
 
 class CategoryFilter(SimpleListFilter):
     title = 'Category '  # a label for our filter
@@ -213,7 +213,7 @@ class ARAdmin(admin.ModelAdmin):
     model = AR
 
     def my_custom_view(self, request):
-        return redirect("https://hoarulestemplate.com/admin/library/issue/?category=AR&iscustom__exact=0")
+        return redirect(settings.URL_WEB + "/admin/library/issue/?category=AR&iscustom__exact=0")
 
     def get_urls(self):
         view_name = '{}_{}_changelist'.format(
@@ -229,7 +229,7 @@ class RRAdmin(admin.ModelAdmin):
     model = RR
 
     def my_custom_view(self, request):
-        return redirect("https://hoarulestemplate.com/admin/library/issue/?category=RR&iscustom__exact=0")
+        return redirect(settings.URL_WEB + "/admin/library/issue/?category=RR&iscustom__exact=0")
 
     def get_urls(self):
         view_name = '{}_{}_changelist'.format(
@@ -244,7 +244,7 @@ class CIAdmin(admin.ModelAdmin):
     model = CustomIssue
 
     def my_custom_view(self, request):
-        return redirect("https://hoarulestemplate.com/admin/library/issue/?iscustom__exact=1")
+        return redirect(settings.URL_WEB + "/admin/library/issue/?iscustom__exact=1")
 
     def get_urls(self):
         view_name = '{}_{}_changelist'.format(
@@ -259,7 +259,7 @@ class GIAdmin(admin.ModelAdmin):
     model = GenericIssue
 
     def my_custom_view(self, request):
-        return redirect("https://hoarulestemplate.com/admin/library/issue/?iscustom__exact=0")
+        return redirect(settings.URL_WEB + "/admin/library/issue/?iscustom__exact=0")
 
     def get_urls(self):
         view_name = '{}_{}_changelist'.format(
@@ -272,7 +272,7 @@ class GIAdmin(admin.ModelAdmin):
 #     model = AddIssue
 
 #     def my_custom_view(self,request):
-#         return redirect("https://hoarulestemplate.com/layouts/adminForm")
+#         return redirect(settings.URL_WEB + "/layouts/adminForm")
 
 #     def get_urls(self):
 #         view_name = '{}_{}_changelist'.format(
