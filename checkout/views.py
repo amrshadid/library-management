@@ -61,18 +61,18 @@ class Save_stripe_info(APIView):
         elif plan == "SU":
             checkStatus = StripeCustomer.objects.filter(user__email=email).first()
             if(checkStatus):
-                price = 1
-                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf'
+                price = 79
+                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
             else:
-                price = 1
-                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf'
+                price = 79
+                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
         elif plan == "CU":
             if(checkStatus):
-                price = 1
-                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf'
+                price = 79
+                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
             else:
-                price = 1
-                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf' 
+                price = 79
+                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV' 
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
