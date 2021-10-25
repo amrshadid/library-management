@@ -98,7 +98,7 @@ class Save_stripe_info(APIView):
                 customer=customer,
                 payment_method=payment_method_id,
                 currency='usd',  # you can provide any currency you want
-                amount=price * 100
+                amount=price 
                 )
             try:
                 if('couponCode' in request.POST and request.POST['couponCode'] != ""):
