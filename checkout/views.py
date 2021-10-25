@@ -81,6 +81,7 @@ class Save_stripe_info(APIView):
         # checking if customer with provided email already exists
         customer_data = stripe.Customer.list(email=email).data
         # if the array is empty it means the email has not been used yet
+        customer=0
         if len(customer_data) == 0:
             # creating customer
             customer = stripe.Customer.create(
@@ -95,15 +96,14 @@ class Save_stripe_info(APIView):
             customer = customer_data[0]
             extra_msg = "Customer already existed."
         try:
-            
-            stripe.PaymentIntent.create(
-                customer=customer['id'],
-                currency='usd', 
-                amount=price * 100,
-                metadata ={
-                    "price_id": price_id
-                }
-                )
+            # stripe.PaymentIntent.create(
+            #     customer=customer['id'],
+            #     currency='usd', 
+            #     amount=price * 100,
+            #     metadata ={
+            #         "price_id": price_id
+            #     }
+            #     )
             try:
                 if('couponCode' in request.POST and request.POST['couponCode'] != ""):
                     promoCode = stripe.PromotionCode.list(
@@ -115,6 +115,9 @@ class Save_stripe_info(APIView):
                                 'price': price_id  # here paste your price id
                             }
                         ],
+                        add_invoice_items=[{
+                            'price': price_id  # here paste your price id
+                        }],
                         coupon=promoCode.data[0].coupon.id,
                     )
                 else:
@@ -124,7 +127,10 @@ class Save_stripe_info(APIView):
                             {
                                 'price': price_id  # here paste your price id
                             }
-                        ]
+                        ],
+                          add_invoice_items=[{
+                            'price': price_id  # here paste your price id
+                        }],
                     )
                 if(plan == "CU"):
                     user_obj.is_aou = True
