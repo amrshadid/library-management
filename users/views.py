@@ -33,7 +33,7 @@ from checkout.models import StripeCustomer
 from rest_framework.authentication import BasicAuthentication
 from allauth.account.admin import EmailAddress
 import json
-
+from dajngo.coff import settings 
 
 class contactPage(View):
     def get(self, request):
@@ -517,7 +517,7 @@ class emailConfirm(APIView):
         self.object = confirmation = self.get_object()
         confirmation.confirm(self.request)
         # A React Router Route will handle the failure scenario
-        return HttpResponseRedirect('https://hoarulestemplate.com/layouts/login')
+        return HttpResponseRedirect(settings.URL_WEB + '/layouts/login')
 
     def get_object(self, queryset=None):
         key = self.kwargs['key']
@@ -544,7 +544,7 @@ class deleteCustomUser(APIView):
             customUser = CustomUser.objects.get(id=int(request.GET['userId']))
             customUser.is_active = False
             customUser.save()
-            return redirect("https://hoarulestemplate.com/layouts/profile")
+            return redirect(settings.URL_WEB + "/layouts/profile")
         else:
             return Response({'status': 0, 'message': 'Oops You are not an AOU'})
 
@@ -577,7 +577,7 @@ class SignUp(APIView):
             user.is_aou = False
             user.is_active = False
             token = Token.objects.create(user=user)
-            temp = "http://hoarulestemplate.com/SignUp/"+token.key+"<html><head></head><body><p>Thank you for your registration at HOARulesTemplate.com. Please select the link above or copy and paste the link into your computer’s browser. We look forward to assisting you in creating your community’s new rules!</p><p>Sincerely,</p><p>Jenny Jamison<br>Vice-President of Customer Satisfaction</p></body></html>"
+            temp = settings.URL_WEB + "/SignUp/"+token.key+"<html><head></head><body><p>Thank you for your registration at HOARulesTemplate.com. Please select the link above or copy and paste the link into your computer’s browser. We look forward to assisting you in creating your community’s new rules!</p><p>Sincerely,</p><p>Jenny Jamison<br>Vice-President of Customer Satisfaction</p></body></html>"
             send_mail(
                 'HOARulesTemplate.com Registration',
                 temp,
