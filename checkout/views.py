@@ -99,10 +99,11 @@ class Save_stripe_info(APIView):
                 payment_method_types=["card"],
                 currency='usd', 
                 amount=price * 100,
+                payment_method=payment_method_id,
                 metadata ={
                     "price_id": price_id
-                }
-                )
+                })
+
             try:
                 if('couponCode' in request.POST and request.POST['couponCode'] != ""):
                     promoCode = stripe.PromotionCode.list(
