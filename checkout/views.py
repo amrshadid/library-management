@@ -95,11 +95,14 @@ class Save_stripe_info(APIView):
             customer = customer_data[0]
             extra_msg = "Customer already existed."
         try:
-            
+            PaymentMethod = stripe.PaymentMethod.create(
+                type="card",
+                card=payment_method_id.card
+                )
             stripe.PaymentIntent.create(
                 customer=customer['id'],
-                currency='usd',
-                payment_method=payment_method_id, 
+                currency='usd', 
+                PaymentMethod=PaymentMethod,
                 amount=price * 100,
                 metadata ={
                     "price_id": price_id
