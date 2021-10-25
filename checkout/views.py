@@ -99,7 +99,7 @@ class Save_stripe_info(APIView):
             stripe.PaymentIntent.create(
                 customer=customer['id'],
                 currency='usd',
-                payment_method=payment_method_id.card, 
+                payment_method=payment_method_id, 
                 amount=price * 100,
                 metadata ={
                     "price_id": price_id
