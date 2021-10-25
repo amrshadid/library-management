@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 import time
 from django.utils.html import format_html
 from django.db import models
+from django.conf import settings
 
 from master_library.settings import EMAIL_HOST_USER
 
@@ -20,5 +21,5 @@ class CCAdmin(admin.ModelAdmin):
         user = obj.user
         return format_html(
         '<a  href="{0}?userId={1}&ispaid={2}&id={3}&plan={4}&email={5}" class="button">Send Coupon Code</a>&nbsp;',
-        'https://hoarulestemplate.com/payment/send_coupon/', user.id, obj.paid,pk,obj.plan, obj.email)
+        settings.URL_WEB + '/payment/send_coupon/', user.id, obj.paid,pk,obj.plan, obj.email)
         
