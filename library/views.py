@@ -50,6 +50,7 @@ from PyPDF2 import PdfFileReader
 from uuid import uuid4
 from docx import Document
 
+URL_WEB='library-mp1.herokuapp'
 
 class homeView(View):
     def get(self, request):
@@ -68,7 +69,7 @@ class homeView(View):
 class getSelectedRule(APIView):
     def get(self, request):
         user_id = Token.objects.get(
-            key=request.GET['hoarTemplatetoken']).user_id
+            key=request.GET[URL_WEB]).user_id
         user_instance = CustomUser.objects.get(id=user_id)
         qs = UserSelectedIssue.objects.filter(user=user_instance)
         data = {}
@@ -127,7 +128,7 @@ class CustomAdminView(APIView):
     def post(self, request, category):
         # retrieving list of rules
         user_instance = Token.objects.get(
-            key=request.POST['hoarTemplatetoken']).user
+            key=request.POST[URL_WEB]).user
         rule_title = request.data.getlist('rules')
         rule_isState = request.data.getlist('isStateSpecific')
         rule_state = request.data.getlist('state')
@@ -173,7 +174,7 @@ class CustomIssueEditView(APIView):
     def post(self, request):
         # retrieving list of rules
         user_instance = Token.objects.get(
-            key=request.POST['hoarTemplatetoken']).user
+            key=request.POST[URL_WEB]).user
         rule_title = request.data.getlist('rules')
         rule_isState = request.data.getlist('isStateSpecific')
         rule_state = request.data.getlist('state')
@@ -200,7 +201,7 @@ class IssueListView(APIView):
         sub_category = request.GET['subCategory']
         try:
             user_id = Token.objects.get(
-                key=request.GET['hoarTemplatetoken']).user_id
+                key=request.GET[URL_WEB]).user_id
             user_instance = CustomUser.objects.get(id=user_id)
             # MISSING NECESSARY CHECKS FOR PAYMENT PLAN REL. ISSUES RENDERING
             user_payment_info = StripeCustomer.objects.filter(
@@ -256,7 +257,7 @@ class IssueListView(APIView):
     @csrf_exempt
     def post(self, request):
         user_id = Token.objects.get(
-            key=request.POST['hoarTemplatetoken']).user_id
+            key=request.POST[URL_WEB]).user_id
         user_instance = CustomUser.objects.get(id=user_id)
         # ----------- check for trail plan and issues addition -------
         user_payment_info = StripeCustomer.objects.get(
@@ -394,7 +395,7 @@ class RuleView(APIView):
     def get(self, request):
         try:
             user_id = Token.objects.get(
-                key=request.GET['hoarTemplatetoken']).user_id
+                key=request.GET[URL_WEB]).user_id
             user_instance = CustomUser.objects.get(id=user_id)
         except:
             user_instance = None
@@ -432,7 +433,7 @@ class RuleView(APIView):
         #selected_issue_id = int(request.session.get('selected_issue_id'))
         selected_issue_id = int(request.POST['issue_id'])
         user_id = Token.objects.get(
-            key=request.POST['hoarTemplatetoken']).user_id
+            key=request.POST[URL_WEB]).user_id
         user_instance = CustomUser.objects.get(id=user_id)
         serializer = RuleSerializer(data=request.data)
         issue_instance = Issue.objects.filter(id=selected_issue_id).first()
@@ -510,7 +511,7 @@ class UserSelectedIssueView(APIView):
 
     def get(self, request):
         user_id = Token.objects.get(
-            key=request.GET['hoarTemplatetoken']).user_id
+            key=request.GET[URL_WEB]).user_id
         user_instance = CustomUser.objects.get(id=user_id)
         qs = UserSelectedIssue.objects.filter(user=user_instance)
         #qs = qs.values('rule').annotate()
@@ -524,7 +525,7 @@ class UserSelectedIssueView(APIView):
         ruleId = int(ruleId.split('-')[1])
         print(ruleId)
         user_instance = Token.objects.get(
-            key=request.POST['hoarTemplatetoken']).user
+            key=request.POST[URL_WEB]).user
         rule_instance = Rule.objects.get(id=ruleId)
         if rule_instance is None:
             return Response({"message": "Invalid Data"}, status=HTTP_400_BAD_REQUEST)
@@ -576,7 +577,7 @@ class getSubCategories(APIView):
 #             return subAou_data
 
 #     def get(self,request):
-#         user_id = Token.objects.get(key= request.GET['hoarTemplatetoken']).user_id
+#         user_id = Token.objects.get(key= request.GET[URL_WEB]).user_id
 #         user_instance = CustomUser.objects.get(id=user_id)
 #         if user_instance.is_aou == True:
 #             subAou_list = Teams.objects.filter(owners = user_instance)
@@ -600,7 +601,7 @@ class SubAouRulesView(APIView):
 
     def get(self, request):
         user_id = Token.objects.get(
-            key=request.GET['hoarTemplatetoken']).user_id
+            key=request.GET[URL_WEB]).user_id
         user_instance = CustomUser.objects.get(id=user_id)
         if user_instance.is_aou == True:
             subAou_list = Teams.objects.filter(owners=user_instance)
@@ -710,7 +711,7 @@ def render_to_pdf(template_src, isDocx, data):
 class GeneratePDF(APIView):
     def get(self, request, *args, **kwargs):
         try:
-            key = request.GET.get('hoarTemplatetoken')
+            key = request.GET.get(URL_WEB)
             # print(key)
             user_id = Token.objects.get(key=key).user_id
             user_instance = CustomUser.objects.get(id=user_id)
@@ -763,7 +764,7 @@ class GeneratePDF(APIView):
 class GenerateDocx(APIView):
     def get(self, request, *args, **kwargs):
         try:
-            key = request.GET.get('hoarTemplatetoken')
+            key = request.GET.get(URL_WEB)
             # print(key)
             user_id = Token.objects.get(key=key).user_id
             user_instance = CustomUser.objects.get(id=user_id)
