@@ -69,7 +69,7 @@ class MyAccountManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser):
-    username = None
+    username = models.CharField(verbose_name="name", max_length=30, blank=True)
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
     date_joined = models.DateTimeField(
         verbose_name="date joined", auto_now_add=True)
