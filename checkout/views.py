@@ -40,7 +40,6 @@ class Save_stripe_info(APIView):
     def post(self, request):
         data = request.data
         key = request.POST['token']
-        customer=0
         user_id = Token.objects.get(key=key).user_id
         userdata = CustomUser.objects.get(id=user_id)
         email = userdata.email
@@ -62,18 +61,18 @@ class Save_stripe_info(APIView):
         elif plan == "SU":
             checkStatus = StripeCustomer.objects.filter(user__email=email).first()
             if(checkStatus):
-                price = 79
-                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
+                price = 1
+                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf'
             else:
-                price = 79
-                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
+                price = 1
+                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf'
         elif plan == "CU":
             if(checkStatus):
-                price = 79
-                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
+                price = 1
+                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf'
             else:
-                price = 79
-                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV' 
+                price = 1
+                price_id = 'price_1JWjo7KaeSTNPk3vfFhfDRjf' 
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
@@ -85,8 +84,9 @@ class Save_stripe_info(APIView):
         if len(customer_data) == 0:
             # creating customer
             customer = stripe.Customer.create(
+
                 email=email, 
-                customer=customer_data,
+                customer=customer,
                 payment_method=payment_method_id,
                 invoice_settings={
                     'default_payment_method': payment_method_id
@@ -97,13 +97,13 @@ class Save_stripe_info(APIView):
         try:
 
             stripe.PaymentIntent.create(
-                currency='usd', 
+                customer=customer['id'],
+                currency='usd',  # you can provide any currency you want
                 amount=price * 100,
-                payment_method=customer,
                 metadata ={
                     "price_id": price_id
-                })
-
+                }
+                )
             try:
                 if('couponCode' in request.POST and request.POST['couponCode'] != ""):
                     promoCode = stripe.PromotionCode.list(
