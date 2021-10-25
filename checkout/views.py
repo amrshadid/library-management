@@ -115,9 +115,6 @@ class Save_stripe_info(APIView):
                                 'price': price_id  # here paste your price id
                             }
                         ],
-                        add_invoice_items=[{
-                            'price': price_id  # here paste your price id
-                        }],
                         coupon=promoCode.data[0].coupon.id,
                     )
                 else:
