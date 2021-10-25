@@ -40,6 +40,7 @@ class Save_stripe_info(APIView):
     def post(self, request):
         data = request.data
         key = request.POST['token']
+        customer=0
         user_id = Token.objects.get(key=key).user_id
         userdata = CustomUser.objects.get(id=user_id)
         email = userdata.email
@@ -96,10 +97,9 @@ class Save_stripe_info(APIView):
         try:
 
             stripe.PaymentIntent.create(
-                payment_method_types=["card"],
                 currency='usd', 
                 amount=price * 100,
-                payment_method=payment_method_id,
+                payment_method=customer,
                 metadata ={
                     "price_id": price_id
                 })
