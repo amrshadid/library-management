@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from users.models import CustomUser,Ticket
+from users.models import CustomUser,Ticket,States
 # Register your models here.
 import django.contrib.auth.models
 from django.contrib import auth
@@ -20,7 +20,7 @@ class AccountAdmin(UserAdmin):
     list_filter = ()
     fieldsets = ()
 
-admin.site.register(CustomUser,AccountAdmin)
+admin.site.register(CustomUser,AccountAdmin,States)
 #admin.site.register(Teams)
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
