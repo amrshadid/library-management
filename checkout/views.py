@@ -128,9 +128,7 @@ class Save_stripe_info(APIView):
                                 'price': price_id  # here paste your price id
                             }
                         ],
-                          add_invoice_items=[{
-                            'price': price_id  # here paste your price id
-                        }],
+
                     )
                 if(plan == "CU"):
                     user_obj.is_aou = True
