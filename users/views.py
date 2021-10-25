@@ -33,7 +33,7 @@ from checkout.models import StripeCustomer
 from rest_framework.authentication import BasicAuthentication
 from allauth.account.admin import EmailAddress
 import json
-from dajngo.coff import settings 
+from django.conf import settings
 
 class contactPage(View):
     def get(self, request):
