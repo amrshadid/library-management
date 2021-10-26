@@ -19,7 +19,7 @@ from rest_framework.authentication import BasicAuthentication
 # Create your views here.
 # Create your views here.
 
-stripe.api_key = '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'
+stripe.api_key = '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'
 
 
 class PaymentView(APIView):
@@ -61,28 +61,19 @@ class Save_stripe_info(APIView):
             return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
         elif plan == "SU":
             if(checkStatus):
-                #test payment
                 price = 1
                 price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
 
-                # price = 79
-                # price_id = 'price_1Jol2gKaeSTNPk3vjxh4LPe5'
             else:
-                price = 1
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'                
-                # price = 319
-                # price_id = 'price_1Jol0tKaeSTNPk3vZ19qsYro'
+                price = 319
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
         elif plan == "CU":
             if(checkStatus):
-                price = 1
+                price = 99
                 price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
-                # price = 99
-                # price_id = 'price_1JWjprKaeSTNPk3v4bQZwdqN'
             else:
-                price = 1
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
-                # price = 349
-                # price_id = 'price_1JokzpKaeSTNPk3v1VSjz2Wi' 
+                price = 349
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v' 
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
@@ -105,7 +96,6 @@ class Save_stripe_info(APIView):
         else:
             customer = customer_data[0]
             extra_msg = "Customer already existed."
-        try:
             try:
                 if('couponCode' in request.POST and request.POST['couponCode'] != ""):
                     promoCode = stripe.PromotionCode.list(
@@ -143,9 +133,6 @@ class Save_stripe_info(APIView):
             except Exception as e:
                 print(e)
                 return Response({'status': 0, 'message': 'Transaction Failed'})
-        except Exception as e:
-            print(e)
-            return Response({'status': 0, 'message': 'Transaction Failed'})
 
 
 class CouponCustomerView(APIView):
