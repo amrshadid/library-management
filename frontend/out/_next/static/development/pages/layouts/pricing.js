@@ -39160,7 +39160,7 @@ var getUserType = function getUserType() {
 
 /***/ }),
 
-/***/ 13:
+/***/ 15:
 /*!***************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Flayouts%2Fpricing&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cpricing.js ***!
   \***************************************************************************************************************************************************************/
@@ -39183,5 +39183,5 @@ module.exports = dll_b0ae7f9d5a2cb9eeeb96;
 
 /***/ })
 
-},[[13,"static/runtime/webpack.js","styles"]]]);
+},[[15,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=pricing.js.map

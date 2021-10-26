@@ -89,7 +89,7 @@ class Save_stripe_info(APIView):
             customer = stripe.Customer.create(
 
                 email=email, 
-                customer=customer,
+                customer=customer_data,
                 payment_method=payment_method_id,
                 invoice_settings={
                     'default_payment_method': payment_method_id

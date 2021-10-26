@@ -38488,13 +38488,12 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement;
 
 
 
+
+
+
 var stripePromise = Object(_stripe_stripe_js__WEBPACK_IMPORTED_MODULE_13__["loadStripe"])("pk_live_51Ihg5PKaeSTNPk3vvmtW6Vj8og85NTlDnywQSuuB9UP3OFMHDr4pIdOcrV8lWO6yAn9YVSr7ZYRrrtReTEcEfn4c003f9Chyxn"); // const stripePromise = loadStripe(
 //   "pk_test_51Ihg5PKaeSTNPk3vq2GCVZ9hjkjGTlYRyGY0pVCWFJWcQ1AIBhMA1d5dK3Vp3dGdFs89SIbPkY0s6cuDWmx4yH0b00fXvu7XbF"
 // );
-
-
-
-
 
 var App = function App() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(null),
@@ -38533,7 +38532,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44,
+        lineNumber: 45,
         columnNumber: 7
       }
     }, __jsx("div", {
@@ -38541,7 +38540,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49,
+        lineNumber: 50,
         columnNumber: 9
       }
     }, __jsx("label", {
@@ -38549,7 +38548,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50,
+        lineNumber: 51,
         columnNumber: 11
       }
     }, "Email Address"), __jsx("input", {
@@ -38562,7 +38561,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51,
+        lineNumber: 52,
         columnNumber: 11
       }
     })), __jsx("div", {
@@ -38570,7 +38569,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60,
+        lineNumber: 61,
         columnNumber: 9
       }
     }, __jsx("label", {
@@ -38578,7 +38577,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 61,
+        lineNumber: 62,
         columnNumber: 11
       }
     }, "Credit or debit card"), __jsx(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_5__["CardElement"], {
@@ -38587,7 +38586,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63,
+        lineNumber: 64,
         columnNumber: 11
       }
     }), __jsx("div", {
@@ -38596,7 +38595,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64,
+        lineNumber: 65,
         columnNumber: 11
       }
     }, error)), __jsx("div", {
@@ -38604,7 +38603,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68,
+        lineNumber: 69,
         columnNumber: 9
       }
     }, __jsx("label", {
@@ -38612,7 +38611,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69,
+        lineNumber: 70,
         columnNumber: 11
       }
     }, "Discount Coupon"), __jsx("input", {
@@ -38624,7 +38623,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70,
+        lineNumber: 71,
         columnNumber: 11
       }
     })), __jsx("div", {
@@ -38632,7 +38631,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78,
+        lineNumber: 79,
         columnNumber: 9
       }
     }, __jsx("input", {
@@ -38642,7 +38641,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79,
+        lineNumber: 80,
         columnNumber: 11
       }
     })));
@@ -38675,10 +38674,10 @@ var App = function App() {
                 planSelected = localStorage.getItem("requestedPlan");
               }
 
-              formData.append("payment_method_id", paymentMethod);
+              formData.append("payment_method_id", paymentMethod.id);
               formData.append("token", localStorage.getItem("hoarTemplatetoken"));
               formData.append("plan", planSelected);
-              console.log(paymentMethod);
+              console.log(paymentMethod.id);
 
               if (errorPayment) {
                 setError(error.response.data);
@@ -38735,14 +38734,14 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 145,
+      lineNumber: 146,
       columnNumber: 7
     }
   }, __jsx("title", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 146,
+      lineNumber: 147,
       columnNumber: 9
     }
   }, "Library Management "), __jsx("meta", {
@@ -38751,7 +38750,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147,
+      lineNumber: 148,
       columnNumber: 9
     }
   })), __jsx(_containers_common_header__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -38759,7 +38758,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 149,
+      lineNumber: 150,
       columnNumber: 7
     }
   }), __jsx("section", {
@@ -38768,21 +38767,21 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 150,
+      lineNumber: 151,
       columnNumber: 7
     }
   }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_15__["Container"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151,
+      lineNumber: 152,
       columnNumber: 9
     }
   }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_15__["Row"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 152,
+      lineNumber: 153,
       columnNumber: 11
     }
   }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_15__["Col"], {
@@ -38790,7 +38789,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 153,
+      lineNumber: 154,
       columnNumber: 13
     }
   }, __jsx(react_slick__WEBPACK_IMPORTED_MODULE_14___default.a, {
@@ -38798,7 +38797,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154,
+      lineNumber: 155,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -38806,7 +38805,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155,
+      lineNumber: 156,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -38814,7 +38813,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156,
+      lineNumber: 157,
       columnNumber: 19
     }
   }, __jsx("div", {
@@ -38822,7 +38821,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157,
+      lineNumber: 158,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -38830,7 +38829,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 158,
+      lineNumber: 159,
       columnNumber: 23
     }
   }, __jsx("h3", {
@@ -38838,7 +38837,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 160,
       columnNumber: 25
     }
   }, "Billing Details"), __jsx("hr", {
@@ -38846,7 +38845,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160,
+      lineNumber: 161,
       columnNumber: 25
     }
   })), __jsx("div", {
@@ -38854,91 +38853,91 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 162,
+      lineNumber: 163,
       columnNumber: 23
     }
   }, __jsx("ul", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163,
+      lineNumber: 164,
       columnNumber: 25
     }
   }, __jsx("li", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 164,
+      lineNumber: 165,
       columnNumber: 27
     }
   }, __jsx("h5", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 165,
+      lineNumber: 166,
       columnNumber: 29
     }
   }, "Association Name :", " ", true ? JSON.parse(localStorage.getItem("userInfo")).association_name : undefined)), __jsx("br", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 173,
+      lineNumber: 174,
       columnNumber: 27
     }
   }), __jsx("li", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 174,
+      lineNumber: 175,
       columnNumber: 27
     }
   }, __jsx("h5", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175,
+      lineNumber: 176,
       columnNumber: 29
     }
   }, "Email :", " ", true ? JSON.parse(localStorage.getItem("userInfo")).email : undefined)), __jsx("br", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 183,
+      lineNumber: 184,
       columnNumber: 27
     }
   }), __jsx("li", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 184,
+      lineNumber: 185,
       columnNumber: 27
     }
   }, __jsx("h5", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185,
+      lineNumber: 186,
       columnNumber: 29
     }
   }, "Contact No. :", " ", true ? JSON.parse(localStorage.getItem("userInfo")).contact_no : undefined)), __jsx("br", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 193,
+      lineNumber: 194,
       columnNumber: 27
     }
   }), __jsx("li", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 194,
+      lineNumber: 195,
       columnNumber: 27
     }
   }, __jsx("h5", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 195,
+      lineNumber: 196,
       columnNumber: 29
     }
   }, "Requested Plan :", " ", true ? localStorage.getItem("requestedPlan") : undefined)))), __jsx("div", {
@@ -38946,7 +38945,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 204,
+      lineNumber: 205,
       columnNumber: 23
     }
   }, true ? localStorage.getItem("requestedPlan") === "SU" ? __jsx("h6", {
@@ -38954,7 +38953,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 207,
+      lineNumber: 208,
       columnNumber: 29
     }
   }, "$", __jsx("span", {
@@ -38962,7 +38961,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 208,
+      lineNumber: 209,
       columnNumber: 32
     }
   }, "169"), "/1st Year") : __jsx("h6", {
@@ -38970,7 +38969,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 211,
+      lineNumber: 212,
       columnNumber: 29
     }
   }, "$", __jsx("span", {
@@ -38978,7 +38977,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 212,
+      lineNumber: 213,
       columnNumber: 32
     }
   }, "199"), "/1st Year") : undefined), __jsx("button", {
@@ -38989,7 +38988,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 218,
+      lineNumber: 219,
       columnNumber: 23
     }
   }, "Change Plan")))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_15__["Col"], {
@@ -38999,7 +38998,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 229,
+      lineNumber: 230,
       columnNumber: 13
     }
   }, __jsx(react_slick__WEBPACK_IMPORTED_MODULE_14___default.a, {
@@ -39007,7 +39006,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 230,
+      lineNumber: 231,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -39015,7 +39014,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 231,
+      lineNumber: 232,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -39023,7 +39022,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 232,
+      lineNumber: 233,
       columnNumber: 19
     }
   }, __jsx("div", {
@@ -39031,7 +39030,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 233,
+      lineNumber: 234,
       columnNumber: 21
     }
   }, __jsx(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_5__["Elements"], {
@@ -39039,21 +39038,21 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 234,
+      lineNumber: 235,
       columnNumber: 23
     }
   }, __jsx(MyCom, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 235,
+      lineNumber: 236,
       columnNumber: 25
     }
   }))))))))), __jsx(_sections_agency_footer__WEBPACK_IMPORTED_MODULE_12__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 244,
+      lineNumber: 245,
       columnNumber: 9
     }
   })));
@@ -39733,7 +39732,7 @@ var getUserType = function getUserType() {
 
 /***/ }),
 
-/***/ 14:
+/***/ 8:
 /*!*******************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Flayouts%2Fapp&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Capp.js ***!
   \*******************************************************************************************************************************************************/
@@ -39756,5 +39755,5 @@ module.exports = dll_b0ae7f9d5a2cb9eeeb96;
 
 /***/ })
 
-},[[14,"static/runtime/webpack.js","styles"]]]);
+},[[8,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=app.js.map
