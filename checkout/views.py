@@ -39,6 +39,7 @@ class Save_stripe_info(APIView):
 
     def post(self, request):
         data = request.data
+        price_id=''
         key = request.POST['token']
         user_id = Token.objects.get(key=key).user_id
         userdata = CustomUser.objects.get(id=user_id)
