@@ -19,7 +19,7 @@ from rest_framework.authentication import BasicAuthentication
 # Create your views here.
 # Create your views here.
 
-stripe.api_key = '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'
+stripe.api_key = 'sk_test_51Ihg5PKaeSTNPk3vwKD92ktFpl1k04ile9ez2rFHCJBL5WqSPptGFC2mzGoIiWSiDkwiUojc7rDVr9KYGrWGnoS900tPdGpY2U'
 
 
 class PaymentView(APIView):
