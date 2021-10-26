@@ -59,20 +59,19 @@ class Save_stripe_info(APIView):
             obj.save()
             return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
         elif plan == "SU":
-            checkStatus = StripeCustomer.objects.filter(user__email=email).first()
             if(checkStatus):
                 price = 79
                 price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
             else:
-                price = 79
-                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
+                price = 319
+                price_id = 'price_1Jo2ZxKaeSTNPk3vX1rqt9HH'
         elif plan == "CU":
             if(checkStatus):
-                price = 79
-                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
+                price = 99
+                price_id = 'price_1Jo2cJKaeSTNPk3v6RXSQHe9'
             else:
-                price = 79
-                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV' 
+                price = 349
+                price_id = 'price_1Jo2bYKaeSTNPk3vQjuJ1zIG' 
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
@@ -96,14 +95,6 @@ class Save_stripe_info(APIView):
             customer = customer_data[0]
             extra_msg = "Customer already existed."
         try:
-            # stripe.PaymentIntent.create(
-            #     customer=customer['id'],
-            #     currency='usd', 
-            #     amount=price * 100,
-            #     metadata ={
-            #         "price_id": price_id
-            #     }
-            #     )
             try:
                 if('couponCode' in request.POST and request.POST['couponCode'] != ""):
                     promoCode = stripe.PromotionCode.list(
