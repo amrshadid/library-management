@@ -63,24 +63,24 @@ class Save_stripe_info(APIView):
             if(checkStatus):
                 #test payment
                 price = 1
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+                price_id = 'price_1JomvPKaeSTNPk3vFA6a4eDz'
 
                 # price = 79
                 # price_id = 'price_1Jol2gKaeSTNPk3vjxh4LPe5'
             else:
                 price = 1
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'                
+                price_id = 'price_1JomvPKaeSTNPk3vFA6a4eDz'                
                 # price = 319
                 # price_id = 'price_1Jol0tKaeSTNPk3vZ19qsYro'
         elif plan == "CU":
             if(checkStatus):
                 price = 1
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+                price_id = 'price_1JomvPKaeSTNPk3vFA6a4eDz'
                 # price = 99
                 # price_id = 'price_1JWjprKaeSTNPk3v4bQZwdqN'
             else:
                 price = 1
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+                price_id = 'price_1JomvPKaeSTNPk3vFA6a4eDz'
                 # price = 349
                 # price_id = 'price_1JokzpKaeSTNPk3v1VSjz2Wi' 
             
