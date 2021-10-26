@@ -20,6 +20,7 @@ from rest_framework.authentication import BasicAuthentication
 # Create your views here.
 
 stripe.api_key = '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'
+# stripe.api_key = 'sk_test_51Ihg5PKaeSTNPk3vwKD92ktFpl1k04ile9ez2rFHCJBL5WqSPptGFC2mzGoIiWSiDkwiUojc7rDVr9KYGrWGnoS900tPdGpY2U'
 
 
 class PaymentView(APIView):
@@ -61,18 +62,18 @@ class Save_stripe_info(APIView):
             return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
         elif plan == "SU":
             if(checkStatus):
-                price = 1
+                # price = 1
                 price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
 
             else:
-                price = 319
+                # price = 319
                 price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
         elif plan == "CU":
             if(checkStatus):
-                price = 99
+                # price = 99
                 price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
             else:
-                price = 349
+                # price = 349
                 price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v' 
             
         else:
