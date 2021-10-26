@@ -19,7 +19,7 @@ from rest_framework.authentication import BasicAuthentication
 # Create your views here.
 # Create your views here.
 
-stripe.api_key = 'sk_test_51Ihg5PKaeSTNPk3vwKD92ktFpl1k04ile9ez2rFHCJBL5WqSPptGFC2mzGoIiWSiDkwiUojc7rDVr9KYGrWGnoS900tPdGpY2U'
+stripe.api_key = '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'
 
 
 class PaymentView(APIView):
@@ -63,24 +63,24 @@ class Save_stripe_info(APIView):
             if(checkStatus):
                 #test payment
                 price = 1
-                price_id = 'price_1JomvPKaeSTNPk3vFA6a4eDz'
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
 
                 # price = 79
                 # price_id = 'price_1Jol2gKaeSTNPk3vjxh4LPe5'
             else:
                 price = 1
-                price_id = 'price_1JomvPKaeSTNPk3vFA6a4eDz'                
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'                
                 # price = 319
                 # price_id = 'price_1Jol0tKaeSTNPk3vZ19qsYro'
         elif plan == "CU":
             if(checkStatus):
                 price = 1
-                price_id = 'price_1JomvPKaeSTNPk3vFA6a4eDz'
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
                 # price = 99
                 # price_id = 'price_1JWjprKaeSTNPk3v4bQZwdqN'
             else:
                 price = 1
-                price_id = 'price_1JomvPKaeSTNPk3vFA6a4eDz'
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
                 # price = 349
                 # price_id = 'price_1JokzpKaeSTNPk3v1VSjz2Wi' 
             
