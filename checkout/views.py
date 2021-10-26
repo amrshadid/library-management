@@ -19,7 +19,7 @@ from rest_framework.authentication import BasicAuthentication
 # Create your views here.
 # Create your views here.
 
-stripe.api_key = 'sk_test_51Ihg5PKaeSTNPk3vwKD92ktFpl1k04ile9ez2rFHCJBL5WqSPptGFC2mzGoIiWSiDkwiUojc7rDVr9KYGrWGnoS900tPdGpY2U'
+stripe.api_key = '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'
 
 
 class PaymentView(APIView):
@@ -60,18 +60,28 @@ class Save_stripe_info(APIView):
             return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
         elif plan == "SU":
             if(checkStatus):
-                price = 79
-                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
+                #test payment
+                price = 1
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+
+                # price = 79
+                # price_id = 'price_1Jol2gKaeSTNPk3vjxh4LPe5'
             else:
-                price = 319
-                price_id = 'price_1Jo2ZxKaeSTNPk3vX1rqt9HH'
+                price = 1
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'                
+                # price = 319
+                # price_id = 'price_1Jol0tKaeSTNPk3vZ19qsYro'
         elif plan == "CU":
             if(checkStatus):
-                price = 99
-                price_id = 'price_1Jo2cJKaeSTNPk3v6RXSQHe9'
+                price = 1
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+                # price = 99
+                # price_id = 'price_1JWjprKaeSTNPk3v4bQZwdqN'
             else:
-                price = 349
-                price_id = 'price_1Jo2bYKaeSTNPk3vQjuJ1zIG' 
+                price = 1
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+                # price = 349
+                # price_id = 'price_1JokzpKaeSTNPk3v1VSjz2Wi' 
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
