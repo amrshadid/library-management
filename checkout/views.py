@@ -90,7 +90,6 @@ class Save_stripe_info(APIView):
 
                 email=email, 
                 payment_method=payment_method_id,
-                currency="usd",
                 invoice_settings={
                     'default_payment_method': payment_method_id
                 }
