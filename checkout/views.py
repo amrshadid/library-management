@@ -19,8 +19,8 @@ from rest_framework.authentication import BasicAuthentication
 # Create your views here.
 # Create your views here.
 
-stripe.api_key = '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'
-# stripe.api_key = 'sk_test_51Ihg5PKaeSTNPk3vwKD92ktFpl1k04ile9ez2rFHCJBL5WqSPptGFC2mzGoIiWSiDkwiUojc7rDVr9KYGrWGnoS900tPdGpY2U'
+# stripe.api_key = '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'
+stripe.api_key = 'sk_test_51Ihg5PKaeSTNPk3vwKD92ktFpl1k04ile9ez2rFHCJBL5WqSPptGFC2mzGoIiWSiDkwiUojc7rDVr9KYGrWGnoS900tPdGpY2U'
 
 
 class PaymentView(APIView):
@@ -62,19 +62,19 @@ class Save_stripe_info(APIView):
             return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
         elif plan == "SU":
             if(checkStatus):
-                # price = 1
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+                # price = 79
+                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
 
             else:
                 # price = 319
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+                price_id = 'price_1Jo2ZxKaeSTNPk3vX1rqt9HH'
         elif plan == "CU":
             if(checkStatus):
                 # price = 99
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+                price_id = 'price_1Jo2cJKaeSTNPk3v6RXSQHe9'
             else:
                 # price = 349
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v' 
+                price_id = 'price_1Jo2bYKaeSTNPk3vQjuJ1zIG' 
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
