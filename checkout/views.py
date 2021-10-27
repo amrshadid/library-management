@@ -1,6 +1,5 @@
 from django.shortcuts import render
 import stripe
-import json
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import (HTTP_200_OK,
@@ -40,7 +39,7 @@ class Save_stripe_info(APIView):
     authentication_classes = [BasicAuthentication]
 
     def post(self, request):
-        data = json.loads(request.body)
+        data = request.data
         price_id=''
         key = request.POST['token']
         user_id = Token.objects.get(key=key).user_id
