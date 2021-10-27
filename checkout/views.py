@@ -97,6 +97,7 @@ class Save_stripe_info(APIView):
         else:
             customer = customer_data[0]
             extra_msg = "Customer already existed."
+        try:
             try:
                 if('couponCode' in request.POST and request.POST['couponCode'] != ""):
                     promoCode = stripe.PromotionCode.list(
@@ -134,6 +135,9 @@ class Save_stripe_info(APIView):
             except Exception as e:
                 print(e)
                 return Response({'status': 0, 'message': 'Transaction Failed'})
+        except Exception as e:
+            print(e)
+            return Response({'status': 0, 'message': 'Transaction Failed'})
 
 
 class CouponCustomerView(APIView):
