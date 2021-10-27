@@ -63,18 +63,18 @@ class Save_stripe_info(APIView):
         elif plan == "SU":
             if(checkStatus):
                 # price = 79
-                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
 
             else:
                 # price = 319
-                price_id = 'price_1Jo2ZxKaeSTNPk3vX1rqt9HH'
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
         elif plan == "CU":
             if(checkStatus):
                 # price = 99
-                price_id = 'price_1Jo2cJKaeSTNPk3v6RXSQHe9'
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
             else:
                 # price = 349
-                price_id = 'price_1Jo2bYKaeSTNPk3vQjuJ1zIG' 
+                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v' 
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
