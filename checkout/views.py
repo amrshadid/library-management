@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import stripe
+import json
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import (HTTP_200_OK,
@@ -19,8 +20,8 @@ from rest_framework.authentication import BasicAuthentication
 # Create your views here.
 # Create your views here.
 
-# stripe.api_key = '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'
-stripe.api_key = 'sk_test_51Ihg5PKaeSTNPk3vwKD92ktFpl1k04ile9ez2rFHCJBL5WqSPptGFC2mzGoIiWSiDkwiUojc7rDVr9KYGrWGnoS900tPdGpY2U'
+stripe.api_key = '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'
+# stripe.api_key = 'sk_test_51Ihg5PKaeSTNPk3vwKD92ktFpl1k04ile9ez2rFHCJBL5WqSPptGFC2mzGoIiWSiDkwiUojc7rDVr9KYGrWGnoS900tPdGpY2U'
 
 
 class PaymentView(APIView):
@@ -39,7 +40,7 @@ class Save_stripe_info(APIView):
     authentication_classes = [BasicAuthentication]
 
     def post(self, request):
-        data = request.data
+        data = json.loads(request.body)
         price_id=''
         key = request.POST['token']
         user_id = Token.objects.get(key=key).user_id

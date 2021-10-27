@@ -68,7 +68,7 @@ SITE_ID = 2
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -121,7 +121,7 @@ DATABASES = {
 }
 
 #LIVE SETTING
-# DATABASES['default']=dj_database_url.parse(os.environ.get('DATABASE_URL'))
+DATABASES['default']=dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
 # LOCAL SETTING 
 # DATABASES['default'] = dj_database_url.parse('postgres://sclvydndrbiget:70391332d496b043fd6c85ddf84393af263c6201e6675e3389cebb35efc92e05@ec2-3-215-137-131.compute-1.amazonaws.com:5432/d8510v14h59ukm')
