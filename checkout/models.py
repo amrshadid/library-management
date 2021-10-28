@@ -18,6 +18,7 @@ class StripeCustomer(models.Model):
 
     invoice_prefix = models.CharField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True)
+    flag=models.BooleanField(default=True)
 
     def __str__(self):
         return self.user.email
