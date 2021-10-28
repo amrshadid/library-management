@@ -15,10 +15,11 @@ class StripeCustomer(models.Model):
     stripeCustomerId = models.CharField(max_length=255)
     plan = models.CharField( max_length=2,
         choices=PLAN_CHOICES)
-
+    pervious_plan = models.CharField( max_length=2,
+        choices=PLAN_CHOICES,blank=True)
     invoice_prefix = models.CharField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True)
-    Activated=models.BooleanField(default=True)
+    activated=models.BooleanField(default=True)
 
     def __str__(self):
         return self.user.email
