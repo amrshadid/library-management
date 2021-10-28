@@ -58,7 +58,10 @@ class Save_stripe_info(APIView):
                 return Response({'status': 1, 'message': "You already have an active plan."})
         if plan == "TR":
             obj = StripeCustomer.objects.create(user=user_obj, stripeCustomerId="Trial Only",
-                                                plan=plan, invoice_prefix="Trial Only")
+                                                plan=plan, 
+                                                invoice_prefix="Trial Only",
+                                                timestamp=datetime.datetime.now()
+                                                )
             obj.save()
             return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
 
