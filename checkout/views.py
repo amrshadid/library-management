@@ -51,30 +51,32 @@ class Save_stripe_info(APIView):
         if(checkStatus):
             checkStatus = StripeCustomer.objects.get(user__email=email)
             if(checkStatus.plan == "TR"):
-                checkStatus.delete()
+                checkStatus.plan=''
+                checkStatus.pervious_plan='TR'
+                checkStatus.save()
             else:
-
                 return Response({'status': 1, 'message': "You already have an active plan."})
         if plan == "TR":
             obj = StripeCustomer.objects.create(user=user_obj, stripeCustomerId="Trial Only",
                                                 plan=plan, invoice_prefix="Trial Only")
             obj.save()
             return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
-        elif plan == "SU":
-            if(checkStatus):
-                # price = 79
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
 
+        elif plan == "SU":
+            if(checkStatus.pervious_plan=="SU"):
+                # price = 79
+                price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
             else:
                 # price = 319
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+                price_id = 'price_1Jo2ZxKaeSTNPk3vX1rqt9HH'
+
         elif plan == "CU":
-            if(checkStatus):
+            if(checkStatus.pervious_plan=="CU"):
                 # price = 99
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v'
+                price_id = 'price_1Jo2cJKaeSTNPk3v6RXSQHe9'
             else:
                 # price = 349
-                price_id = 'price_1IzMmPKaeSTNPk3vsPJ1NO8v' 
+                price_id = 'price_1Jo2bYKaeSTNPk3vQjuJ1zIG' 
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
@@ -99,10 +101,11 @@ class Save_stripe_info(APIView):
             extra_msg = "Customer already existed."
         try:
             try:
+                Subscription=0
                 if('couponCode' in request.POST and request.POST['couponCode'] != ""):
                     promoCode = stripe.PromotionCode.list(
                         code=request.POST['couponCode'], active=True)
-                    stripe.Subscription.create(
+                    Subscription = stripe.Subscription.create(
                         customer=customer,
                         items=[
                             {
@@ -112,7 +115,7 @@ class Save_stripe_info(APIView):
                         coupon=promoCode.data[0].coupon.id,
                     )
                 else:
-                    stripe.Subscription.create(
+                    Subscription = stripe.Subscription.create(
                         customer=customer,
                         items=[
                             {
@@ -121,23 +124,26 @@ class Save_stripe_info(APIView):
                         ],
 
                     )
+                if( Subscription and Subscription.status=='incomplete'):
+
+                    stripe.Subscription.delete(
+                            Subscription.id
+                            )
+                    return Response({'status': 0, 'message': 'Transaction failed '})
+                    
                 if(plan == "CU"):
                     user_obj.is_aou = True
                     user_obj.save()
                 obj = StripeCustomer.objects.create(user=user_obj, stripeCustomerId=customer.id,
                                                     plan=plan, invoice_prefix=customer.invoice_prefix)
                 obj.save()
-                # return Response(status=HTTP_200_OK,
-                #     data={'message': 'Success', 'data': {
-                #     'customer_id': customer.id, 'extra_msg': extra_msg}
-                # })
+
                 return Response({'status': 1, 'message': 'Congratulations! Your Subscription has started'})
+
             except Exception as e:
-                print(e)
-                return Response({'status': 0, 'message': 'Transaction Failed'})
+                return Response({'status': 0, 'message': 'Transaction failed'})
         except Exception as e:
-            print(e)
-            return Response({'status': 0, 'message': 'Transaction Failed'})
+            return Response({'status': 0, 'message': 'Transaction failed'})
 
 
 class CouponCustomerView(APIView):
@@ -231,25 +237,45 @@ class getPaymentDetails(APIView):
         token = request.GET['hoarTemplatetoken']
         user_id = Token.objects.get(key=token).user_id
         userData = CustomUser.objects.get(id=user_id)
-        paymentData = StripeCustomer.objects.filter(user__id=userData.id)
-        if(paymentData):
-            paymentData = StripeCustomer.objects.get(user__id=userData.id)
+        temp={}
+        paymentData = StripeCustomer.objects.get(user__id=userData.id)
+        if(paymentData):            
             expiry_date = paymentData.timestamp.date() + datetime.timedelta(days=365)
+
+            # print(datetime.date.today())
+            # print(paymentData.timestamp.date() + datetime.timedelta(days=365))
+            # print(int((expiry_date - paymentData.timestamp.date()).days))
+
             if(int((expiry_date-paymentData.timestamp.date()).days) >= 1):
                 status = "Active"
                 daysLeft = int((expiry_date-datetime.date.today()).days)
+                
+
             else:
+                paymentData.timestamp=datetime.datetime.now()
+                if(paymentData.plan != "TR"):
+                    paymentData.pervious_plan=paymentData.plan
+                paymentData.plan="TR"
+                paymentData.save()
                 status = "Inactive"
                 daysLeft = 0
+                
+
+            if(paymentData.plan != "TR"):
+                expiry_date= expiry_date.strftime('%b %d,%Y')
+            else:
+                expiry_date='Unlimited'
+                daysLeft='Unlimited'
+
             temp = {
                 'plan': paymentData.get_plan_display().upper(),
                 'customerId': paymentData.stripeCustomerId,
-                'date': paymentData.timestamp.date().strftime('%b %d,%Y'),
-                'expiry_date': expiry_date.strftime('%b %d,%Y'),
+                'date': paymentData.timestamp.strftime('%b %d,%Y'),
+                'expiry_date':expiry_date ,
                 'status': status,
                 'daysLeft': daysLeft,
                 'paymentMode': "Stripe"
-            }
+                }
         else:
             temp = {
                 'plan': "Unavailable",
