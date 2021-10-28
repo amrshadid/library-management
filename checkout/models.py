@@ -19,6 +19,8 @@ class StripeCustomer(models.Model):
     pervious_plan = models.CharField( max_length=2,
         choices=PLAN_CHOICES,blank=True)
     invoice_prefix = models.CharField(max_length=255)
+    stripeSubscriptionsId = models.CharField(max_length=255)
+
     timestamp = models.DateTimeField(default=datetime.date.today)
 
     def __str__(self):
