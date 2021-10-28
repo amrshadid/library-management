@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 from users.models import CustomUser
 
 
@@ -18,7 +19,7 @@ class StripeCustomer(models.Model):
     pervious_plan = models.CharField( max_length=2,
         choices=PLAN_CHOICES,blank=True)
     invoice_prefix = models.CharField(max_length=255)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(default=datetime.date.today)
 
     def __str__(self):
         return self.user.email
