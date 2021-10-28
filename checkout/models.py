@@ -15,7 +15,7 @@ class StripeCustomer(models.Model):
     user = models.OneToOneField(to=CustomUser, on_delete=models.CASCADE)
     stripeCustomerId = models.CharField(max_length=255)
     plan = models.CharField( max_length=2,
-        choices=PLAN_CHOICES)
+        choices=PLAN_CHOICES,blank=True)
     pervious_plan = models.CharField( max_length=2,
         choices=PLAN_CHOICES,blank=True)
     invoice_prefix = models.CharField(max_length=255)
