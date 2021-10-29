@@ -27,6 +27,8 @@ class StripeCustomer(models.Model):
 
     def __str__(self):
         return self.user.email
+    def get_plan(self):
+        return self.plan
 
 class CouponCustomer(models.Model):
     user = models.OneToOneField(to=CustomUser, on_delete=models.CASCADE)

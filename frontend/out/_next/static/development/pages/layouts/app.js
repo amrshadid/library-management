@@ -9,7 +9,8 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var baseApiURL = "https://library-mp1.herokuapp.com/"; // const baseApiURL = "http://localhost:8000/";
+// const baseApiURL = "https://library-mp1.herokuapp.com/";
+var baseApiURL = "http://localhost:8000/"; // const baseApiURL = "/";
 
 /* harmony default export */ __webpack_exports__["default"] = (baseApiURL);
 
@@ -84,7 +85,6 @@ var Header = function Header() {
     navigateTo("/");
   };
 
-  console.log("ew");
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
     className: "site_header",
     __self: _this,
@@ -38490,10 +38490,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement;
 
 
 
-
-var stripePromise = Object(_stripe_stripe_js__WEBPACK_IMPORTED_MODULE_13__["loadStripe"])("pk_live_51Ihg5PKaeSTNPk3vvmtW6Vj8og85NTlDnywQSuuB9UP3OFMHDr4pIdOcrV8lWO6yAn9YVSr7ZYRrrtReTEcEfn4c003f9Chyxn"); // const stripePromise = loadStripe(
-//   "pk_test_51Ihg5PKaeSTNPk3vq2GCVZ9hjkjGTlYRyGY0pVCWFJWcQ1AIBhMA1d5dK3Vp3dGdFs89SIbPkY0s6cuDWmx4yH0b00fXvu7XbF"
+ // const stripePromise = loadStripe(
+//   "pk_live_51Ihg5PKaeSTNPk3vvmtW6Vj8og85NTlDnywQSuuB9UP3OFMHDr4pIdOcrV8lWO6yAn9YVSr7ZYRrrtReTEcEfn4c003f9Chyxn"
 // );
+
+var stripePromise = Object(_stripe_stripe_js__WEBPACK_IMPORTED_MODULE_13__["loadStripe"])("pk_test_51Ihg5PKaeSTNPk3vq2GCVZ9hjkjGTlYRyGY0pVCWFJWcQ1AIBhMA1d5dK3Vp3dGdFs89SIbPkY0s6cuDWmx4yH0b00fXvu7XbF");
 
 var App = function App() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(null),
@@ -38504,9 +38505,26 @@ var App = function App() {
       email = _useState2[0],
       setEmail = _useState2[1];
 
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])([]),
+      userInfo = _useState3[0],
+      setUserinfo = _useState3[1];
+
   var planSelected = "CU";
   Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
     window.scrollBy(0, -1000);
+
+    function checkUserData() {
+      var item = JSON.parse(localStorage.getItem("userInfo"));
+
+      if (item) {
+        setUserData(item);
+      }
+    }
+
+    window.addEventListener('storage', checkUserData);
+    return function () {
+      window.removeEventListener('storage', checkUserData);
+    };
   }, []); // Handle real-time validation errors from the card Element.
 
   var handleChange = function handleChange(event) {
@@ -38532,7 +38550,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45,
+        lineNumber: 58,
         columnNumber: 7
       }
     }, __jsx("div", {
@@ -38540,7 +38558,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50,
+        lineNumber: 63,
         columnNumber: 9
       }
     }, __jsx("label", {
@@ -38548,7 +38566,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51,
+        lineNumber: 64,
         columnNumber: 11
       }
     }, "Email Address"), __jsx("input", {
@@ -38561,7 +38579,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52,
+        lineNumber: 65,
         columnNumber: 11
       }
     })), __jsx("div", {
@@ -38569,7 +38587,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 61,
+        lineNumber: 74,
         columnNumber: 9
       }
     }, __jsx("label", {
@@ -38577,7 +38595,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62,
+        lineNumber: 75,
         columnNumber: 11
       }
     }, "Credit or debit card"), __jsx(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_5__["CardElement"], {
@@ -38586,7 +38604,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64,
+        lineNumber: 77,
         columnNumber: 11
       }
     }), __jsx("div", {
@@ -38595,7 +38613,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65,
+        lineNumber: 78,
         columnNumber: 11
       }
     }, error)), __jsx("div", {
@@ -38603,7 +38621,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69,
+        lineNumber: 82,
         columnNumber: 9
       }
     }, __jsx("label", {
@@ -38611,7 +38629,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70,
+        lineNumber: 83,
         columnNumber: 11
       }
     }, "Discount Coupon"), __jsx("input", {
@@ -38623,7 +38641,7 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71,
+        lineNumber: 84,
         columnNumber: 11
       }
     })), __jsx("div", {
@@ -38631,18 +38649,28 @@ var App = function App() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79,
+        lineNumber: 92,
         columnNumber: 9
       }
-    }, __jsx("input", {
+    }, userInfo.pervious_plan === localStorage.getItem("requestedPlan") ? __jsx("input", {
+      type: "submit",
+      className: "btn btn-default primary-btn event-btn m-0-auto",
+      value: "Renewal payment",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 94,
+        columnNumber: 21
+      }
+    }) : __jsx("input", {
       type: "submit",
       className: "btn btn-default primary-btn event-btn m-0-auto",
       value: "Submit Payment",
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80,
-        columnNumber: 11
+        lineNumber: 99,
+        columnNumber: 19
       }
     })));
   }; // Handle form submission.
@@ -38734,14 +38762,14 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 146,
+      lineNumber: 167,
       columnNumber: 7
     }
   }, __jsx("title", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147,
+      lineNumber: 168,
       columnNumber: 9
     }
   }, "Library Management "), __jsx("meta", {
@@ -38750,7 +38778,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148,
+      lineNumber: 169,
       columnNumber: 9
     }
   })), __jsx(_containers_common_header__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -38758,7 +38786,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 150,
+      lineNumber: 171,
       columnNumber: 7
     }
   }), __jsx("section", {
@@ -38767,21 +38795,21 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151,
+      lineNumber: 172,
       columnNumber: 7
     }
   }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_15__["Container"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 152,
+      lineNumber: 173,
       columnNumber: 9
     }
   }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_15__["Row"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 153,
+      lineNumber: 174,
       columnNumber: 11
     }
   }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_15__["Col"], {
@@ -38789,7 +38817,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154,
+      lineNumber: 175,
       columnNumber: 13
     }
   }, __jsx(react_slick__WEBPACK_IMPORTED_MODULE_14___default.a, {
@@ -38797,7 +38825,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155,
+      lineNumber: 176,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -38805,7 +38833,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156,
+      lineNumber: 177,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -38813,7 +38841,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157,
+      lineNumber: 178,
       columnNumber: 19
     }
   }, __jsx("div", {
@@ -38821,7 +38849,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 158,
+      lineNumber: 179,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -38829,7 +38857,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 180,
       columnNumber: 23
     }
   }, __jsx("h3", {
@@ -38837,7 +38865,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160,
+      lineNumber: 181,
       columnNumber: 25
     }
   }, "Billing Details"), __jsx("hr", {
@@ -38845,7 +38873,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 161,
+      lineNumber: 182,
       columnNumber: 25
     }
   })), __jsx("div", {
@@ -38853,91 +38881,91 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163,
+      lineNumber: 184,
       columnNumber: 23
     }
   }, __jsx("ul", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 164,
+      lineNumber: 185,
       columnNumber: 25
     }
   }, __jsx("li", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 165,
+      lineNumber: 186,
       columnNumber: 27
     }
   }, __jsx("h5", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 166,
+      lineNumber: 187,
       columnNumber: 29
     }
   }, "Association Name :", " ", true ? JSON.parse(localStorage.getItem("userInfo")).association_name : undefined)), __jsx("br", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 174,
+      lineNumber: 195,
       columnNumber: 27
     }
   }), __jsx("li", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175,
+      lineNumber: 196,
       columnNumber: 27
     }
   }, __jsx("h5", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 176,
+      lineNumber: 197,
       columnNumber: 29
     }
   }, "Email :", " ", true ? JSON.parse(localStorage.getItem("userInfo")).email : undefined)), __jsx("br", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 184,
+      lineNumber: 205,
       columnNumber: 27
     }
   }), __jsx("li", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185,
+      lineNumber: 206,
       columnNumber: 27
     }
   }, __jsx("h5", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186,
+      lineNumber: 207,
       columnNumber: 29
     }
   }, "Contact No. :", " ", true ? JSON.parse(localStorage.getItem("userInfo")).contact_no : undefined)), __jsx("br", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 194,
+      lineNumber: 215,
       columnNumber: 27
     }
   }), __jsx("li", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 195,
+      lineNumber: 216,
       columnNumber: 27
     }
   }, __jsx("h5", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 196,
+      lineNumber: 217,
       columnNumber: 29
     }
   }, "Requested Plan :", " ", true ? localStorage.getItem("requestedPlan") : undefined)))), __jsx("div", {
@@ -38945,7 +38973,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 205,
+      lineNumber: 226,
       columnNumber: 23
     }
   }, true ? localStorage.getItem("requestedPlan") === "SU" ? __jsx("h6", {
@@ -38953,7 +38981,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 208,
+      lineNumber: 230,
       columnNumber: 29
     }
   }, "$", __jsx("span", {
@@ -38961,15 +38989,15 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 209,
+      lineNumber: 231,
       columnNumber: 32
     }
-  }, "169"), "/1st Year") : __jsx("h6", {
+  }, JSON.parse(localStorage.getItem("userInfo")).pervious_plan === localStorage.getItem("requestedPlan") ? '79' : '319'), "/1st Year") : localStorage.getItem("requestedPlan") === "CU" ? __jsx("h6", {
     className: "price",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 212,
+      lineNumber: 236,
       columnNumber: 29
     }
   }, "$", __jsx("span", {
@@ -38977,10 +39005,26 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 213,
+      lineNumber: 237,
       columnNumber: 32
     }
-  }, "199"), "/1st Year") : undefined), __jsx("button", {
+  }, JSON.parse(localStorage.getItem("userInfo")).pervious_plan === localStorage.getItem("requestedPlan") ? '99' : '349'), "/1st Year") : __jsx("h6", {
+    className: "price",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 242,
+      columnNumber: 29
+    }
+  }, "$", __jsx("span", {
+    className: "large",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 243,
+      columnNumber: 32
+    }
+  }, JSON.parse(localStorage.getItem("userInfo")).pervious_plan === localStorage.getItem("requestedPlan") ? '1' : '3'), "/for three days") : undefined), __jsx("button", {
     className: "btn btn-default btn-white",
     onClick: function onClick() {
       return next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push("/layouts/pricing");
@@ -38988,7 +39032,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 219,
+      lineNumber: 250,
       columnNumber: 23
     }
   }, "Change Plan")))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_15__["Col"], {
@@ -38998,7 +39042,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 230,
+      lineNumber: 261,
       columnNumber: 13
     }
   }, __jsx(react_slick__WEBPACK_IMPORTED_MODULE_14___default.a, {
@@ -39006,7 +39050,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 231,
+      lineNumber: 262,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -39014,7 +39058,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 232,
+      lineNumber: 263,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -39022,7 +39066,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 233,
+      lineNumber: 264,
       columnNumber: 19
     }
   }, __jsx("div", {
@@ -39030,7 +39074,7 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 234,
+      lineNumber: 265,
       columnNumber: 21
     }
   }, __jsx(_stripe_react_stripe_js__WEBPACK_IMPORTED_MODULE_5__["Elements"], {
@@ -39038,21 +39082,21 @@ var App = function App() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 235,
+      lineNumber: 266,
       columnNumber: 23
     }
   }, __jsx(MyCom, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 236,
+      lineNumber: 267,
       columnNumber: 25
     }
   }))))))))), __jsx(_sections_agency_footer__WEBPACK_IMPORTED_MODULE_12__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 245,
+      lineNumber: 276,
       columnNumber: 9
     }
   })));
@@ -39666,7 +39710,23 @@ var Subscribs = function Subscribs() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constant_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constant/api */ "./constant/api.js");
+
+
+
 var isLogin = function isLogin() {
+  // let URL = baseApiURL + "userDetails/" + localStorage.getItem("hoarTemplatetoken");
+  //   axios({
+  //     method: "get",
+  //     url: URL,
+  //     headers: {
+  //       Authorization: "Token " + localStorage.getItem("hoarTemplatetoken"),
+  //     },
+  //   })
+  //     .then(function (response) {
+  //       localStorage.setItem("userInfo", JSON.stringify(response.data));})
   if (true) {
     return localStorage.getItem("hoarTemplatetoken") && localStorage.getItem("userInfo") ? true : false;
   } else {}
@@ -39732,7 +39792,7 @@ var getUserType = function getUserType() {
 
 /***/ }),
 
-/***/ 8:
+/***/ 17:
 /*!*******************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Flayouts%2Fapp&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Capp.js ***!
   \*******************************************************************************************************************************************************/
@@ -39755,5 +39815,5 @@ module.exports = dll_b0ae7f9d5a2cb9eeeb96;
 
 /***/ })
 
-},[[8,"static/runtime/webpack.js","styles"]]]);
+},[[17,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=app.js.map

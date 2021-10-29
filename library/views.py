@@ -209,10 +209,8 @@ class IssueListView(APIView):
             else:
                 isTrailPlan = False
         except Exception as e:
-            print(e)
-            print("in heree")
             user_instance = None
-        print(user_instance)
+            return e
         if sub_category.isdigit() and int(sub_category) != 0:
             sub_category_instance = SubCategory.objects.get(
                 id=int(sub_category))

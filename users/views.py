@@ -328,9 +328,7 @@ class changePassword(APIView):
         email = request.POST['email']
         user_instance = CustomUser.objects.get(email=email)
         # password = make_password(request.POST['password'])
-        print(user_instance.password)
         user_instance.set_password(request.POST['password'])
-        print(user_instance.password)
         user_instance.save()
         return Response({'status': 1, 'message': "Password Changed Successfully"})
 
@@ -345,8 +343,10 @@ class UserDetails(APIView):
         if(planData):
             planData = StripeCustomer.objects.get(user__email=userdata.email)
             plan = planData.plan
+            pervious_plan=planData.pervious_plan
         else:
             plan = ""
+            pervious_plan=''
         subAouStatus = Teams.objects.filter(subAou__email=userdata.email)
         isSubAou = False
         if(subAouStatus):
@@ -361,7 +361,9 @@ class UserDetails(APIView):
             "name": userdata.name,
             "state": userdata.state,
             "contact_no": userdata.contact_no,
-            "plan": plan
+            "plan": plan,
+            'pervious_plan':pervious_plan
+
         }
         return Response(temp)
 
@@ -415,10 +417,8 @@ class TeamView(APIView):
             user_id = Token.objects.get(key=key).user_id
             userdata = CustomUser.objects.get(id=user_id)
             subAou_list = json.loads(request.POST['subaoulist'])
-            print(subAou_list)
             if userdata.is_aou == True:
-                print(Teams.objects.filter(owners=userdata,
-                                           subAou__is_active=True).count())
+
                 if(Teams.objects.filter(owners=userdata, subAou__is_active=True).count() + len(subAou_list) > 5):
                     return Response({'status': 0, 'message': 'Sub Aou Linmit reached. Delete a sub aou to add more.'})
                 for user in subAou_list:
@@ -464,7 +464,6 @@ class TeamView(APIView):
                 return Response({'status': 1, 'message': 'Success'})
             return Response({'status': 0, 'message': 'Failed'}, status=HTTP_400_BAD_REQUEST)
         except Exception as e:
-            print(e)
             return Response({'status': 0, 'message': 'Please make sure every added Community User is unique, Invalid Data'})
 
 
@@ -563,7 +562,6 @@ class SignUp(APIView):
             emailData.save()
             return redirect('/layouts/profile?reauth=1&token='+str(token))
         except Exception as e:
-            print(e)
             return Response({'data': e.errors})
 
     def post(self, request):
@@ -638,7 +636,6 @@ class changeSubAou(APIView):
         aou_user = CustomUser.objects.get(id=aou_user_id)
         if(aou_user.is_aou == True):
             sub_aou_id = int(request.POST['subAouSelect'])
-            print(sub_aou_id)
             sub_aou_map = Teams.objects.get(id=int(sub_aou_id))
             sub_aou = CustomUser.objects.get(id=sub_aou_map.subAou.id)
             sub_aou.is_aou = True

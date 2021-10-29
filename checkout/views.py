@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import stripe
+from stripe.api_resources import subscription
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import (HTTP_200_OK,
@@ -12,6 +13,7 @@ from checkout.models import *
 from checkout.serializers import CouponCustomerSerializer
 from rest_framework.authtoken.models import Token
 import datetime
+from django.utils import timezone
 from django.core.mail import send_mail
 from master_library.settings import EMAIL_HOST_USER
 import time
@@ -23,11 +25,35 @@ from rest_framework.authentication import BasicAuthentication
 stripe.api_key = 'sk_test_51Ihg5PKaeSTNPk3vwKD92ktFpl1k04ile9ez2rFHCJBL5WqSPptGFC2mzGoIiWSiDkwiUojc7rDVr9KYGrWGnoS900tPdGpY2U'
 
 
+
+
+def Send_alarm(obj):
+    userdata = CustomUser.objects.get(name=obj.user)
+    subscription=obj
+    print(userdata.email)
+    temp = f"Dear {userdata.name} your subscription on plan {subscription.get_plan()} it's almost over, you have 2 day before subscription stop Thank you for join our family "
+    print(temp)
+    # temp=''
+    # if(subscription.plan =='TH'):
+    #     temp = f"Dear {userdata.name} your subscription on plan {subscription.plan} it's almost over, you have 7 days before subscription stop Thank you for join our family "
+    # else:
+    #     temp = f"Dear {userdata.name} your subscription on plan {subscription.plan} it's almost over, you have 2 day before subscription stop Thank you for join our family "
+    # send_mail(
+    # 'Mail From hoarulestemplate',
+    # temp,
+    # EMAIL_HOST_USER,
+    # [userdata.email],
+    # fail_silently=False,
+    # html_message=temp
+    # )
+    # obj.alarm=True
+    # obj.save()
+    return 0
+
 class PaymentView(APIView):
     authentication_classes = [BasicAuthentication]
 
     def post(self, request):
-        print(request.data)
         test_payment_intent = stripe.PaymentIntent.create(
             amount=1000, currency='pln',
             payment_method_types=['card'],
@@ -50,20 +76,39 @@ class Save_stripe_info(APIView):
         checkStatus = StripeCustomer.objects.filter(user__email=email)
         if(checkStatus):
             checkStatus = StripeCustomer.objects.get(user__email=email)
-            if(checkStatus.plan == "TR"):
+            if(checkStatus.plan == "TR" or checkStatus.plan == "" ):
                 checkStatus.plan=''
-                checkStatus.pervious_plan='TR'
+                checkStatus.timestamp=timezone.now()
                 checkStatus.save()
             else:
                 return Response({'status': 1, 'message': "You already have an active plan."})
-        if plan == "TR":
+        if plan == "TR" and not checkStatus :
             obj = StripeCustomer.objects.create(user=user_obj, stripeCustomerId="Trial Only",
                                                 plan=plan, 
                                                 invoice_prefix="Trial Only",
-                                                timestamp=datetime.datetime.now()
+                                                stripeSubscriptionsId='Trial Only',
+                                                timestamp=timezone.now()
                                                 )
             obj.save()
             return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
+        elif plan == "TR" and checkStatus:
+            checkStatus.plan="TR"
+            checkStatus.timestamp=timezone.now()
+            checkStatus.save()
+            return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
+
+        
+        elif plan == "TH":
+            if(checkStatus.pervious_plan=="TH" and checkStatus.plan=='TH'):
+                # price = 3
+                price_id = 'price_1JpuZ2KaeSTNPk3vybt4IEd9'
+
+            elif(checkStatus.pervious_plan=="TH"):
+                # price = 1
+                price_id = 'price_1JpuZ2KaeSTNPk3vozDFmNMI'
+            else:
+                # price = 3
+                price_id = 'price_1JpuZ2KaeSTNPk3vybt4IEd9'
 
         elif plan == "SU":
             if(checkStatus.pervious_plan=="SU"):
@@ -83,6 +128,7 @@ class Save_stripe_info(APIView):
             
         else:
             return Response({'status': 0, 'message': 'Wrong Plan Selection'})
+
         payment_method_id = data['payment_method_id']
         extra_msg = ''  # add new variable to response message
         # checking if customer with provided email already exists
@@ -137,9 +183,27 @@ class Save_stripe_info(APIView):
                 if(plan == "CU"):
                     user_obj.is_aou = True
                     user_obj.save()
-                obj = StripeCustomer.objects.create(user=user_obj, stripeCustomerId=customer.id,
-                                                    plan=plan, invoice_prefix=customer.invoice_prefix)
-                obj.save()
+                
+                if(checkStatus):
+                    checkStatus.stripeCustomerId=customer.id
+                    checkStatus.stripeSubscriptionsId=Subscription.id
+                    checkStatus.invoice_prefix=customer.invoice_prefix
+                    if checkStatus.alarm==True:
+                        checkStatus.alarm=False
+                    if checkStatus.plan !='':
+                        checkStatus.pervious_plan=checkStatus.plan
+                    checkStatus.plan=plan
+                    checkStatus.timestamp=timezone.now()
+                    checkStatus.save()
+                else:
+                    obj = StripeCustomer.objects.create(user=user_obj, stripeCustomerId=customer.id, 
+                                                        plan=plan, 
+                                                        invoice_prefix=customer.invoice_prefix,
+                                                        timestamp=timezone.now(),
+                                                        stripeSubscriptionsId=str(Subscription.id),
+
+                                                        )
+                    obj.save()
 
                 return Response({'status': 1, 'message': 'Congratulations! Your Subscription has started'})
 
@@ -153,7 +217,6 @@ class CouponCustomerView(APIView):
     authentication_classes = [BasicAuthentication]
 
     def post(self, request):
-        print(request.data)
         user_id = Token.objects.get(
             key=request.POST['hoarTemplatetoken']).user_id
         user_instance = CustomUser.objects.get(id=user_id)
@@ -242,22 +305,50 @@ class getPaymentDetails(APIView):
         userData = CustomUser.objects.get(id=user_id)
         temp={}
         paymentData = StripeCustomer.objects.get(user__id=userData.id)
-        if(paymentData):            
+        if(paymentData and paymentData.plan !=""):
             expiry_date = paymentData.timestamp.date() + datetime.timedelta(days=365)
-
-            # print(datetime.date.today())
-            # print(paymentData.timestamp.date() + datetime.timedelta(days=365))
-            # print(int((expiry_date - paymentData.timestamp.date()).days))
+            Three_day = paymentData.timestamp.date() + datetime.timedelta(days=3)
+            
+            if(int((expiry_date-paymentData.timestamp.date()).days) >= 7 and paymentData.alarm==False ):
+                Send_alarm(paymentData)
+            
 
             if(int((expiry_date-paymentData.timestamp.date()).days) >= 1):
                 status = "Active"
                 daysLeft = int((expiry_date-datetime.date.today()).days)
                 
+            if paymentData.plan == "TH":
+                if(int((Three_day-paymentData.timestamp.date()).days) >= 1 and paymentData.alarm==False ):
+                    Send_alarm(paymentData)
+
+                if(int((Three_day-paymentData.timestamp.date()).days) >= 1):
+                    status = "Active"
+                    daysLeft = int((Three_day-datetime.date.today()).days)
+
+                else:
+                    paymentData.timestamp=timezone.now()
+                    if(paymentData.plan != "TR"):
+                        paymentData.pervious_plan=paymentData.plan
+                        stripe.Subscription.delete(
+                            paymentData.stripeSubscriptionsId ,
+                            )
+                    
+                        paymentData.plan="TR"
+                        paymentData.save()
+                        status = "Inactive"
+                        daysLeft = 0
+                
+
 
             else:
-                paymentData.timestamp=datetime.datetime.now()
+
+                paymentData.timestamp=timezone.now()
                 if(paymentData.plan != "TR"):
                     paymentData.pervious_plan=paymentData.plan
+                    stripe.Subscription.delete(
+                        paymentData.stripeSubscriptionsId ,
+                        )
+                   
                 paymentData.plan="TR"
                 paymentData.save()
                 status = "Inactive"
