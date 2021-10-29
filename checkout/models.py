@@ -6,6 +6,7 @@ from users.models import CustomUser
 
 PLAN_CHOICES =(
     ('TR' , 'Trial'),
+    ('TH' , 'Three days'),
     ('SU' , 'Single User'),
     ('CU' , 'Community'),
 )
