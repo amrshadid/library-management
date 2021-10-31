@@ -42390,8 +42390,10 @@ var Update = /*#__PURE__*/function () {
                   while (1) {
                     switch (_context.prev = _context.next) {
                       case 0:
-                        if (JSON.parse(localStorage.getItem("userInfo")) !== response.data) {
-                          localStorage.setItem("userInfo", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(response.data));
+                        if (true) {
+                          if (JSON.parse(localStorage.getItem("userInfo")) !== response.data) {
+                            localStorage.setItem("userInfo", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(response.data));
+                          }
                         }
 
                       case 1:

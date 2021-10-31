@@ -31,23 +31,23 @@ def Send_alarm(obj):
     userdata = CustomUser.objects.get(name=obj.user)
     subscription=obj
     print(userdata.email)
-    temp = f"Dear {userdata.name} your subscription on plan {subscription.get_plan()} it's almost over, you have 2 day before subscription stop Thank you for join our family "
+    temp = f"Dear {userdata.name} your subscription on plan {subscription.get_plan()} it's almost over, you have 2 day before subscription stop, Thank you for join our family "
     print(temp)
-    # temp=''
-    # if(subscription.plan =='TH'):
-    #     temp = f"Dear {userdata.name} your subscription on plan {subscription.plan} it's almost over, you have 7 days before subscription stop Thank you for join our family "
-    # else:
-    #     temp = f"Dear {userdata.name} your subscription on plan {subscription.plan} it's almost over, you have 2 day before subscription stop Thank you for join our family "
-    # send_mail(
-    # 'Mail From hoarulestemplate',
-    # temp,
-    # EMAIL_HOST_USER,
-    # [userdata.email],
-    # fail_silently=False,
-    # html_message=temp
-    # )
-    # obj.alarm=True
-    # obj.save()
+    temp=''
+    if(subscription.plan =='TH'):
+        temp = f"Dear {userdata.name} your subscription on plan {subscription.plan} it's almost over, you have 7 days before subscription stop, Thank you for join our family "
+    else:
+        temp = f"Dear {userdata.name} your subscription on plan {subscription.plan} it's almost over, you have 2 day before subscription stop, Thank you for join our family "
+    send_mail(
+    'Mail From hoarulestemplate',
+    temp,
+    EMAIL_HOST_USER,
+    [userdata.email],
+    fail_silently=False,
+    html_message=temp
+    )
+    obj.alarm=True
+    obj.save()
     return 0
 
 class PaymentView(APIView):
