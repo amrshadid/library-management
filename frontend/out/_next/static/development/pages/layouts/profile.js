@@ -10,7 +10,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 // const baseApiURL = "https://library-mp1.herokuapp.com/";
-var baseApiURL = "http://localhost:8000/"; // const baseApiURL = "/";
+var baseApiURL = "http://localhost:8000/"; //const baseApiURL = "/";
 
 /* harmony default export */ __webpack_exports__["default"] = (baseApiURL);
 
@@ -42485,7 +42485,7 @@ var getUserType = function getUserType() {
 
 /***/ }),
 
-/***/ 12:
+/***/ 9:
 /*!***************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Flayouts%2Fprofile&absolutePagePath=C%3A%5CUsers%5CShadid%5CDesktop%5Choa-frontend%5Cpages%5Clayouts%5Cprofile.js ***!
   \***************************************************************************************************************************************************************/
@@ -42508,5 +42508,5 @@ module.exports = dll_b0ae7f9d5a2cb9eeeb96;
 
 /***/ })
 
-},[[12,"static/runtime/webpack.js","styles"]]]);
+},[[9,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=profile.js.map
