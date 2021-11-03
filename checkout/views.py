@@ -302,7 +302,7 @@ class getPaymentDetails(APIView):
     def get(self, request):
         token = request.GET['hoarTemplatetoken']
         user_id = Token.objects.get(key=token).user_id
-        userData = CustomUser.objects.filter(id=user_id).first()
+        userData = CustomUser.objects.filter(id=user_id)
         temp={}
         paymentData = StripeCustomer.objects.get(user__id=userData.id)
         if(paymentData and paymentData.plan !=""):
