@@ -76,42 +76,30 @@ class Save_stripe_info(APIView):
         checkStatus = StripeCustomer.objects.filter(user__email=email)
         if(checkStatus):
             checkStatus = StripeCustomer.objects.get(user__email=email)
-            if(checkStatus.plan == "TR" or checkStatus.plan == "" ):
-                checkStatus.plan=''
-                checkStatus.timestamp=timezone.now()
-                checkStatus.save()
-            else:
-                return Response({'status': 1, 'message': "You already have an active plan."})
-        if plan == "TR" and not checkStatus :
-            obj = StripeCustomer.objects.create(user=user_obj, stripeCustomerId="Trial Only",
+            if(checkStatus.plan == "SU" or checkStatus.plan == "CU" ):
+                return Response({'status': 0, 'message': "You already have an active plan."})
+                
+        else:
+            checkStatus = StripeCustomer.objects.create(user=user_obj, stripeCustomerId="init",
                                                 plan=plan, 
-                                                invoice_prefix="Trial Only",
-                                                stripeSubscriptionsId='Trial Only',
+                                                invoice_prefix="init",
+                                                stripeSubscriptionsId='init',
                                                 timestamp=timezone.now()
                                                 )
-            obj.save()
-            return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
-        elif plan == "TR" and checkStatus:
-            checkStatus.plan="TR"
-            checkStatus.timestamp=timezone.now()
             checkStatus.save()
-            return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
+
+        if plan == "TR":
+            if checkStatus.pervious_plan!="TR":
+                checkStatus.plan="TR"
+                checkStatus.timestamp=timezone.now()
+                checkStatus.save()
+                return Response({'status': 1, 'message': 'Free Trial activated Successfully'})
+            else:
+                return Response({'status': 0, 'message': 'You Have Trial Plan Before '})
 
         
-        elif plan == "TH":
-            if(checkStatus.pervious_plan=="TH" and checkStatus.plan=='TH'):
-                # price = 3
-                price_id = 'price_1JpuZ2KaeSTNPk3vybt4IEd9'
-
-            elif(checkStatus.pervious_plan=="TH"):
-                # price = 1
-                price_id = 'price_1JpuZ2KaeSTNPk3vozDFmNMI'
-            else:
-                # price = 3
-                price_id = 'price_1JpuZ2KaeSTNPk3vybt4IEd9'
-
         elif plan == "SU":
-            if(checkStatus.pervious_plan=="SU"):
+            if checkStatus.pervious_plan=="SU":
                 # price = 79
                 price_id = 'price_1Jo2afKaeSTNPk3vTHyt7zAV'
             else:
@@ -119,7 +107,7 @@ class Save_stripe_info(APIView):
                 price_id = 'price_1Jo2ZxKaeSTNPk3vX1rqt9HH'
 
         elif plan == "CU":
-            if(checkStatus.pervious_plan=="CU"):
+            if checkStatus.pervious_plan=="CU":
                 # price = 99
                 price_id = 'price_1Jo2cJKaeSTNPk3v6RXSQHe9'
             else:
@@ -302,64 +290,31 @@ class getPaymentDetails(APIView):
     def get(self, request):
         token = request.GET['hoarTemplatetoken']
         user_id = Token.objects.get(key=token).user_id
-        userData = CustomUser.objects.filter(id=user_id)
-        temp={}
-        paymentData = StripeCustomer.objects.get(user__id=userData.id)
+        userData = CustomUser.objects.get(id=user_id)
+        paymentData = StripeCustomer.objects.filter(user__id=userData.id).first()
         if(paymentData and paymentData.plan !=""):
             expiry_date = paymentData.timestamp.date() + datetime.timedelta(days=365)
-            Three_day = paymentData.timestamp.date() + datetime.timedelta(days=3)
             
             if(int((expiry_date-paymentData.timestamp.date()).days) >= 7 and paymentData.alarm==False ):
                 Send_alarm(paymentData)
             
-
+        
             if(int((expiry_date-paymentData.timestamp.date()).days) >= 1):
-                status = "Active"
-                daysLeft = int((expiry_date-datetime.date.today()).days)
-                
-            if paymentData.plan == "TH":
-                if(int((Three_day-paymentData.timestamp.date()).days) >= 1 and paymentData.alarm==False ):
-                    Send_alarm(paymentData)
-
-                if(int((Three_day-paymentData.timestamp.date()).days) >= 1):
                     status = "Active"
-                    daysLeft = int((Three_day-datetime.date.today()).days)
-
-                else:
-                    paymentData.timestamp=timezone.now()
-                    if(paymentData.plan != "TR"):
-                        paymentData.pervious_plan=paymentData.plan
-                        stripe.Subscription.delete(
-                            paymentData.stripeSubscriptionsId ,
-                            )
-                    
-                        paymentData.plan="TR"
-                        paymentData.save()
-                        status = "Inactive"
-                        daysLeft = 0
-                
-
+                    daysLeft = int((expiry_date-datetime.date.today()).days)
 
             else:
-
                 paymentData.timestamp=timezone.now()
-                if(paymentData.plan != "TR"):
-                    paymentData.pervious_plan=paymentData.plan
-                    stripe.Subscription.delete(
-                        paymentData.stripeSubscriptionsId ,
-                        )
-                   
-                paymentData.plan="TR"
+                paymentData.pervious_plan=paymentData.plan
+                stripe.Subscription.delete(
+                    paymentData.stripeSubscriptionsId ,
+                    )
+                    
+                paymentData.plan=""
                 paymentData.save()
                 status = "Inactive"
                 daysLeft = 0
                 
-
-            if(paymentData.plan != "TR"):
-                expiry_date= expiry_date.strftime('%b %d,%Y')
-            else:
-                expiry_date='Unlimited'
-                daysLeft='Unlimited'
 
             temp = {
                 'plan': paymentData.get_plan_display().upper(),
